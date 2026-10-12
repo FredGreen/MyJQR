@@ -1,4 +1,4 @@
-# MyJQR —— AI 拟人写作平台（Web 版）
+# MyJQR —— AI 写作平台（Web 版）
 
 对标焦圈儿的开源实现：模板化 AI 写作 + 联网搜索 + AI 率检测 + 焦耳计费。
 技术栈：**FastAPI + ARQ + Redis + MySQL + Milvus(预留) ｜ Vue3 双端 ｜ Docker Compose**

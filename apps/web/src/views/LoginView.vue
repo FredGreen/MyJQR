@@ -1,7 +1,7 @@
 <template>
   <div class="login-wrap">
     <el-card class="card">
-      <h2>🅜 MyJQR · AI 拟人写作</h2>
+      <h2>🅜 MyJQR · AI 写作</h2>
       <el-tabs v-model="tab">
         <el-tab-pane label="登录" name="login">
           <el-form @keyup.enter="doLogin">
