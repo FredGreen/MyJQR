@@ -1,0 +1,30 @@
+焦圈儿 studio 接口抓包参考（脱敏版，原文件见本地 docs/接口调用.txt，因含有效 Bearer 令牌不入库）
+
+authorization  Bearer <REDACTED-登录 studio.jiaoquaner.com 后从浏览器 DevTools 复制>
+host api-server.jiaoquaner.com
+origin https://studio.jiaoquaner.com
+pragma no-cache
+referer https://studio.jiaoquaner.com/
+
+接口1：GET  https://api-server.jiaoquaner.com/api/v1/template/category/list
+        分类列表（无需分页）
+
+接口2：GET  https://api-server.jiaoquaner.com/api/v1/template/recommend/list/page?page_size=20
+        推荐模板（cursor 游标分页：page 参数无效，page_size 上限 20）
+
+接口3：GET  https://api-server.jiaoquaner.com/api/v1/template/list?category_id=1&page_size=20
+        分类模板（cursor 分页，同上）
+
+接口4：GET  https://api-server.jiaoquaner.com/api/v1/template/detail?template_id=50
+        模板详情（含 usage_example / usage_tips / joule_price）
+
+接口5：GET  https://api-server.jiaoquaner.com/api/v1/template/detail?template_id=10000
+
+接口6：POST https://api-server.jiaoquaner.com/api/v1/ai/chat
+        生成接口（SSE 流式）
+        载荷：{"content_id":null,"parent_content_id":null,"turn":1,
+               "input":"主题","template_id":"74","response_length":1,
+               "enable_think":true,"enable_web_search":false,"client":"web"}
+
+分页说明：翻页需把上一页返回的 data.cursor 传回（?cursor=xxx），直到 has_more=false。
+逆向分析详见 docs/产品方案/01-焦圈儿产品调研报告.md 与 04-核心生成链路详解.md。

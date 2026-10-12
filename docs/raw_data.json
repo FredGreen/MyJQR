@@ -1,0 +1,6494 @@
+{
+ "categories": [
+  {
+   "category_id": "39",
+   "name": "选题",
+   "sort_order": 0
+  },
+  {
+   "category_id": "1",
+   "name": "新闻",
+   "sort_order": 1
+  },
+  {
+   "category_id": "2",
+   "name": "科技",
+   "sort_order": 2
+  },
+  {
+   "category_id": "6",
+   "name": "教育",
+   "sort_order": 3
+  },
+  {
+   "category_id": "3",
+   "name": "情感",
+   "sort_order": 4
+  },
+  {
+   "category_id": "4",
+   "name": "军事",
+   "sort_order": 5
+  },
+  {
+   "category_id": "5",
+   "name": "文化",
+   "sort_order": 6
+  },
+  {
+   "category_id": "12",
+   "name": "数码",
+   "sort_order": 7
+  },
+  {
+   "category_id": "13",
+   "name": "财经",
+   "sort_order": 8
+  },
+  {
+   "category_id": "14",
+   "name": "读书",
+   "sort_order": 9
+  },
+  {
+   "category_id": "15",
+   "name": "影视",
+   "sort_order": 10
+  },
+  {
+   "category_id": "16",
+   "name": "美食",
+   "sort_order": 11
+  },
+  {
+   "category_id": "17",
+   "name": "游戏",
+   "sort_order": 12
+  },
+  {
+   "category_id": "22",
+   "name": "旅游",
+   "sort_order": 13
+  },
+  {
+   "category_id": "23",
+   "name": "口播",
+   "sort_order": 14
+  }
+ ],
+ "recommend": [
+  {
+   "template_id": "30",
+   "name": "故事会",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/4ab74816-1cdc-5b55-a925-a5bb2f4a662f.png",
+   "score": 4.9,
+   "description": "用最引人入胜的语言，描写最 drama\n  的故事。婚姻、亲情、阶层…",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "jewsue5mhog",
+     "title": "他演尽英雄却坐牢6年，妻子改嫁，晚年含恨离世"
+    },
+    {
+     "content_id": "j13clijfqps",
+     "title": "女儿带非洲男友过中秋，中国妈妈一句随便藏着多少心酸"
+    },
+    {
+     "content_id": "i4b03o7tjpc",
+     "title": "60岁后，这4种父母最受子女疼爱"
+    }
+   ],
+   "stats": {
+    "user_count": 107192,
+    "use_count": 398406,
+    "use_count_text": "39.8万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "23",
+   "name": "深夜电台",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/44dbbaa7-19db-5243-841f-9983f929d506.png",
+   "score": 4.8,
+   "description": "睡前电台，用温柔的语调抚慰都市人的情感创伤。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "j9vt4zxoc1s",
+     "title": "一个人话多，说明他蠢，一个人话非常多，说明他非常蠢"
+    },
+    {
+     "content_id": "j91ws7xtiio",
+     "title": "【澄观·东方古思求索录】普通人想要顺风顺水，到底要懂哪条天地规律？"
+    },
+    {
+     "content_id": "j92fv3knm68",
+     "title": "《阴符经》五贼在心：真正的机会，早就藏在你心里"
+    }
+   ],
+   "stats": {
+    "user_count": 37627,
+    "use_count": 190114,
+    "use_count_text": "19万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "76",
+   "name": "数码科技老友",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/580a365a-dc6a-5998-ae9c-217188e5cab2.png",
+   "score": 5,
+   "description": "懂行朋友聊数码，帮你做对每次消费决策。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "jogud1u79xc",
+     "title": "2"
+    },
+    {
+     "content_id": "jndau8npc00",
+     "title": "1"
+    },
+    {
+     "content_id": "jgu7xplclc0",
+     "title": "墨水屏别乱买！2026黑白彩色尺寸一篇说透"
+    }
+   ],
+   "stats": {
+    "user_count": 35360,
+    "use_count": 177623,
+    "use_count_text": "17.8万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "10000",
+   "name": "今日选题",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/c448266a-e375-c073-08a5-905411aaec9d.webp",
+   "score": 5,
+   "description": "给一个关键字，帮你写爆款标题/选题，创作无忧，标题直接拷贝到AI写作模版开始创作吧",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "iuwqbz629s0",
+     "title": "和上大学的孩子聊天，最容易踩的坑就是一开口就带着\"我要教你点什么\"的姿态。孩子一听语气不对，要么敷衍"
+    },
+    {
+     "content_id": "isgmq5nh5a8",
+     "title": "推进现房销售、力争分娩无自付：2026民生还有哪些变化？"
+    },
+    {
+     "content_id": "jbw3r1rs0e8",
+     "title": "环保散文怎么写？别替自然喊口号，让大地自己说话"
+    }
+   ],
+   "stats": {
+    "user_count": 228047,
+    "use_count": 248398,
+    "use_count_text": "24.8万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "50",
+   "name": "降AI率",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/detect-rewrite.png",
+   "score": 5,
+   "description": "直接输入原文，检测原文并针对性降低原文中的AI率",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "j5ny7n6c0lc",
+     "title": "未命名内容"
+    },
+    {
+     "content_id": "iut28wcjlkw",
+     "title": "晚霞里的红蜻蜓"
+    },
+    {
+     "content_id": "jo5yzh2latc",
+     "title": "把女儿养成带刺的玫瑰，才是最高级富养"
+    }
+   ],
+   "stats": {
+    "user_count": 408529,
+    "use_count": 1312488,
+    "use_count_text": "131.2万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "107",
+   "name": "山河魂",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/6c1c33ce-41e9-576c-a391-888f9c37bb72.webp",
+   "score": 4.7,
+   "description": "将旅游与文学深度融合，通过文字为山河“赋魂”。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "jfogjxq0g74",
+     "title": "十月山河不语，却把乡愁熬成一碗热汤"
+    },
+    {
+     "content_id": "j68eg9o0we8",
+     "title": "我的教育故事"
+    },
+    {
+     "content_id": "izkkjkchhq8",
+     "title": "停止瞎忙！用一棵树理清你的复杂生活"
+    }
+   ],
+   "stats": {
+    "user_count": 8788,
+    "use_count": 90315,
+    "use_count_text": "9万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "21",
+   "name": "纽约观察",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/2baa46cc-ce49-51d3-91de-05bbac63af29.png",
+   "score": 4.7,
+   "description": "旅欧媒体人的个人博客，用国际视角解读时事，俏皮自嘲。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "hmgtxjoyayo",
+     "title": "印度越热，普通人越冷"
+    },
+    {
+     "content_id": "hkuppgorvgg",
+     "title": "国外热点"
+    },
+    {
+     "content_id": "go215cco5xc",
+     "title": "《三体》二向箔被数学证伪！三维世界塌不了"
+    }
+   ],
+   "stats": {
+    "user_count": 5569,
+    "use_count": 27636,
+    "use_count_text": "2.8万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "20",
+   "name": "80后父母",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/f78ae90e-4959-5b57-9635-859f77356930.png",
+   "score": 4.7,
+   "description": "以家长里短为引子，以“老友唠嗑”般的方式叙述价值观。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "j4ndfd0rda8",
+     "title": "放假比上班还累，中年人的假期是一场角色考试"
+    },
+    {
+     "content_id": "jp9w8hjvtvk",
+     "title": "孩子被欺负，别教他打回去！这3件事更管用"
+    },
+    {
+     "content_id": "joqzgsfxji8",
+     "title": "医生爸爸：自己都没满分，凭什么要求孩子满分"
+    }
+   ],
+   "stats": {
+    "user_count": 32934,
+    "use_count": 140067,
+    "use_count_text": "14万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "19",
+   "name": "“圈哥”军事时评",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/7f5187cf-d101-5f1d-ac25-1ff1fb90c0e1.png",
+   "score": 4.7,
+   "description": "“民族复兴”、“反霸权”和“大国博弈”风格，用战略眼光解析官方新闻。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "h05deoobt35",
+     "title": "特朗普归来搅局，中国为什么能稳得住？"
+    },
+    {
+     "content_id": "fxle5vor0n4",
+     "title": "中国发射导弹，澳大利亚为何抢着“加戏”？"
+    },
+    {
+     "content_id": "ggod7oggoht",
+     "title": "南海动手了？中国海警硬核反制"
+    }
+   ],
+   "stats": {
+    "user_count": 7009,
+    "use_count": 128051,
+    "use_count_text": "12.8万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "12",
+   "name": "科技“脱口秀”",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/c5ab4057-acdd-4e04-8aea-0a366af03947.png",
+   "score": 4.7,
+   "description": "顶流科技博主，边吐槽边输出干货，帮你产出极具个性的爆款长文。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "j90jfjxr8cg",
+     "title": "听三遍都没发现，这首歌是AI写的"
+    },
+    {
+     "content_id": "j8esdx1vhmo",
+     "title": "3"
+    },
+    {
+     "content_id": "i7m8lis3ksg",
+     "title": "微信单删功能炸了：好友没满1万别想用"
+    }
+   ],
+   "stats": {
+    "user_count": 3182,
+    "use_count": 85709,
+    "use_count_text": "8.6万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "8",
+   "name": "趣味吐槽员",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/d794857c-be4d-41b0-b6ba-cb2724d92040.png",
+   "score": 4.7,
+   "description": "用“好哥们”口吻搞笑测评数码产品，讲科技冷知识。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "jpk481bp79c",
+     "title": "吐槽一特朗普"
+    },
+    {
+     "content_id": "j8espg50268",
+     "title": "4"
+    },
+    {
+     "content_id": "ij32kblb8cg",
+     "title": "测评ai聚合平台（观点要求贬低其他平台抬高我的小鸟Ai平台）"
+    }
+   ],
+   "stats": {
+    "user_count": 13154,
+    "use_count": 69087,
+    "use_count_text": "6.9万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "110",
+   "name": "生活碎碎念",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/6444f53a-b4d0-5c38-9291-9f18bc578d2e.webp",
+   "score": 4.6,
+   "description": "分享实用生活技巧，让生活更简单有趣。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "j66azmnhwxs",
+     "title": "早上起床这3个“坏习惯”：正在悄悄偷走退休族的健康"
+    },
+    {
+     "content_id": "ijg7yyvgn40",
+     "title": "扎心真相：你缺的不是蛋白粉，是一日三餐"
+    },
+    {
+     "content_id": "hzely5saz28",
+     "title": "将军的剑，不斩苍蝇：余生很贵，请及时止损"
+    }
+   ],
+   "stats": {
+    "user_count": 17523,
+    "use_count": 78893,
+    "use_count_text": "7.9万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "73",
+   "name": "毒舌影评",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/aa0450a4-baed-58a6-93a3-a23ee0575cb2.png",
+   "score": 4.6,
+   "description": "影迷气+专业写手，既拆产业机制也写热泪盈眶。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "jai8cy3yj28",
+     "title": "《人民的名义》最大争议：侯亮平夫妇为何比反派更招人厌？"
+    },
+    {
+     "content_id": "jaha6ydwjk0",
+     "title": "《人民的名义》最大讽刺：侯亮平夫妻赢了案子，输了人心。"
+    },
+    {
+     "content_id": "jj4uuh47bwg",
+     "title": "高育良离婚是个人自由？组织：必须上报"
+    }
+   ],
+   "stats": {
+    "user_count": 14742,
+    "use_count": 81516,
+    "use_count_text": "8.2万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "44",
+   "name": "教知君",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/e3c3da8e-42cc-538d-b3f0-59ed9c293636.png",
+   "score": 4.6,
+   "description": "教育资讯全知道，政策解读超权威！",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "isnssmpzq4g",
+     "title": "需要小红书内容选题。主题是：学员目标墙实拍：西交、西工大、陕"
+    },
+    {
+     "content_id": "h38wqz1k4ch",
+     "title": "人物：成都 41 岁妈妈何欣桐\n成果：四川大学（985）应用"
+    },
+    {
+     "content_id": "gs9qmarf30g",
+     "title": "将这个内容改成原创公众号文章：90%的头痛根本治错了。\n我是"
+    }
+   ],
+   "stats": {
+    "user_count": 2542,
+    "use_count": 46146,
+    "use_count_text": "4.6万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "32",
+   "name": "读者来信",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/eee383ad-36d9-411a-b6d2-32ba78b10d79.png",
+   "score": 4.6,
+   "description": "覆盖大部分写作场景，直接输入观点即可。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "i4prtjo08ow",
+     "title": "你不是累了，是太久没有成长了"
+    },
+    {
+     "content_id": "isk6tlx6akg",
+     "title": "竞技不止输赢，责任同样不能缺席"
+    },
+    {
+     "content_id": "irs00yeaeww",
+     "title": "如果你出生生于 1992-2003 之间"
+    }
+   ],
+   "stats": {
+    "user_count": 15955,
+    "use_count": 125626,
+    "use_count_text": "12.6万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "31",
+   "name": "说书人",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/c55d0ff5-d5ab-5e7d-9f3d-6fc4b1ac2115.png",
+   "score": 4.6,
+   "description": "一个爱聊天、会找梗、肯做功课的中年男人，把历史讲得好玩又有深度。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "iw41x1mjym8",
+     "title": "死人怀表里传出敲门声，他打开后亲爹喊：儿子捞我"
+    },
+    {
+     "content_id": "inas3j0rl6o",
+     "title": "万万没想到！3000 年前的文物，早就把表情包玩明白了\n封面"
+    },
+    {
+     "content_id": "ih1h0t9iz9c",
+     "title": "读后感"
+    }
+   ],
+   "stats": {
+    "user_count": 16818,
+    "use_count": 165436,
+    "use_count_text": "16.5万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "25",
+   "name": "知性姐姐",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/f450f72b-6f45-507c-bc41-5a1f214583ff.png",
+   "score": 4.6,
+   "description": "在你最难过的时候为你疗伤；在你最迷茫的时候为你指明人生方向。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "jobcm4dw5c0",
+     "title": "这段时间，适合沉淀自己的星座，别急着冲刺"
+    },
+    {
+     "content_id": "jou99ndy3nk",
+     "title": "夫妻能不能走到最后，看这5件事就够了，很准"
+    },
+    {
+     "content_id": "it3q5isjqbk",
+     "title": "过了 30 岁才懂：扔掉这三样东西，人生才会越来越顺"
+    }
+   ],
+   "stats": {
+    "user_count": 18374,
+    "use_count": 149945,
+    "use_count_text": "15万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "22",
+   "name": "愤怒的高级写手",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/e73ec3ca-a961-545e-8f62-c8a570abdbf1.png",
+   "score": 4.6,
+   "description": "用事实和历史打底，用比喻和反讽行文，替普通人打捞尊严。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "jjm6lwderk0",
+     "title": "你眼里聋人的“没素质”，不过是沟通出了问题"
+    },
+    {
+     "content_id": "ielcrzslgqo",
+     "title": "4岁男童被扣“性骚扰”帽子：大人博弈，孩子买单"
+    },
+    {
+     "content_id": "j2mmhegzoqo",
+     "title": "亚运精神，剥开糖衣还剩什么？"
+    }
+   ],
+   "stats": {
+    "user_count": 10177,
+    "use_count": 81634,
+    "use_count_text": "8.2万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "17",
+   "name": "品牌爆文",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/915a15cf-cf4a-43c6-ae2d-ad8cec36bd47.png",
+   "score": 4.6,
+   "description": "不端着，像老大哥一样，文风具有“看透世事”的独特气质。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "hnj5vn52ps0",
+     "title": "孩子，我们今天不谈作业，也不说考试分数，更不翻以前的旧账。我"
+    },
+    {
+     "content_id": "issk7idnocg",
+     "title": "成都北门双子塔：150米高，专治“人多不赚钱”"
+    },
+    {
+     "content_id": "j8e5fjb6mtc",
+     "title": "1"
+    }
+   ],
+   "stats": {
+    "user_count": 20209,
+    "use_count": 79983,
+    "use_count_text": "8万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "5",
+   "name": "行业观察“圆桌派”",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/02f8bba3-a44e-4297-82d9-40f73862e116.png",
+   "score": 4.6,
+   "description": "通过多元视角/圆桌派方式解读观点/热点新闻，提供更独特的洞见。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "jo1ibe8w1kw",
+     "title": "提示词越长越蠢？AI咒语时代已终结"
+    },
+    {
+     "content_id": "j8o06book5c",
+     "title": "1"
+    },
+    {
+     "content_id": "j8er81v52ps",
+     "title": "1"
+    }
+   ],
+   "stats": {
+    "user_count": 28448,
+    "use_count": 238797,
+    "use_count_text": "23.9万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "1",
+   "name": "生活周刊",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/4b45dbce-28c0-4b84-8609-7473be6c51d2.png",
+   "score": 4.6,
+   "description": "以文化视角解读社会热点，都市白领的精神陪伴。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "jhkpz5eyhog",
+     "title": "染发20年才问致癌？答案和你想的不一样"
+    },
+    {
+     "content_id": "jj6690qvq4g",
+     "title": "美容院老板烂脸半年，救她的竟不是那瓶安瓶？"
+    },
+    {
+     "content_id": "jftp47e7bi8",
+     "title": "越拼命越焦虑？医生：真正的希望是给自己放个假"
+    }
+   ],
+   "stats": {
+    "user_count": 24153,
+    "use_count": 190010,
+    "use_count_text": "19万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "103",
+   "name": "一座城",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/f53ae30f-b612-54e1-82aa-65d7e50238ea.webp",
+   "score": 4.5,
+   "description": "介绍城市文化、古城风貌和各地特有的诗意山水。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "iw41v8p6z28",
+     "title": "休水从我家门前流过"
+    },
+    {
+     "content_id": "gnxnl1vdrlt",
+     "title": "写一篇新西兰胡卡瀑布的文章。按照以下要求进行创作:\n1.以六"
+    },
+    {
+     "content_id": "gl23lxd9atc",
+     "title": "川西养老别只去水磨！这座隐世小镇更宜居"
+    }
+   ],
+   "stats": {
+    "user_count": 2308,
+    "use_count": 59175,
+    "use_count_text": "5.9万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "74",
+   "name": "吃喝指南",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/adc5586e-5f53-5698-97f3-f1fb80b3a7df.png",
+   "score": 4.5,
+   "description": "组团盲测、替你踩雷种草，专业吃货的硬核选购指南。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "ihwg9ar2vpc",
+     "title": "2026咖啡排行榜出炉，瑞幸又双叒第一！"
+    },
+    {
+     "content_id": "j4va7cm7s3k",
+     "title": "别再给孩子单独做饭了！一锅两吃，省心又营养"
+    },
+    {
+     "content_id": "ikrok6s61a8",
+     "title": "黄焖鸡米饭好不好吃，就看这3个细节！"
+    }
+   ],
+   "stats": {
+    "user_count": 11291,
+    "use_count": 69234,
+    "use_count_text": "6.9万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "72",
+   "name": "影评课代表",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/930e7171-4dd4-536a-a1f0-28839771a07d.png",
+   "score": 4.5,
+   "description": "影评课代表，把每部电影放进历史大地图里精准定位。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "jl70il9m51c",
+     "title": "火凤凰为何总救许青？不是主仆，而是生死至交"
+    },
+    {
+     "content_id": "jfgyy8j4mww",
+     "title": "孩子不敢拒绝朋友，不是没主见，是怕被孤立"
+    },
+    {
+     "content_id": "jlv7igs36kg",
+     "title": "越关心越被讨厌？成熟的人开口前会先问这句"
+    }
+   ],
+   "stats": {
+    "user_count": 10961,
+    "use_count": 116548,
+    "use_count_text": "11.7万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "45",
+   "name": "教育观察",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/c1d3b000-f3aa-5c33-9e17-c5a134407c76.png",
+   "score": 4.5,
+   "description": "专聊教育那些事儿，分享有趣观点，帮你打开教育新思路。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "jgzzgiypr7k",
+     "title": "孩子上大学后总敷衍？因为你还在当老师"
+    },
+    {
+     "content_id": "jlapg3ils74",
+     "title": "回老家7天发现：比老人宠溺更伤孩子的，是我的脸色"
+    },
+    {
+     "content_id": "j8mil93n85c",
+     "title": "国庆带娃不扎堆，厦门5个小众遛娃地"
+    }
+   ],
+   "stats": {
+    "user_count": 9618,
+    "use_count": 101552,
+    "use_count_text": "10.2万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "24",
+   "name": "脑洞大开",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/f59185a0-7950-53b2-9957-4bb3cd334236.png",
+   "score": 4.5,
+   "description": "整活达人，在生活中不断折腾，用脑洞和亲身经历来给生活添加点乐趣。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "iprx4prn6kg",
+     "title": "乔任梁去世十年，陈乔恩一句话看哭无数人：老朋友，我想你"
+    },
+    {
+     "content_id": "jcevb903xfk",
+     "title": "回购的真相：有的股票消失了，有的只换了钱包"
+    },
+    {
+     "content_id": "iutspgqku80",
+     "title": "许嵩都结婚了，这届年轻人为何不愿结婚？"
+    }
+   ],
+   "stats": {
+    "user_count": 7305,
+    "use_count": 43624,
+    "use_count_text": "4.4万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "16",
+   "name": "时代观察",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/dbb0b434-2206-4083-a992-c4113757b349.png",
+   "score": 4.5,
+   "description": "擅长把复杂的行业大势讲成每个人都能听懂的故事。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "j6a5kfazym8",
+     "title": "刑事谅解书什么时候交，最有效？"
+    },
+    {
+     "content_id": "joijgxyxbsw",
+     "title": "g"
+    },
+    {
+     "content_id": "ja2rerqyqdc",
+     "title": "今年中秋国庆，建筑工程行业属实有点凄凉早年中秋国庆双节，朋友圈全是工程人晒公司发的丰厚福利。现在呢？"
+    }
+   ],
+   "stats": {
+    "user_count": 8046,
+    "use_count": 47095,
+    "use_count_text": "4.7万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "10",
+   "name": "观点大师",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/28d4cdfd-3d6f-4a26-a846-68552dfe73b8.png",
+   "score": 4.5,
+   "description": "用投资、心理、物理、生物、哲学、AI科技等多领域概念相互印证。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "iy6bvb2e22o",
+     "title": "卖掉记忆换钱后，我把自己活成了陌生人"
+    },
+    {
+     "content_id": "jicc1utg4jk",
+     "title": "真正厉害的人，都允许自己“退步”"
+    },
+    {
+     "content_id": "jj48jq2xkhs",
+     "title": "孩子睡觉你玩手机，真正伤的不是眼睛"
+    }
+   ],
+   "stats": {
+    "user_count": 10618,
+    "use_count": 94057,
+    "use_count_text": "9.4万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "6",
+   "name": "商业洞察者",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/64146c68-9928-4b22-84ba-2070da3f4d3c.png",
+   "score": 4.5,
+   "description": "用“段子手”的笔触拆解商业本质，用“玄学”视角参透品牌宿命。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "j4lfo81i96o",
+     "title": "张本智和出局，日本乒乓“时代”仅保鲜48小时"
+    },
+    {
+     "content_id": "jb67w4dn6yo",
+     "title": "溶洞蹦迪、稻田看戏，国庆文旅开始收时光税了"
+    },
+    {
+     "content_id": "jakx2y6gydc",
+     "title": "2026咖啡第一，竟在你办公室楼下"
+    }
+   ],
+   "stats": {
+    "user_count": 4276,
+    "use_count": 128326,
+    "use_count_text": "12.8万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "3",
+   "name": "人生导师",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/136bb498-c504-46aa-8fe7-f2b8d621ad3b.png",
+   "score": 4.5,
+   "description": "互联网资深运营专家，教你在职场和个人成长里升级打怪。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "iskgbgaxe68",
+     "title": "面试被刷？因为你没把核心词前置！"
+    },
+    {
+     "content_id": "jl4979xnl6o",
+     "title": "面试总被说没重点？先说结论，马上被录用"
+    },
+    {
+     "content_id": "izpdcrkifpc",
+     "title": "同事关系再好，也别做这3件事"
+    }
+   ],
+   "stats": {
+    "user_count": 6271,
+    "use_count": 83794,
+    "use_count_text": "8.4万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "2",
+   "name": "AI 极客",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/5434a50d-1a32-423f-bb83-24f35934f243.png",
+   "score": 4.5,
+   "description": "一个黑客视角聊AI/科技，普通人都能看懂的硬核科普。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "hjpwckazbpc",
+     "title": "便宜AI梦碎！DeepSeek暴涨1100%"
+    },
+    {
+     "content_id": "go215cwncox",
+     "title": "二向箔死刑！中国女数学家粉碎降维打击"
+    },
+    {
+     "content_id": "g3nenrb2lfl",
+     "title": "AI这么牛，为什么还有这么多人没用过？"
+    }
+   ],
+   "stats": {
+    "user_count": 3443,
+    "use_count": 66575,
+    "use_count_text": "6.7万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "75",
+   "name": "王牌拆机",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/24759bbb-5779-54e3-b133-18b69e41269e.png",
+   "score": 4.4,
+   "description": "拆机跑分搞横评，专业术语配大白话，家人们的硬核消费参谋。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "ghad857x7nk",
+     "title": "20万级卷王海豹08：空气悬架+905km续航 3.3秒破百"
+    },
+    {
+     "content_id": "gdhgf4xhwjk",
+     "title": "15万新能源不踩坑！这3款闭眼入"
+    },
+    {
+     "content_id": "gx0bxwsgyrk",
+     "title": "拆完红旗天工08，才发现它没把钱花在大屏上"
+    }
+   ],
+   "stats": {
+    "user_count": 517,
+    "use_count": 38007,
+    "use_count_text": "3.8万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "13",
+   "name": "科技专题",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/aef67608-33a0-4ff0-a3f8-8c697e57cbc2.png",
+   "score": 4.4,
+   "description": "将“个人直觉”转化为“工业流程”，帮你稳定产出的现象级深度好文。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "gejeptiqqrk",
+     "title": "AI不是来抢工作的，而是重构你的事业系统"
+    },
+    {
+     "content_id": "gfqb2d3xl34",
+     "title": "火箭干部坠机，能力不是免罪金牌"
+    },
+    {
+     "content_id": "gerzww5rjep",
+     "title": "未来竞争，不是拼努力而是拼AI"
+    }
+   ],
+   "stats": {
+    "user_count": 1121,
+    "use_count": 32901,
+    "use_count_text": "3.3万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "11",
+   "name": "深度报道",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/b73a03b1-0e60-4139-a371-13c4816b337b.png",
+   "score": 4.4,
+   "description": "以人物、事件为核心的采访对话实录，具有现场感的商业报道/故事。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "irc3hkqjp4w",
+     "title": "成都街头栾树美成画，一树三色治愈秋天"
+    },
+    {
+     "content_id": "j9s0fertnnk",
+     "title": "3天年假拼出13天！新疆青甘大火，国庆旅游彻底变了"
+    },
+    {
+     "content_id": "j98ai49tpmo",
+     "title": "李克勤迟到两小时，替补歌手一人唱服三万人"
+    }
+   ],
+   "stats": {
+    "user_count": 5777,
+    "use_count": 39058,
+    "use_count_text": "3.9万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "108",
+   "name": "露营视界",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/2aecaa3c-1d81-54c9-9e40-23d695288296.webp",
+   "score": 4.3,
+   "description": "新户外生活方式，内容围绕露营及相关活动展开。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [],
+   "stats": {
+    "user_count": 492,
+    "use_count": 22223,
+    "use_count_text": "2.2万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "105",
+   "name": "风物志",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/b2f7ea1a-005d-5eaf-be3c-be38a2dd38e2.webp",
+   "score": 4.3,
+   "description": "寻访中国各地风物，分享物产、民艺与本真生活。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [],
+   "stats": {
+    "user_count": 435,
+    "use_count": 42948,
+    "use_count_text": "4.3万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "77",
+   "name": "小柴游戏测评",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/c861c1e2-26b8-53e6-958a-14f6ae50444f.png",
+   "score": 4.3,
+   "description": "游戏圈的热情安利官，带你挖出冷门宝藏神作。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [],
+   "stats": {
+    "user_count": 544,
+    "use_count": 53369,
+    "use_count_text": "5.3万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "49",
+   "name": "迷彩脱口秀",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/4d26e63b-6343-5cf1-ab79-16f9b992ef87.png",
+   "score": 4.3,
+   "description": "硬核历史配爆笑解读，炮弹裹糖衣，专治\"正经病\"！",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "j90y8pjjpq8",
+     "title": "刘强东做外卖，盯上的根本不是饭"
+    },
+    {
+     "content_id": "ibjs1izpu68",
+     "title": "历史脱口秀指令\n我要将中国悠久的历史用脱口秀的艺术形式传播给"
+    },
+    {
+     "content_id": "ibw51a0r30g",
+     "title": "历史脱口秀指令：\n我要将中国悠久的历史用脱口秀的艺术形式传播"
+    }
+   ],
+   "stats": {
+    "user_count": 2533,
+    "use_count": 40872,
+    "use_count_text": "4.1万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "29",
+   "name": "人生“导师”",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/9d54f92b-0cd6-547a-909f-5dc21b98fd1a.png",
+   "score": 4.3,
+   "description": "用口语化、带情绪的现实主义语言，拆解普通人的痛点和阴暗面。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "jmjjcw14qgw",
+     "title": "2026年AI筛简历：还写“吃苦耐劳”的人，机器直接零分"
+    },
+    {
+     "content_id": "jn3m6ixm8zk",
+     "title": "b"
+    },
+    {
+     "content_id": "ighwh3k91j4",
+     "title": "打工5年总结：从被挤出的螺丝钉到部门骨干，就靠这4个方法  "
+    }
+   ],
+   "stats": {
+    "user_count": 24759,
+    "use_count": 226094,
+    "use_count_text": "22.6万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "27",
+   "name": "大叔｜杂谈",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/dc930ea5-6546-5a5d-a567-09b6b7e26533.png",
+   "score": 4.3,
+   "description": "中年男人的无奈和自嘲。心里守着一点点不肯放下的理想和温柔。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "i0vuyazdzi8",
+     "title": "别劝我大度，刀子没扎你身上"
+    },
+    {
+     "content_id": "i34yl34cagw",
+     "title": "2026年，公众号没死！普通上班族最好的副业是它"
+    },
+    {
+     "content_id": "ivnclzydvr4",
+     "title": "一颗花生，戳穿了中年人最体面的伪装"
+    }
+   ],
+   "stats": {
+    "user_count": 6537,
+    "use_count": 67038,
+    "use_count_text": "6.7万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "26",
+   "name": "童话大王",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/73029ae0-d191-5e6a-8c4b-5cc049990caf.png",
+   "score": 4.3,
+   "description": "用童话故事，讲你的故事。把笔锋藏在小动物们的毛茸茸下面。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "hzzs4gvnvuo",
+     "title": "89岁老人被医美套路：179元祛斑秒变13960元"
+    },
+    {
+     "content_id": "i0ldzgoo6ps",
+     "title": "我，实习流星，不想发光，却在人间治愈所有人"
+    },
+    {
+     "content_id": "h40hd9er7cw",
+     "title": "原来孩子不是懒，是怕！看完泪目"
+    }
+   ],
+   "stats": {
+    "user_count": 1223,
+    "use_count": 26622,
+    "use_count_text": "2.7万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "15",
+   "name": "产业叙事",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/6edb71f5-d78c-4162-b2b7-f19e10a35031.png",
+   "score": 4.3,
+   "description": "经典的“13幕剧”写作法，挖掘细节，带你识破商业宣传中的套路和陷阱。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "jjrrbx700zk",
+     "title": "母乳喂养到12岁"
+    },
+    {
+     "content_id": "jbo2ped6qdc",
+     "title": "未来三年，改变你生活的不是AI，是廉价数字劳动力"
+    },
+    {
+     "content_id": "hkdtr9kkoao",
+     "title": "《睡过树丛、住过厂房、夜抢设备：这对新西兰兄弟，凭什么靠“卖"
+    }
+   ],
+   "stats": {
+    "user_count": 1270,
+    "use_count": 29155,
+    "use_count_text": "2.9万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "14",
+   "name": "商业主笔",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/90d6abea-c97c-4044-8ab4-9f7bdc13d6fa.png",
+   "score": 4.3,
+   "description": "追求真相的“专业主笔”。用事实和数据说话，像专业财经杂志一样严谨。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "i889tam6lfk",
+     "title": "一碗面只卖3.5元，老板竟把进货单全贴墙上"
+    },
+    {
+     "content_id": "hj63ldq3668",
+     "title": "45家店57万会员，孙抄手退出美团算了笔狠账"
+    },
+    {
+     "content_id": "hj5e2uw8gzk",
+     "title": "孙抄手硬刚美团：57万会员和45家直营店才是底气"
+    }
+   ],
+   "stats": {
+    "user_count": 1281,
+    "use_count": 35744,
+    "use_count_text": "3.6万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "9",
+   "name": "商业叙事",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/ec01cdde-be8d-4ad6-a1f6-fe4f7389b48a.png",
+   "score": 4.3,
+   "description": "故事化叙事，有趣且深度的硬核财经，轻松阅读中学到行业知识。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "jgbd14d6y9s",
+     "title": "讲一讲自媒体IP的商业化历程"
+    },
+    {
+     "content_id": "hkcriv4rqps",
+     "title": "睡过树丛、住过厂房、夜抢设备：这对新西兰兄弟，凭什么靠\"卖小"
+    },
+    {
+     "content_id": "je66fl2b11c",
+     "title": "五万元贴息落地，只换来一句“过几天再说”"
+    }
+   ],
+   "stats": {
+    "user_count": 552,
+    "use_count": 14636,
+    "use_count_text": "1.5万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "4",
+   "name": "氪系资讯",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/3a57fdf1-117a-4c54-abed-9a00fb226b3e.png",
+   "score": 4.3,
+   "description": "专注于科技、创业、投资等领域，提供深度报道、行业动态及趋势分析。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "j434zmg0x6o",
+     "title": "刘欢走了，最后遗愿曝光：不设灵堂不追悼，歌声却已传遍人间"
+    },
+    {
+     "content_id": "jfcpr4dtybk",
+     "title": "股神早年竟靠捡“湿烟头”赚第一桶金"
+    },
+    {
+     "content_id": "jo1gh41vy80",
+     "title": "雷军唯一一次流泪：小米最危险时他竟想打120？"
+    }
+   ],
+   "stats": {
+    "user_count": 7674,
+    "use_count": 85379,
+    "use_count_text": "8.5万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "48",
+   "name": "财小新",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/625322da-d09d-5ddb-9356-31f9cb21b754.png",
+   "score": 4.2,
+   "description": "财经小喇叭，每日播报钱途大事，轻松听懂经济脉搏。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "jdm43vjl2ps",
+     "title": "还在只看成分价格？员工满意度96%才是隐形保障"
+    },
+    {
+     "content_id": "j4lr1b0v3ls",
+     "title": "17000㎡免费开放，艾多美在下一盘什么棋？"
+    },
+    {
+     "content_id": "ie7bh4oq134",
+     "title": "115亿砸向文旅，广安能接住吗？"
+    }
+   ],
+   "stats": {
+    "user_count": 2765,
+    "use_count": 42132,
+    "use_count_text": "4.2万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "47",
+   "name": "“辣”评",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/addd613c-0ea8-5e07-bdae-44855a9b84bc.png",
+   "score": 4.2,
+   "description": "敢说真话、爱管闲事、永远站在草根一边的湖南辣妹子。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "jpgrfafkbuo",
+     "title": "万鸟腾空！中国秋天最壮观的画面来了"
+    },
+    {
+     "content_id": "jdffe60su80",
+     "title": "51岁阿姨看哭：原来妈妈也有爱情"
+    },
+    {
+     "content_id": "jbr6gj7te68",
+     "title": "2500亿补贴到账！你家换家电汽车能省多少？"
+    }
+   ],
+   "stats": {
+    "user_count": 7253,
+    "use_count": 154556,
+    "use_count_text": "15.5万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "46",
+   "name": "趣味探察",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/9b487943-58bd-58cc-848b-d38ee0189092.png",
+   "score": 4.2,
+   "description": "用幽默解构生活，让日常充满趣味。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "hm44rbzk0sg",
+     "title": "随便发发"
+    },
+    {
+     "content_id": "go40ohe9k3k",
+     "title": "原来八仙是每个人的影子：你是吕洞宾还是铁拐李？"
+    },
+    {
+     "content_id": "gm0m9u9nym9",
+     "title": "将卡布奇诺与蓝山混合，余味竟像极了爱情"
+    }
+   ],
+   "stats": {
+    "user_count": 2157,
+    "use_count": 46686,
+    "use_count_text": "4.7万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "43",
+   "name": "你需要",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/cdc555a5-cdcf-5925-af30-2dbc71314e08.png",
+   "score": 4.2,
+   "description": "超懂年轻人，专写两性、职场、生活那些事儿",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "i713deiphq8",
+     "title": "医院乌梅汤卖爆，年轻人喝的是安慰.\n——“祛湿”成为年轻人养生新潮流"
+    },
+    {
+     "content_id": "i09dbjq4yyo",
+     "title": "一个人最大的失败：对外人客气，对家人暴躁"
+    },
+    {
+     "content_id": "i9fi1tt29z4",
+     "title": "成年人最大的清醒：少内耗，多做事，日子就顺了"
+    }
+   ],
+   "stats": {
+    "user_count": 9550,
+    "use_count": 105738,
+    "use_count_text": "10.6万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "28",
+   "name": "科普“理工男”",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/405badb0-78ee-5e3d-829c-eb5d8aeb0138.png",
+   "score": 4.1,
+   "description": "博士段子手，用科学一本正经胡说八道，理工男的幽默科普。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "jmui3z0xk3k",
+     "title": "塑料米桶看着干净，高温潮湿厨房，悄悄滋生细菌"
+    },
+    {
+     "content_id": "jlkcka3ycqo",
+     "title": "标题：不要迷信不粘锅！涂层脱落之后，继续炒菜到底有没有危害"
+    },
+    {
+     "content_id": "gk0gi6wcidc",
+     "title": "别只盯着大模型！这个“幕后功臣”更关键"
+    }
+   ],
+   "stats": {
+    "user_count": 2065,
+    "use_count": 17003,
+    "use_count_text": "1.7万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "7",
+   "name": "商业史笔",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/06c8f6b3-e625-426f-ad23-124b3721b68b.png",
+   "score": 4.1,
+   "description": "时间跳跃叙事，深挖行业内幕，在时代的缝隙里拆解商业局，犀利敢言。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "h3ia9pefm69",
+     "title": "历史不敢写的狠人，都藏在留白里"
+    },
+    {
+     "content_id": "go6magspb0h",
+     "title": "景德镇申遗成功，千年瓷都变世界产业样本！"
+    }
+   ],
+   "stats": {
+    "user_count": 778,
+    "use_count": 16057,
+    "use_count_text": "1.6万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "104",
+   "name": "文旅评论",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/6a815abe-f19b-5a73-ba37-8b41aebe6cbb.webp",
+   "score": 4,
+   "description": "用个人视角的散文风格混写文旅评论。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "jcwaki56fb4",
+     "title": "村超火了那么久，今天我们终于来了\n村超火了那么久，\n今天我们"
+    },
+    {
+     "content_id": "i53ch98o2rk",
+     "title": "绝了！容县三片石，三块石头美成水墨画"
+    },
+    {
+     "content_id": "g0uywsknuv4",
+     "title": "150元睡一晚到长安，醒来梦回唐朝"
+    }
+   ],
+   "stats": {
+    "user_count": 3458,
+    "use_count": 35583,
+    "use_count_text": "3.6万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "18",
+   "name": "宝藏闺蜜“圈圈”",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/511cd67e-a45d-52bd-a9dd-08e96744160b.png",
+   "score": 4,
+   "description": "懂八卦、懂历史、懂审美、还挺会骂人的闺蜜，用女性视角看待问题。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "11794692958060544",
+    "nickname": "焦圈儿",
+    "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+   },
+   "hot_contents": [
+    {
+     "content_id": "ix8ukxwxou8",
+     "title": "李鸿章一辈子办了二十多个\"中国第一\"，结果大清还是亡了。\n\n"
+    }
+   ],
+   "stats": {
+    "user_count": 1787,
+    "use_count": 30287,
+    "use_count_text": "3万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "109",
+   "name": "感悟口播",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/e8a7326a-7053-5df6-9a03-4948638f02b5.webp",
+   "score": 3.8,
+   "description": "第一人称视角分享真实经历和思考，把抽象观点翻译成生活案例。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "iherlz6qbr4",
+     "title": "中国网红拍的视频火出圈了！"
+    },
+    {
+     "content_id": "j4oyrccdgcg",
+     "title": "退休金"
+    },
+    {
+     "content_id": "ieihym9416o",
+     "title": "下雨天随想"
+    }
+   ],
+   "stats": {
+    "user_count": 5575,
+    "use_count": 12144,
+    "use_count_text": "1.2万人使用"
+   },
+   "is_bookmarked": false
+  },
+  {
+   "template_id": "106",
+   "name": "漫游世界",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/5d7c6c03-6522-54cf-8061-878884171661.webp",
+   "score": 3.8,
+   "description": "旅行故事、目的地攻略和旅行文化。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "tags": [],
+   "author": {
+    "user_id": "",
+    "nickname": "",
+    "avatar": ""
+   },
+   "hot_contents": [
+    {
+     "content_id": "gl72a2sl1q8",
+     "title": "重庆"
+    },
+    {
+     "content_id": "fs9aj45lx4x",
+     "title": "杭州上海年轻人正悄悄涌入这座小城"
+    }
+   ],
+   "stats": {
+    "user_count": 943,
+    "use_count": 23390,
+    "use_count_text": "2.3万人使用"
+   },
+   "is_bookmarked": false
+  }
+ ],
+ "category_templates": {
+  "39": [
+   {
+    "template_id": "10000",
+    "name": "今日选题",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/c448266a-e375-c073-08a5-905411aaec9d.webp",
+    "score": 5,
+    "description": "给一个关键字，帮你写爆款标题/选题，创作无忧，标题直接拷贝到AI写作模版开始创作吧",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "iuwqbz629s0",
+      "title": "和上大学的孩子聊天，最容易踩的坑就是一开口就带着\"我要教你点什么\"的姿态。孩子一听语气不对，要么敷衍"
+     },
+     {
+      "content_id": "isgmq5nh5a8",
+      "title": "推进现房销售、力争分娩无自付：2026民生还有哪些变化？"
+     },
+     {
+      "content_id": "jbw3r1rs0e8",
+      "title": "环保散文怎么写？别替自然喊口号，让大地自己说话"
+     }
+    ],
+    "stats": {
+     "user_count": 228047,
+     "use_count": 248398,
+     "use_count_text": "24.8万人使用"
+    },
+    "is_bookmarked": false
+   }
+  ],
+  "1": [
+   {
+    "template_id": "22",
+    "name": "愤怒的高级写手",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/e73ec3ca-a961-545e-8f62-c8a570abdbf1.png",
+    "score": 4.6,
+    "description": "用事实和历史打底，用比喻和反讽行文，替普通人打捞尊严。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "jjm6lwderk0",
+      "title": "你眼里聋人的“没素质”，不过是沟通出了问题"
+     },
+     {
+      "content_id": "ielcrzslgqo",
+      "title": "4岁男童被扣“性骚扰”帽子：大人博弈，孩子买单"
+     },
+     {
+      "content_id": "j2mmhegzoqo",
+      "title": "亚运精神，剥开糖衣还剩什么？"
+     }
+    ],
+    "stats": {
+     "user_count": 10177,
+     "use_count": 81634,
+     "use_count_text": "8.2万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "17",
+    "name": "品牌爆文",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/915a15cf-cf4a-43c6-ae2d-ad8cec36bd47.png",
+    "score": 4.6,
+    "description": "不端着，像老大哥一样，文风具有“看透世事”的独特气质。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "hnj5vn52ps0",
+      "title": "孩子，我们今天不谈作业，也不说考试分数，更不翻以前的旧账。我"
+     },
+     {
+      "content_id": "issk7idnocg",
+      "title": "成都北门双子塔：150米高，专治“人多不赚钱”"
+     },
+     {
+      "content_id": "j8e5fjb6mtc",
+      "title": "1"
+     }
+    ],
+    "stats": {
+     "user_count": 20209,
+     "use_count": 79983,
+     "use_count_text": "8万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "5",
+    "name": "行业观察“圆桌派”",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/02f8bba3-a44e-4297-82d9-40f73862e116.png",
+    "score": 4.6,
+    "description": "通过多元视角/圆桌派方式解读观点/热点新闻，提供更独特的洞见。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "jo1ibe8w1kw",
+      "title": "提示词越长越蠢？AI咒语时代已终结"
+     },
+     {
+      "content_id": "j8o06book5c",
+      "title": "1"
+     },
+     {
+      "content_id": "j8er81v52ps",
+      "title": "1"
+     }
+    ],
+    "stats": {
+     "user_count": 28448,
+     "use_count": 238797,
+     "use_count_text": "23.9万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "1",
+    "name": "生活周刊",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/4b45dbce-28c0-4b84-8609-7473be6c51d2.png",
+    "score": 4.6,
+    "description": "以文化视角解读社会热点，都市白领的精神陪伴。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "jhkpz5eyhog",
+      "title": "染发20年才问致癌？答案和你想的不一样"
+     },
+     {
+      "content_id": "jj6690qvq4g",
+      "title": "美容院老板烂脸半年，救她的竟不是那瓶安瓶？"
+     },
+     {
+      "content_id": "jftp47e7bi8",
+      "title": "越拼命越焦虑？医生：真正的希望是给自己放个假"
+     }
+    ],
+    "stats": {
+     "user_count": 24153,
+     "use_count": 190010,
+     "use_count_text": "19万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "6",
+    "name": "商业洞察者",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/64146c68-9928-4b22-84ba-2070da3f4d3c.png",
+    "score": 4.5,
+    "description": "用“段子手”的笔触拆解商业本质，用“玄学”视角参透品牌宿命。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "j4lfo81i96o",
+      "title": "张本智和出局，日本乒乓“时代”仅保鲜48小时"
+     },
+     {
+      "content_id": "jb67w4dn6yo",
+      "title": "溶洞蹦迪、稻田看戏，国庆文旅开始收时光税了"
+     },
+     {
+      "content_id": "jakx2y6gydc",
+      "title": "2026咖啡第一，竟在你办公室楼下"
+     }
+    ],
+    "stats": {
+     "user_count": 4276,
+     "use_count": 128326,
+     "use_count_text": "12.8万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "2",
+    "name": "AI 极客",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/5434a50d-1a32-423f-bb83-24f35934f243.png",
+    "score": 4.5,
+    "description": "一个黑客视角聊AI/科技，普通人都能看懂的硬核科普。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "hjpwckazbpc",
+      "title": "便宜AI梦碎！DeepSeek暴涨1100%"
+     },
+     {
+      "content_id": "go215cwncox",
+      "title": "二向箔死刑！中国女数学家粉碎降维打击"
+     },
+     {
+      "content_id": "g3nenrb2lfl",
+      "title": "AI这么牛，为什么还有这么多人没用过？"
+     }
+    ],
+    "stats": {
+     "user_count": 3443,
+     "use_count": 66575,
+     "use_count_text": "6.7万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "11",
+    "name": "深度报道",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/b73a03b1-0e60-4139-a371-13c4816b337b.png",
+    "score": 4.4,
+    "description": "以人物、事件为核心的采访对话实录，具有现场感的商业报道/故事。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "irc3hkqjp4w",
+      "title": "成都街头栾树美成画，一树三色治愈秋天"
+     },
+     {
+      "content_id": "j9s0fertnnk",
+      "title": "3天年假拼出13天！新疆青甘大火，国庆旅游彻底变了"
+     },
+     {
+      "content_id": "j98ai49tpmo",
+      "title": "李克勤迟到两小时，替补歌手一人唱服三万人"
+     }
+    ],
+    "stats": {
+     "user_count": 5777,
+     "use_count": 39058,
+     "use_count_text": "3.9万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "49",
+    "name": "迷彩脱口秀",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/4d26e63b-6343-5cf1-ab79-16f9b992ef87.png",
+    "score": 4.3,
+    "description": "硬核历史配爆笑解读，炮弹裹糖衣，专治\"正经病\"！",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "j90y8pjjpq8",
+      "title": "刘强东做外卖，盯上的根本不是饭"
+     },
+     {
+      "content_id": "ibjs1izpu68",
+      "title": "历史脱口秀指令\n我要将中国悠久的历史用脱口秀的艺术形式传播给"
+     },
+     {
+      "content_id": "ibw51a0r30g",
+      "title": "历史脱口秀指令：\n我要将中国悠久的历史用脱口秀的艺术形式传播"
+     }
+    ],
+    "stats": {
+     "user_count": 2533,
+     "use_count": 40872,
+     "use_count_text": "4.1万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "27",
+    "name": "大叔｜杂谈",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/dc930ea5-6546-5a5d-a567-09b6b7e26533.png",
+    "score": 4.3,
+    "description": "中年男人的无奈和自嘲。心里守着一点点不肯放下的理想和温柔。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "i0vuyazdzi8",
+      "title": "别劝我大度，刀子没扎你身上"
+     },
+     {
+      "content_id": "i34yl34cagw",
+      "title": "2026年，公众号没死！普通上班族最好的副业是它"
+     },
+     {
+      "content_id": "ivnclzydvr4",
+      "title": "一颗花生，戳穿了中年人最体面的伪装"
+     }
+    ],
+    "stats": {
+     "user_count": 6537,
+     "use_count": 67038,
+     "use_count_text": "6.7万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "15",
+    "name": "产业叙事",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/6edb71f5-d78c-4162-b2b7-f19e10a35031.png",
+    "score": 4.3,
+    "description": "经典的“13幕剧”写作法，挖掘细节，带你识破商业宣传中的套路和陷阱。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "jjrrbx700zk",
+      "title": "母乳喂养到12岁"
+     },
+     {
+      "content_id": "jbo2ped6qdc",
+      "title": "未来三年，改变你生活的不是AI，是廉价数字劳动力"
+     },
+     {
+      "content_id": "hkdtr9kkoao",
+      "title": "《睡过树丛、住过厂房、夜抢设备：这对新西兰兄弟，凭什么靠“卖"
+     }
+    ],
+    "stats": {
+     "user_count": 1270,
+     "use_count": 29155,
+     "use_count_text": "2.9万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "14",
+    "name": "商业主笔",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/90d6abea-c97c-4044-8ab4-9f7bdc13d6fa.png",
+    "score": 4.3,
+    "description": "追求真相的“专业主笔”。用事实和数据说话，像专业财经杂志一样严谨。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "i889tam6lfk",
+      "title": "一碗面只卖3.5元，老板竟把进货单全贴墙上"
+     },
+     {
+      "content_id": "hj63ldq3668",
+      "title": "45家店57万会员，孙抄手退出美团算了笔狠账"
+     },
+     {
+      "content_id": "hj5e2uw8gzk",
+      "title": "孙抄手硬刚美团：57万会员和45家直营店才是底气"
+     }
+    ],
+    "stats": {
+     "user_count": 1281,
+     "use_count": 35744,
+     "use_count_text": "3.6万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "9",
+    "name": "商业叙事",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/ec01cdde-be8d-4ad6-a1f6-fe4f7389b48a.png",
+    "score": 4.3,
+    "description": "故事化叙事，有趣且深度的硬核财经，轻松阅读中学到行业知识。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "jgbd14d6y9s",
+      "title": "讲一讲自媒体IP的商业化历程"
+     },
+     {
+      "content_id": "hkcriv4rqps",
+      "title": "睡过树丛、住过厂房、夜抢设备：这对新西兰兄弟，凭什么靠\"卖小"
+     },
+     {
+      "content_id": "je66fl2b11c",
+      "title": "五万元贴息落地，只换来一句“过几天再说”"
+     }
+    ],
+    "stats": {
+     "user_count": 552,
+     "use_count": 14636,
+     "use_count_text": "1.5万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "4",
+    "name": "氪系资讯",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/3a57fdf1-117a-4c54-abed-9a00fb226b3e.png",
+    "score": 4.3,
+    "description": "专注于科技、创业、投资等领域，提供深度报道、行业动态及趋势分析。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "j434zmg0x6o",
+      "title": "刘欢走了，最后遗愿曝光：不设灵堂不追悼，歌声却已传遍人间"
+     },
+     {
+      "content_id": "jfcpr4dtybk",
+      "title": "股神早年竟靠捡“湿烟头”赚第一桶金"
+     },
+     {
+      "content_id": "jo1gh41vy80",
+      "title": "雷军唯一一次流泪：小米最危险时他竟想打120？"
+     }
+    ],
+    "stats": {
+     "user_count": 7674,
+     "use_count": 85379,
+     "use_count_text": "8.5万人使用"
+    },
+    "is_bookmarked": false
+   }
+  ],
+  "2": [
+   {
+    "template_id": "8",
+    "name": "趣味吐槽员",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/d794857c-be4d-41b0-b6ba-cb2724d92040.png",
+    "score": 4.7,
+    "description": "用“好哥们”口吻搞笑测评数码产品，讲科技冷知识。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "jpk481bp79c",
+      "title": "吐槽一特朗普"
+     },
+     {
+      "content_id": "j8espg50268",
+      "title": "4"
+     },
+     {
+      "content_id": "ij32kblb8cg",
+      "title": "测评ai聚合平台（观点要求贬低其他平台抬高我的小鸟Ai平台）"
+     }
+    ],
+    "stats": {
+     "user_count": 13154,
+     "use_count": 69087,
+     "use_count_text": "6.9万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "17",
+    "name": "品牌爆文",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/915a15cf-cf4a-43c6-ae2d-ad8cec36bd47.png",
+    "score": 4.6,
+    "description": "不端着，像老大哥一样，文风具有“看透世事”的独特气质。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "hnj5vn52ps0",
+      "title": "孩子，我们今天不谈作业，也不说考试分数，更不翻以前的旧账。我"
+     },
+     {
+      "content_id": "issk7idnocg",
+      "title": "成都北门双子塔：150米高，专治“人多不赚钱”"
+     },
+     {
+      "content_id": "j8e5fjb6mtc",
+      "title": "1"
+     }
+    ],
+    "stats": {
+     "user_count": 20209,
+     "use_count": 79983,
+     "use_count_text": "8万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "5",
+    "name": "行业观察“圆桌派”",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/02f8bba3-a44e-4297-82d9-40f73862e116.png",
+    "score": 4.6,
+    "description": "通过多元视角/圆桌派方式解读观点/热点新闻，提供更独特的洞见。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "jo1ibe8w1kw",
+      "title": "提示词越长越蠢？AI咒语时代已终结"
+     },
+     {
+      "content_id": "j8o06book5c",
+      "title": "1"
+     },
+     {
+      "content_id": "j8er81v52ps",
+      "title": "1"
+     }
+    ],
+    "stats": {
+     "user_count": 28448,
+     "use_count": 238797,
+     "use_count_text": "23.9万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "1",
+    "name": "生活周刊",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/4b45dbce-28c0-4b84-8609-7473be6c51d2.png",
+    "score": 4.6,
+    "description": "以文化视角解读社会热点，都市白领的精神陪伴。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "jhkpz5eyhog",
+      "title": "染发20年才问致癌？答案和你想的不一样"
+     },
+     {
+      "content_id": "jj6690qvq4g",
+      "title": "美容院老板烂脸半年，救她的竟不是那瓶安瓶？"
+     },
+     {
+      "content_id": "jftp47e7bi8",
+      "title": "越拼命越焦虑？医生：真正的希望是给自己放个假"
+     }
+    ],
+    "stats": {
+     "user_count": 24153,
+     "use_count": 190010,
+     "use_count_text": "19万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "6",
+    "name": "商业洞察者",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/64146c68-9928-4b22-84ba-2070da3f4d3c.png",
+    "score": 4.5,
+    "description": "用“段子手”的笔触拆解商业本质，用“玄学”视角参透品牌宿命。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "j4lfo81i96o",
+      "title": "张本智和出局，日本乒乓“时代”仅保鲜48小时"
+     },
+     {
+      "content_id": "jb67w4dn6yo",
+      "title": "溶洞蹦迪、稻田看戏，国庆文旅开始收时光税了"
+     },
+     {
+      "content_id": "jakx2y6gydc",
+      "title": "2026咖啡第一，竟在你办公室楼下"
+     }
+    ],
+    "stats": {
+     "user_count": 4276,
+     "use_count": 128326,
+     "use_count_text": "12.8万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "2",
+    "name": "AI 极客",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/5434a50d-1a32-423f-bb83-24f35934f243.png",
+    "score": 4.5,
+    "description": "一个黑客视角聊AI/科技，普通人都能看懂的硬核科普。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "hjpwckazbpc",
+      "title": "便宜AI梦碎！DeepSeek暴涨1100%"
+     },
+     {
+      "content_id": "go215cwncox",
+      "title": "二向箔死刑！中国女数学家粉碎降维打击"
+     },
+     {
+      "content_id": "g3nenrb2lfl",
+      "title": "AI这么牛，为什么还有这么多人没用过？"
+     }
+    ],
+    "stats": {
+     "user_count": 3443,
+     "use_count": 66575,
+     "use_count_text": "6.7万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "13",
+    "name": "科技专题",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/aef67608-33a0-4ff0-a3f8-8c697e57cbc2.png",
+    "score": 4.4,
+    "description": "将“个人直觉”转化为“工业流程”，帮你稳定产出的现象级深度好文。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "gejeptiqqrk",
+      "title": "AI不是来抢工作的，而是重构你的事业系统"
+     },
+     {
+      "content_id": "gfqb2d3xl34",
+      "title": "火箭干部坠机，能力不是免罪金牌"
+     },
+     {
+      "content_id": "gerzww5rjep",
+      "title": "未来竞争，不是拼努力而是拼AI"
+     }
+    ],
+    "stats": {
+     "user_count": 1121,
+     "use_count": 32901,
+     "use_count_text": "3.3万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "11",
+    "name": "深度报道",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/b73a03b1-0e60-4139-a371-13c4816b337b.png",
+    "score": 4.4,
+    "description": "以人物、事件为核心的采访对话实录，具有现场感的商业报道/故事。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "irc3hkqjp4w",
+      "title": "成都街头栾树美成画，一树三色治愈秋天"
+     },
+     {
+      "content_id": "j9s0fertnnk",
+      "title": "3天年假拼出13天！新疆青甘大火，国庆旅游彻底变了"
+     },
+     {
+      "content_id": "j98ai49tpmo",
+      "title": "李克勤迟到两小时，替补歌手一人唱服三万人"
+     }
+    ],
+    "stats": {
+     "user_count": 5777,
+     "use_count": 39058,
+     "use_count_text": "3.9万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "15",
+    "name": "产业叙事",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/6edb71f5-d78c-4162-b2b7-f19e10a35031.png",
+    "score": 4.3,
+    "description": "经典的“13幕剧”写作法，挖掘细节，带你识破商业宣传中的套路和陷阱。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "jjrrbx700zk",
+      "title": "母乳喂养到12岁"
+     },
+     {
+      "content_id": "jbo2ped6qdc",
+      "title": "未来三年，改变你生活的不是AI，是廉价数字劳动力"
+     },
+     {
+      "content_id": "hkdtr9kkoao",
+      "title": "《睡过树丛、住过厂房、夜抢设备：这对新西兰兄弟，凭什么靠“卖"
+     }
+    ],
+    "stats": {
+     "user_count": 1270,
+     "use_count": 29155,
+     "use_count_text": "2.9万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "14",
+    "name": "商业主笔",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/90d6abea-c97c-4044-8ab4-9f7bdc13d6fa.png",
+    "score": 4.3,
+    "description": "追求真相的“专业主笔”。用事实和数据说话，像专业财经杂志一样严谨。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "i889tam6lfk",
+      "title": "一碗面只卖3.5元，老板竟把进货单全贴墙上"
+     },
+     {
+      "content_id": "hj63ldq3668",
+      "title": "45家店57万会员，孙抄手退出美团算了笔狠账"
+     },
+     {
+      "content_id": "hj5e2uw8gzk",
+      "title": "孙抄手硬刚美团：57万会员和45家直营店才是底气"
+     }
+    ],
+    "stats": {
+     "user_count": 1281,
+     "use_count": 35744,
+     "use_count_text": "3.6万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "9",
+    "name": "商业叙事",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/ec01cdde-be8d-4ad6-a1f6-fe4f7389b48a.png",
+    "score": 4.3,
+    "description": "故事化叙事，有趣且深度的硬核财经，轻松阅读中学到行业知识。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "jgbd14d6y9s",
+      "title": "讲一讲自媒体IP的商业化历程"
+     },
+     {
+      "content_id": "hkcriv4rqps",
+      "title": "睡过树丛、住过厂房、夜抢设备：这对新西兰兄弟，凭什么靠\"卖小"
+     },
+     {
+      "content_id": "je66fl2b11c",
+      "title": "五万元贴息落地，只换来一句“过几天再说”"
+     }
+    ],
+    "stats": {
+     "user_count": 552,
+     "use_count": 14636,
+     "use_count_text": "1.5万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "4",
+    "name": "氪系资讯",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/3a57fdf1-117a-4c54-abed-9a00fb226b3e.png",
+    "score": 4.3,
+    "description": "专注于科技、创业、投资等领域，提供深度报道、行业动态及趋势分析。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "j434zmg0x6o",
+      "title": "刘欢走了，最后遗愿曝光：不设灵堂不追悼，歌声却已传遍人间"
+     },
+     {
+      "content_id": "jfcpr4dtybk",
+      "title": "股神早年竟靠捡“湿烟头”赚第一桶金"
+     },
+     {
+      "content_id": "jo1gh41vy80",
+      "title": "雷军唯一一次流泪：小米最危险时他竟想打120？"
+     }
+    ],
+    "stats": {
+     "user_count": 7674,
+     "use_count": 85379,
+     "use_count_text": "8.5万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "7",
+    "name": "商业史笔",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/06c8f6b3-e625-426f-ad23-124b3721b68b.png",
+    "score": 4.1,
+    "description": "时间跳跃叙事，深挖行业内幕，在时代的缝隙里拆解商业局，犀利敢言。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "h3ia9pefm69",
+      "title": "历史不敢写的狠人，都藏在留白里"
+     },
+     {
+      "content_id": "go6magspb0h",
+      "title": "景德镇申遗成功，千年瓷都变世界产业样本！"
+     }
+    ],
+    "stats": {
+     "user_count": 778,
+     "use_count": 16057,
+     "use_count_text": "1.6万人使用"
+    },
+    "is_bookmarked": false
+   }
+  ],
+  "6": [
+   {
+    "template_id": "20",
+    "name": "80后父母",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/f78ae90e-4959-5b57-9635-859f77356930.png",
+    "score": 4.7,
+    "description": "以家长里短为引子，以“老友唠嗑”般的方式叙述价值观。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "j4ndfd0rda8",
+      "title": "放假比上班还累，中年人的假期是一场角色考试"
+     },
+     {
+      "content_id": "jp9w8hjvtvk",
+      "title": "孩子被欺负，别教他打回去！这3件事更管用"
+     },
+     {
+      "content_id": "joqzgsfxji8",
+      "title": "医生爸爸：自己都没满分，凭什么要求孩子满分"
+     }
+    ],
+    "stats": {
+     "user_count": 32934,
+     "use_count": 140067,
+     "use_count_text": "14万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "44",
+    "name": "教知君",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/e3c3da8e-42cc-538d-b3f0-59ed9c293636.png",
+    "score": 4.6,
+    "description": "教育资讯全知道，政策解读超权威！",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "isnssmpzq4g",
+      "title": "需要小红书内容选题。主题是：学员目标墙实拍：西交、西工大、陕"
+     },
+     {
+      "content_id": "h38wqz1k4ch",
+      "title": "人物：成都 41 岁妈妈何欣桐\n成果：四川大学（985）应用"
+     },
+     {
+      "content_id": "gs9qmarf30g",
+      "title": "将这个内容改成原创公众号文章：90%的头痛根本治错了。\n我是"
+     }
+    ],
+    "stats": {
+     "user_count": 2542,
+     "use_count": 46146,
+     "use_count_text": "4.6万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "45",
+    "name": "教育观察",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/c1d3b000-f3aa-5c33-9e17-c5a134407c76.png",
+    "score": 4.5,
+    "description": "专聊教育那些事儿，分享有趣观点，帮你打开教育新思路。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "jgzzgiypr7k",
+      "title": "孩子上大学后总敷衍？因为你还在当老师"
+     },
+     {
+      "content_id": "jlapg3ils74",
+      "title": "回老家7天发现：比老人宠溺更伤孩子的，是我的脸色"
+     },
+     {
+      "content_id": "j8mil93n85c",
+      "title": "国庆带娃不扎堆，厦门5个小众遛娃地"
+     }
+    ],
+    "stats": {
+     "user_count": 9618,
+     "use_count": 101552,
+     "use_count_text": "10.2万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "28",
+    "name": "科普“理工男”",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/405badb0-78ee-5e3d-829c-eb5d8aeb0138.png",
+    "score": 4.1,
+    "description": "博士段子手，用科学一本正经胡说八道，理工男的幽默科普。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "jmui3z0xk3k",
+      "title": "塑料米桶看着干净，高温潮湿厨房，悄悄滋生细菌"
+     },
+     {
+      "content_id": "jlkcka3ycqo",
+      "title": "标题：不要迷信不粘锅！涂层脱落之后，继续炒菜到底有没有危害"
+     },
+     {
+      "content_id": "gk0gi6wcidc",
+      "title": "别只盯着大模型！这个“幕后功臣”更关键"
+     }
+    ],
+    "stats": {
+     "user_count": 2065,
+     "use_count": 17003,
+     "use_count_text": "1.7万人使用"
+    },
+    "is_bookmarked": false
+   }
+  ],
+  "3": [
+   {
+    "template_id": "23",
+    "name": "深夜电台",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/44dbbaa7-19db-5243-841f-9983f929d506.png",
+    "score": 4.8,
+    "description": "睡前电台，用温柔的语调抚慰都市人的情感创伤。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "j9vt4zxoc1s",
+      "title": "一个人话多，说明他蠢，一个人话非常多，说明他非常蠢"
+     },
+     {
+      "content_id": "j91ws7xtiio",
+      "title": "【澄观·东方古思求索录】普通人想要顺风顺水，到底要懂哪条天地规律？"
+     },
+     {
+      "content_id": "j92fv3knm68",
+      "title": "《阴符经》五贼在心：真正的机会，早就藏在你心里"
+     }
+    ],
+    "stats": {
+     "user_count": 37627,
+     "use_count": 190114,
+     "use_count_text": "19万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "32",
+    "name": "读者来信",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/eee383ad-36d9-411a-b6d2-32ba78b10d79.png",
+    "score": 4.6,
+    "description": "覆盖大部分写作场景，直接输入观点即可。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "i4prtjo08ow",
+      "title": "你不是累了，是太久没有成长了"
+     },
+     {
+      "content_id": "isk6tlx6akg",
+      "title": "竞技不止输赢，责任同样不能缺席"
+     },
+     {
+      "content_id": "irs00yeaeww",
+      "title": "如果你出生生于 1992-2003 之间"
+     }
+    ],
+    "stats": {
+     "user_count": 15955,
+     "use_count": 125626,
+     "use_count_text": "12.6万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "25",
+    "name": "知性姐姐",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/f450f72b-6f45-507c-bc41-5a1f214583ff.png",
+    "score": 4.6,
+    "description": "在你最难过的时候为你疗伤；在你最迷茫的时候为你指明人生方向。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "jobcm4dw5c0",
+      "title": "这段时间，适合沉淀自己的星座，别急着冲刺"
+     },
+     {
+      "content_id": "jou99ndy3nk",
+      "title": "夫妻能不能走到最后，看这5件事就够了，很准"
+     },
+     {
+      "content_id": "it3q5isjqbk",
+      "title": "过了 30 岁才懂：扔掉这三样东西，人生才会越来越顺"
+     }
+    ],
+    "stats": {
+     "user_count": 18374,
+     "use_count": 149945,
+     "use_count_text": "15万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "24",
+    "name": "脑洞大开",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/f59185a0-7950-53b2-9957-4bb3cd334236.png",
+    "score": 4.5,
+    "description": "整活达人，在生活中不断折腾，用脑洞和亲身经历来给生活添加点乐趣。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "iprx4prn6kg",
+      "title": "乔任梁去世十年，陈乔恩一句话看哭无数人：老朋友，我想你"
+     },
+     {
+      "content_id": "jcevb903xfk",
+      "title": "回购的真相：有的股票消失了，有的只换了钱包"
+     },
+     {
+      "content_id": "iutspgqku80",
+      "title": "许嵩都结婚了，这届年轻人为何不愿结婚？"
+     }
+    ],
+    "stats": {
+     "user_count": 7305,
+     "use_count": 43624,
+     "use_count_text": "4.4万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "16",
+    "name": "时代观察",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/dbb0b434-2206-4083-a992-c4113757b349.png",
+    "score": 4.5,
+    "description": "擅长把复杂的行业大势讲成每个人都能听懂的故事。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "j6a5kfazym8",
+      "title": "刑事谅解书什么时候交，最有效？"
+     },
+     {
+      "content_id": "joijgxyxbsw",
+      "title": "g"
+     },
+     {
+      "content_id": "ja2rerqyqdc",
+      "title": "今年中秋国庆，建筑工程行业属实有点凄凉早年中秋国庆双节，朋友圈全是工程人晒公司发的丰厚福利。现在呢？"
+     }
+    ],
+    "stats": {
+     "user_count": 8046,
+     "use_count": 47095,
+     "use_count_text": "4.7万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "10",
+    "name": "观点大师",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/28d4cdfd-3d6f-4a26-a846-68552dfe73b8.png",
+    "score": 4.5,
+    "description": "用投资、心理、物理、生物、哲学、AI科技等多领域概念相互印证。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "iy6bvb2e22o",
+      "title": "卖掉记忆换钱后，我把自己活成了陌生人"
+     },
+     {
+      "content_id": "jicc1utg4jk",
+      "title": "真正厉害的人，都允许自己“退步”"
+     },
+     {
+      "content_id": "jj48jq2xkhs",
+      "title": "孩子睡觉你玩手机，真正伤的不是眼睛"
+     }
+    ],
+    "stats": {
+     "user_count": 10618,
+     "use_count": 94057,
+     "use_count_text": "9.4万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "3",
+    "name": "人生导师",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/136bb498-c504-46aa-8fe7-f2b8d621ad3b.png",
+    "score": 4.5,
+    "description": "互联网资深运营专家，教你在职场和个人成长里升级打怪。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "iskgbgaxe68",
+      "title": "面试被刷？因为你没把核心词前置！"
+     },
+     {
+      "content_id": "jl4979xnl6o",
+      "title": "面试总被说没重点？先说结论，马上被录用"
+     },
+     {
+      "content_id": "izpdcrkifpc",
+      "title": "同事关系再好，也别做这3件事"
+     }
+    ],
+    "stats": {
+     "user_count": 6271,
+     "use_count": 83794,
+     "use_count_text": "8.4万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "29",
+    "name": "人生“导师”",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/9d54f92b-0cd6-547a-909f-5dc21b98fd1a.png",
+    "score": 4.3,
+    "description": "用口语化、带情绪的现实主义语言，拆解普通人的痛点和阴暗面。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "jmjjcw14qgw",
+      "title": "2026年AI筛简历：还写“吃苦耐劳”的人，机器直接零分"
+     },
+     {
+      "content_id": "jn3m6ixm8zk",
+      "title": "b"
+     },
+     {
+      "content_id": "ighwh3k91j4",
+      "title": "打工5年总结：从被挤出的螺丝钉到部门骨干，就靠这4个方法  "
+     }
+    ],
+    "stats": {
+     "user_count": 24759,
+     "use_count": 226094,
+     "use_count_text": "22.6万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "26",
+    "name": "童话大王",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/73029ae0-d191-5e6a-8c4b-5cc049990caf.png",
+    "score": 4.3,
+    "description": "用童话故事，讲你的故事。把笔锋藏在小动物们的毛茸茸下面。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "hzzs4gvnvuo",
+      "title": "89岁老人被医美套路：179元祛斑秒变13960元"
+     },
+     {
+      "content_id": "i0ldzgoo6ps",
+      "title": "我，实习流星，不想发光，却在人间治愈所有人"
+     },
+     {
+      "content_id": "h40hd9er7cw",
+      "title": "原来孩子不是懒，是怕！看完泪目"
+     }
+    ],
+    "stats": {
+     "user_count": 1223,
+     "use_count": 26622,
+     "use_count_text": "2.7万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "47",
+    "name": "“辣”评",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/addd613c-0ea8-5e07-bdae-44855a9b84bc.png",
+    "score": 4.2,
+    "description": "敢说真话、爱管闲事、永远站在草根一边的湖南辣妹子。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "jpgrfafkbuo",
+      "title": "万鸟腾空！中国秋天最壮观的画面来了"
+     },
+     {
+      "content_id": "jdffe60su80",
+      "title": "51岁阿姨看哭：原来妈妈也有爱情"
+     },
+     {
+      "content_id": "jbr6gj7te68",
+      "title": "2500亿补贴到账！你家换家电汽车能省多少？"
+     }
+    ],
+    "stats": {
+     "user_count": 7253,
+     "use_count": 154556,
+     "use_count_text": "15.5万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "46",
+    "name": "趣味探察",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/9b487943-58bd-58cc-848b-d38ee0189092.png",
+    "score": 4.2,
+    "description": "用幽默解构生活，让日常充满趣味。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "hm44rbzk0sg",
+      "title": "随便发发"
+     },
+     {
+      "content_id": "go40ohe9k3k",
+      "title": "原来八仙是每个人的影子：你是吕洞宾还是铁拐李？"
+     },
+     {
+      "content_id": "gm0m9u9nym9",
+      "title": "将卡布奇诺与蓝山混合，余味竟像极了爱情"
+     }
+    ],
+    "stats": {
+     "user_count": 2157,
+     "use_count": 46686,
+     "use_count_text": "4.7万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "43",
+    "name": "你需要",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/cdc555a5-cdcf-5925-af30-2dbc71314e08.png",
+    "score": 4.2,
+    "description": "超懂年轻人，专写两性、职场、生活那些事儿",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "i713deiphq8",
+      "title": "医院乌梅汤卖爆，年轻人喝的是安慰.\n——“祛湿”成为年轻人养生新潮流"
+     },
+     {
+      "content_id": "i09dbjq4yyo",
+      "title": "一个人最大的失败：对外人客气，对家人暴躁"
+     },
+     {
+      "content_id": "i9fi1tt29z4",
+      "title": "成年人最大的清醒：少内耗，多做事，日子就顺了"
+     }
+    ],
+    "stats": {
+     "user_count": 9550,
+     "use_count": 105738,
+     "use_count_text": "10.6万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "18",
+    "name": "宝藏闺蜜“圈圈”",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/511cd67e-a45d-52bd-a9dd-08e96744160b.png",
+    "score": 4,
+    "description": "懂八卦、懂历史、懂审美、还挺会骂人的闺蜜，用女性视角看待问题。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "ix8ukxwxou8",
+      "title": "李鸿章一辈子办了二十多个\"中国第一\"，结果大清还是亡了。\n\n"
+     }
+    ],
+    "stats": {
+     "user_count": 1787,
+     "use_count": 30287,
+     "use_count_text": "3万人使用"
+    },
+    "is_bookmarked": false
+   }
+  ],
+  "4": [
+   {
+    "template_id": "19",
+    "name": "“圈哥”军事时评",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/7f5187cf-d101-5f1d-ac25-1ff1fb90c0e1.png",
+    "score": 4.7,
+    "description": "“民族复兴”、“反霸权”和“大国博弈”风格，用战略眼光解析官方新闻。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "h05deoobt35",
+      "title": "特朗普归来搅局，中国为什么能稳得住？"
+     },
+     {
+      "content_id": "fxle5vor0n4",
+      "title": "中国发射导弹，澳大利亚为何抢着“加戏”？"
+     },
+     {
+      "content_id": "ggod7oggoht",
+      "title": "南海动手了？中国海警硬核反制"
+     }
+    ],
+    "stats": {
+     "user_count": 7009,
+     "use_count": 128051,
+     "use_count_text": "12.8万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "49",
+    "name": "迷彩脱口秀",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/4d26e63b-6343-5cf1-ab79-16f9b992ef87.png",
+    "score": 4.3,
+    "description": "硬核历史配爆笑解读，炮弹裹糖衣，专治\"正经病\"！",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "j90y8pjjpq8",
+      "title": "刘强东做外卖，盯上的根本不是饭"
+     },
+     {
+      "content_id": "ibjs1izpu68",
+      "title": "历史脱口秀指令\n我要将中国悠久的历史用脱口秀的艺术形式传播给"
+     },
+     {
+      "content_id": "ibw51a0r30g",
+      "title": "历史脱口秀指令：\n我要将中国悠久的历史用脱口秀的艺术形式传播"
+     }
+    ],
+    "stats": {
+     "user_count": 2533,
+     "use_count": 40872,
+     "use_count_text": "4.1万人使用"
+    },
+    "is_bookmarked": false
+   }
+  ],
+  "5": [
+   {
+    "template_id": "1",
+    "name": "生活周刊",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/4b45dbce-28c0-4b84-8609-7473be6c51d2.png",
+    "score": 4.6,
+    "description": "以文化视角解读社会热点，都市白领的精神陪伴。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "jhkpz5eyhog",
+      "title": "染发20年才问致癌？答案和你想的不一样"
+     },
+     {
+      "content_id": "jj6690qvq4g",
+      "title": "美容院老板烂脸半年，救她的竟不是那瓶安瓶？"
+     },
+     {
+      "content_id": "jftp47e7bi8",
+      "title": "越拼命越焦虑？医生：真正的希望是给自己放个假"
+     }
+    ],
+    "stats": {
+     "user_count": 24153,
+     "use_count": 190010,
+     "use_count_text": "19万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "16",
+    "name": "时代观察",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/dbb0b434-2206-4083-a992-c4113757b349.png",
+    "score": 4.5,
+    "description": "擅长把复杂的行业大势讲成每个人都能听懂的故事。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "j6a5kfazym8",
+      "title": "刑事谅解书什么时候交，最有效？"
+     },
+     {
+      "content_id": "joijgxyxbsw",
+      "title": "g"
+     },
+     {
+      "content_id": "ja2rerqyqdc",
+      "title": "今年中秋国庆，建筑工程行业属实有点凄凉早年中秋国庆双节，朋友圈全是工程人晒公司发的丰厚福利。现在呢？"
+     }
+    ],
+    "stats": {
+     "user_count": 8046,
+     "use_count": 47095,
+     "use_count_text": "4.7万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "10",
+    "name": "观点大师",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/28d4cdfd-3d6f-4a26-a846-68552dfe73b8.png",
+    "score": 4.5,
+    "description": "用投资、心理、物理、生物、哲学、AI科技等多领域概念相互印证。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "iy6bvb2e22o",
+      "title": "卖掉记忆换钱后，我把自己活成了陌生人"
+     },
+     {
+      "content_id": "jicc1utg4jk",
+      "title": "真正厉害的人，都允许自己“退步”"
+     },
+     {
+      "content_id": "jj48jq2xkhs",
+      "title": "孩子睡觉你玩手机，真正伤的不是眼睛"
+     }
+    ],
+    "stats": {
+     "user_count": 10618,
+     "use_count": 94057,
+     "use_count_text": "9.4万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "3",
+    "name": "人生导师",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/136bb498-c504-46aa-8fe7-f2b8d621ad3b.png",
+    "score": 4.5,
+    "description": "互联网资深运营专家，教你在职场和个人成长里升级打怪。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "iskgbgaxe68",
+      "title": "面试被刷？因为你没把核心词前置！"
+     },
+     {
+      "content_id": "jl4979xnl6o",
+      "title": "面试总被说没重点？先说结论，马上被录用"
+     },
+     {
+      "content_id": "izpdcrkifpc",
+      "title": "同事关系再好，也别做这3件事"
+     }
+    ],
+    "stats": {
+     "user_count": 6271,
+     "use_count": 83794,
+     "use_count_text": "8.4万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "7",
+    "name": "商业史笔",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/06c8f6b3-e625-426f-ad23-124b3721b68b.png",
+    "score": 4.1,
+    "description": "时间跳跃叙事，深挖行业内幕，在时代的缝隙里拆解商业局，犀利敢言。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "h3ia9pefm69",
+      "title": "历史不敢写的狠人，都藏在留白里"
+     },
+     {
+      "content_id": "go6magspb0h",
+      "title": "景德镇申遗成功，千年瓷都变世界产业样本！"
+     }
+    ],
+    "stats": {
+     "user_count": 778,
+     "use_count": 16057,
+     "use_count_text": "1.6万人使用"
+    },
+    "is_bookmarked": false
+   }
+  ],
+  "12": [
+   {
+    "template_id": "76",
+    "name": "数码科技老友",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/580a365a-dc6a-5998-ae9c-217188e5cab2.png",
+    "score": 5,
+    "description": "懂行朋友聊数码，帮你做对每次消费决策。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "jogud1u79xc",
+      "title": "2"
+     },
+     {
+      "content_id": "jndau8npc00",
+      "title": "1"
+     },
+     {
+      "content_id": "jgu7xplclc0",
+      "title": "墨水屏别乱买！2026黑白彩色尺寸一篇说透"
+     }
+    ],
+    "stats": {
+     "user_count": 35360,
+     "use_count": 177623,
+     "use_count_text": "17.8万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "12",
+    "name": "科技“脱口秀”",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/c5ab4057-acdd-4e04-8aea-0a366af03947.png",
+    "score": 4.7,
+    "description": "顶流科技博主，边吐槽边输出干货，帮你产出极具个性的爆款长文。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "j90jfjxr8cg",
+      "title": "听三遍都没发现，这首歌是AI写的"
+     },
+     {
+      "content_id": "j8esdx1vhmo",
+      "title": "3"
+     },
+     {
+      "content_id": "i7m8lis3ksg",
+      "title": "微信单删功能炸了：好友没满1万别想用"
+     }
+    ],
+    "stats": {
+     "user_count": 3182,
+     "use_count": 85709,
+     "use_count_text": "8.6万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "75",
+    "name": "王牌拆机",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/24759bbb-5779-54e3-b133-18b69e41269e.png",
+    "score": 4.4,
+    "description": "拆机跑分搞横评，专业术语配大白话，家人们的硬核消费参谋。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "ghad857x7nk",
+      "title": "20万级卷王海豹08：空气悬架+905km续航 3.3秒破百"
+     },
+     {
+      "content_id": "gdhgf4xhwjk",
+      "title": "15万新能源不踩坑！这3款闭眼入"
+     },
+     {
+      "content_id": "gx0bxwsgyrk",
+      "title": "拆完红旗天工08，才发现它没把钱花在大屏上"
+     }
+    ],
+    "stats": {
+     "user_count": 517,
+     "use_count": 38007,
+     "use_count_text": "3.8万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "47",
+    "name": "“辣”评",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/addd613c-0ea8-5e07-bdae-44855a9b84bc.png",
+    "score": 4.2,
+    "description": "敢说真话、爱管闲事、永远站在草根一边的湖南辣妹子。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "jpgrfafkbuo",
+      "title": "万鸟腾空！中国秋天最壮观的画面来了"
+     },
+     {
+      "content_id": "jdffe60su80",
+      "title": "51岁阿姨看哭：原来妈妈也有爱情"
+     },
+     {
+      "content_id": "jbr6gj7te68",
+      "title": "2500亿补贴到账！你家换家电汽车能省多少？"
+     }
+    ],
+    "stats": {
+     "user_count": 7253,
+     "use_count": 154556,
+     "use_count_text": "15.5万人使用"
+    },
+    "is_bookmarked": false
+   }
+  ],
+  "13": [
+   {
+    "template_id": "21",
+    "name": "纽约观察",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/2baa46cc-ce49-51d3-91de-05bbac63af29.png",
+    "score": 4.7,
+    "description": "旅欧媒体人的个人博客，用国际视角解读时事，俏皮自嘲。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "hmgtxjoyayo",
+      "title": "印度越热，普通人越冷"
+     },
+     {
+      "content_id": "hkuppgorvgg",
+      "title": "国外热点"
+     },
+     {
+      "content_id": "go215cco5xc",
+      "title": "《三体》二向箔被数学证伪！三维世界塌不了"
+     }
+    ],
+    "stats": {
+     "user_count": 5569,
+     "use_count": 27636,
+     "use_count_text": "2.8万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "4",
+    "name": "氪系资讯",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/3a57fdf1-117a-4c54-abed-9a00fb226b3e.png",
+    "score": 4.3,
+    "description": "专注于科技、创业、投资等领域，提供深度报道、行业动态及趋势分析。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "j434zmg0x6o",
+      "title": "刘欢走了，最后遗愿曝光：不设灵堂不追悼，歌声却已传遍人间"
+     },
+     {
+      "content_id": "jfcpr4dtybk",
+      "title": "股神早年竟靠捡“湿烟头”赚第一桶金"
+     },
+     {
+      "content_id": "jo1gh41vy80",
+      "title": "雷军唯一一次流泪：小米最危险时他竟想打120？"
+     }
+    ],
+    "stats": {
+     "user_count": 7674,
+     "use_count": 85379,
+     "use_count_text": "8.5万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "48",
+    "name": "财小新",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/625322da-d09d-5ddb-9356-31f9cb21b754.png",
+    "score": 4.2,
+    "description": "财经小喇叭，每日播报钱途大事，轻松听懂经济脉搏。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "jdm43vjl2ps",
+      "title": "还在只看成分价格？员工满意度96%才是隐形保障"
+     },
+     {
+      "content_id": "j4lr1b0v3ls",
+      "title": "17000㎡免费开放，艾多美在下一盘什么棋？"
+     },
+     {
+      "content_id": "ie7bh4oq134",
+      "title": "115亿砸向文旅，广安能接住吗？"
+     }
+    ],
+    "stats": {
+     "user_count": 2765,
+     "use_count": 42132,
+     "use_count_text": "4.2万人使用"
+    },
+    "is_bookmarked": false
+   }
+  ],
+  "14": [
+   {
+    "template_id": "30",
+    "name": "故事会",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/4ab74816-1cdc-5b55-a925-a5bb2f4a662f.png",
+    "score": 4.9,
+    "description": "用最引人入胜的语言，描写最 drama\n  的故事。婚姻、亲情、阶层…",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "jewsue5mhog",
+      "title": "他演尽英雄却坐牢6年，妻子改嫁，晚年含恨离世"
+     },
+     {
+      "content_id": "j13clijfqps",
+      "title": "女儿带非洲男友过中秋，中国妈妈一句随便藏着多少心酸"
+     },
+     {
+      "content_id": "i4b03o7tjpc",
+      "title": "60岁后，这4种父母最受子女疼爱"
+     }
+    ],
+    "stats": {
+     "user_count": 107192,
+     "use_count": 398406,
+     "use_count_text": "39.8万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "31",
+    "name": "说书人",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/c55d0ff5-d5ab-5e7d-9f3d-6fc4b1ac2115.png",
+    "score": 4.6,
+    "description": "一个爱聊天、会找梗、肯做功课的中年男人，把历史讲得好玩又有深度。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "11794692958060544",
+     "nickname": "焦圈儿",
+     "avatar": "https://jiwen-app-public.oss-cn-beijing.aliyuncs.com/11794692958060544-1755768727266.jpg"
+    },
+    "hot_contents": [
+     {
+      "content_id": "iw41x1mjym8",
+      "title": "死人怀表里传出敲门声，他打开后亲爹喊：儿子捞我"
+     },
+     {
+      "content_id": "inas3j0rl6o",
+      "title": "万万没想到！3000 年前的文物，早就把表情包玩明白了\n封面"
+     },
+     {
+      "content_id": "ih1h0t9iz9c",
+      "title": "读后感"
+     }
+    ],
+    "stats": {
+     "user_count": 16818,
+     "use_count": 165436,
+     "use_count_text": "16.5万人使用"
+    },
+    "is_bookmarked": false
+   }
+  ],
+  "15": [
+   {
+    "template_id": "73",
+    "name": "毒舌影评",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/aa0450a4-baed-58a6-93a3-a23ee0575cb2.png",
+    "score": 4.6,
+    "description": "影迷气+专业写手，既拆产业机制也写热泪盈眶。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "jai8cy3yj28",
+      "title": "《人民的名义》最大争议：侯亮平夫妇为何比反派更招人厌？"
+     },
+     {
+      "content_id": "jaha6ydwjk0",
+      "title": "《人民的名义》最大讽刺：侯亮平夫妻赢了案子，输了人心。"
+     },
+     {
+      "content_id": "jj4uuh47bwg",
+      "title": "高育良离婚是个人自由？组织：必须上报"
+     }
+    ],
+    "stats": {
+     "user_count": 14742,
+     "use_count": 81516,
+     "use_count_text": "8.2万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "72",
+    "name": "影评课代表",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/930e7171-4dd4-536a-a1f0-28839771a07d.png",
+    "score": 4.5,
+    "description": "影评课代表，把每部电影放进历史大地图里精准定位。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "jl70il9m51c",
+      "title": "火凤凰为何总救许青？不是主仆，而是生死至交"
+     },
+     {
+      "content_id": "jfgyy8j4mww",
+      "title": "孩子不敢拒绝朋友，不是没主见，是怕被孤立"
+     },
+     {
+      "content_id": "jlv7igs36kg",
+      "title": "越关心越被讨厌？成熟的人开口前会先问这句"
+     }
+    ],
+    "stats": {
+     "user_count": 10961,
+     "use_count": 116548,
+     "use_count_text": "11.7万人使用"
+    },
+    "is_bookmarked": false
+   }
+  ],
+  "16": [
+   {
+    "template_id": "74",
+    "name": "吃喝指南",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/adc5586e-5f53-5698-97f3-f1fb80b3a7df.png",
+    "score": 4.5,
+    "description": "组团盲测、替你踩雷种草，专业吃货的硬核选购指南。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "ihwg9ar2vpc",
+      "title": "2026咖啡排行榜出炉，瑞幸又双叒第一！"
+     },
+     {
+      "content_id": "j4va7cm7s3k",
+      "title": "别再给孩子单独做饭了！一锅两吃，省心又营养"
+     },
+     {
+      "content_id": "ikrok6s61a8",
+      "title": "黄焖鸡米饭好不好吃，就看这3个细节！"
+     }
+    ],
+    "stats": {
+     "user_count": 11291,
+     "use_count": 69234,
+     "use_count_text": "6.9万人使用"
+    },
+    "is_bookmarked": false
+   }
+  ],
+  "17": [
+   {
+    "template_id": "77",
+    "name": "小柴游戏测评",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/c861c1e2-26b8-53e6-958a-14f6ae50444f.png",
+    "score": 4.3,
+    "description": "游戏圈的热情安利官，带你挖出冷门宝藏神作。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [],
+    "stats": {
+     "user_count": 544,
+     "use_count": 53369,
+     "use_count_text": "5.3万人使用"
+    },
+    "is_bookmarked": false
+   }
+  ],
+  "22": [
+   {
+    "template_id": "107",
+    "name": "山河魂",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/6c1c33ce-41e9-576c-a391-888f9c37bb72.webp",
+    "score": 4.7,
+    "description": "将旅游与文学深度融合，通过文字为山河“赋魂”。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "jfogjxq0g74",
+      "title": "十月山河不语，却把乡愁熬成一碗热汤"
+     },
+     {
+      "content_id": "j68eg9o0we8",
+      "title": "我的教育故事"
+     },
+     {
+      "content_id": "izkkjkchhq8",
+      "title": "停止瞎忙！用一棵树理清你的复杂生活"
+     }
+    ],
+    "stats": {
+     "user_count": 8788,
+     "use_count": 90315,
+     "use_count_text": "9万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "103",
+    "name": "一座城",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/f53ae30f-b612-54e1-82aa-65d7e50238ea.webp",
+    "score": 4.5,
+    "description": "介绍城市文化、古城风貌和各地特有的诗意山水。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "iw41v8p6z28",
+      "title": "休水从我家门前流过"
+     },
+     {
+      "content_id": "gnxnl1vdrlt",
+      "title": "写一篇新西兰胡卡瀑布的文章。按照以下要求进行创作:\n1.以六"
+     },
+     {
+      "content_id": "gl23lxd9atc",
+      "title": "川西养老别只去水磨！这座隐世小镇更宜居"
+     }
+    ],
+    "stats": {
+     "user_count": 2308,
+     "use_count": 59175,
+     "use_count_text": "5.9万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "108",
+    "name": "露营视界",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/2aecaa3c-1d81-54c9-9e40-23d695288296.webp",
+    "score": 4.3,
+    "description": "新户外生活方式，内容围绕露营及相关活动展开。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [],
+    "stats": {
+     "user_count": 492,
+     "use_count": 22223,
+     "use_count_text": "2.2万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "105",
+    "name": "风物志",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/b2f7ea1a-005d-5eaf-be3c-be38a2dd38e2.webp",
+    "score": 4.3,
+    "description": "寻访中国各地风物，分享物产、民艺与本真生活。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [],
+    "stats": {
+     "user_count": 435,
+     "use_count": 42948,
+     "use_count_text": "4.3万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "104",
+    "name": "文旅评论",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/6a815abe-f19b-5a73-ba37-8b41aebe6cbb.webp",
+    "score": 4,
+    "description": "用个人视角的散文风格混写文旅评论。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "jcwaki56fb4",
+      "title": "村超火了那么久，今天我们终于来了\n村超火了那么久，\n今天我们"
+     },
+     {
+      "content_id": "i53ch98o2rk",
+      "title": "绝了！容县三片石，三块石头美成水墨画"
+     },
+     {
+      "content_id": "g0uywsknuv4",
+      "title": "150元睡一晚到长安，醒来梦回唐朝"
+     }
+    ],
+    "stats": {
+     "user_count": 3458,
+     "use_count": 35583,
+     "use_count_text": "3.6万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "106",
+    "name": "漫游世界",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/5d7c6c03-6522-54cf-8061-878884171661.webp",
+    "score": 3.8,
+    "description": "旅行故事、目的地攻略和旅行文化。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "gl72a2sl1q8",
+      "title": "重庆"
+     },
+     {
+      "content_id": "fs9aj45lx4x",
+      "title": "杭州上海年轻人正悄悄涌入这座小城"
+     }
+    ],
+    "stats": {
+     "user_count": 943,
+     "use_count": 23390,
+     "use_count_text": "2.3万人使用"
+    },
+    "is_bookmarked": false
+   }
+  ],
+  "23": [
+   {
+    "template_id": "110",
+    "name": "生活碎碎念",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/6444f53a-b4d0-5c38-9291-9f18bc578d2e.webp",
+    "score": 4.6,
+    "description": "分享实用生活技巧，让生活更简单有趣。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "j66azmnhwxs",
+      "title": "早上起床这3个“坏习惯”：正在悄悄偷走退休族的健康"
+     },
+     {
+      "content_id": "ijg7yyvgn40",
+      "title": "扎心真相：你缺的不是蛋白粉，是一日三餐"
+     },
+     {
+      "content_id": "hzely5saz28",
+      "title": "将军的剑，不斩苍蝇：余生很贵，请及时止损"
+     }
+    ],
+    "stats": {
+     "user_count": 17523,
+     "use_count": 78893,
+     "use_count_text": "7.9万人使用"
+    },
+    "is_bookmarked": false
+   },
+   {
+    "template_id": "109",
+    "name": "感悟口播",
+    "avatar": "https://img.jiaoquaner.com/template/avatar/e8a7326a-7053-5df6-9a03-4948638f02b5.webp",
+    "score": 3.8,
+    "description": "第一人称视角分享真实经历和思考，把抽象观点翻译成生活案例。",
+    "recommend_config": {
+     "model": "deepseek",
+     "model_display_name": "DeepSeek",
+     "enable_web_search": false,
+     "enable_think": true
+    },
+    "tags": [],
+    "author": {
+     "user_id": "",
+     "nickname": "",
+     "avatar": ""
+    },
+    "hot_contents": [
+     {
+      "content_id": "iherlz6qbr4",
+      "title": "中国网红拍的视频火出圈了！"
+     },
+     {
+      "content_id": "j4oyrccdgcg",
+      "title": "退休金"
+     },
+     {
+      "content_id": "ieihym9416o",
+      "title": "下雨天随想"
+     }
+    ],
+    "stats": {
+     "user_count": 5575,
+     "use_count": 12144,
+     "use_count_text": "1.2万人使用"
+    },
+    "is_bookmarked": false
+   }
+  ]
+ },
+ "details": {
+  "1": {
+   "template_id": "1",
+   "name": "生活周刊",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/4b45dbce-28c0-4b84-8609-7473be6c51d2.png",
+   "description": "以文化视角解读社会热点，都市白领的精神陪伴。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "gap一年，我再也找不到工作了",
+   "usage_tips": "建议提供具体的场景设定、人物关系和情感基调，可要求包含特定意象如雨伞、钟声、列车等元素",
+   "hot_contents": [
+    {
+     "content_id": "jhkpz5eyhog",
+     "title": "染发20年才问致癌？答案和你想的不一样"
+    },
+    {
+     "content_id": "jj6690qvq4g",
+     "title": "美容院老板烂脸半年，救她的竟不是那瓶安瓶？"
+    },
+    {
+     "content_id": "jftp47e7bi8",
+     "title": "越拼命越焦虑？医生：真正的希望是给自己放个假"
+    }
+   ],
+   "joule_price": 500
+  },
+  "2": {
+   "template_id": "2",
+   "name": "AI 极客",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/5434a50d-1a32-423f-bb83-24f35934f243.png",
+   "description": "一个黑客视角聊AI/科技，普通人都能看懂的硬核科普。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "用洗碗机洗碗真的会更省水吗？算上电费的话和手洗相比到底划不划算？",
+   "usage_tips": "说明受众群体和知识水平，建议使用生活化比喻，可要求加入互动问答形式",
+   "hot_contents": [
+    {
+     "content_id": "hjpwckazbpc",
+     "title": "便宜AI梦碎！DeepSeek暴涨1100%"
+    },
+    {
+     "content_id": "go215cwncox",
+     "title": "二向箔死刑！中国女数学家粉碎降维打击"
+    },
+    {
+     "content_id": "g3nenrb2lfl",
+     "title": "AI这么牛，为什么还有这么多人没用过？"
+    }
+   ],
+   "joule_price": 500
+  },
+  "3": {
+   "template_id": "3",
+   "name": "人生导师",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/136bb498-c504-46aa-8fe7-f2b8d621ad3b.png",
+   "description": "互联网资深运营专家，教你在职场和个人成长里升级打怪。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "我想写一篇复盘文章。我创业3年，虽然赚了钱但每天都很焦虑，总觉得在“透支”身体。",
+   "usage_tips": "明确评论的立场角度，提供相关数据参考，可要求包含SWOT分析或可行性建议",
+   "hot_contents": [
+    {
+     "content_id": "iskgbgaxe68",
+     "title": "面试被刷？因为你没把核心词前置！"
+    },
+    {
+     "content_id": "jl4979xnl6o",
+     "title": "面试总被说没重点？先说结论，马上被录用"
+    },
+    {
+     "content_id": "izpdcrkifpc",
+     "title": "同事关系再好，也别做这3件事"
+    }
+   ],
+   "joule_price": 500
+  },
+  "4": {
+   "template_id": "4",
+   "name": "氪系资讯",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/3a57fdf1-117a-4c54-abed-9a00fb226b3e.png",
+   "description": "专注于科技、创业、投资等领域，提供深度报道、行业动态及趋势分析。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "为什么AI时代，百度变的落寞悄无声息？",
+   "usage_tips": "提供具体场景、观察视角和核心议题，可要求包含至少两个细节特写",
+   "hot_contents": [
+    {
+     "content_id": "j434zmg0x6o",
+     "title": "刘欢走了，最后遗愿曝光：不设灵堂不追悼，歌声却已传遍人间"
+    },
+    {
+     "content_id": "jfcpr4dtybk",
+     "title": "股神早年竟靠捡“湿烟头”赚第一桶金"
+    },
+    {
+     "content_id": "jo1gh41vy80",
+     "title": "雷军唯一一次流泪：小米最危险时他竟想打120？"
+    }
+   ],
+   "joule_price": 500
+  },
+  "5": {
+   "template_id": "5",
+   "name": "行业观察“圆桌派”",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/02f8bba3-a44e-4297-82d9-40f73862e116.png",
+   "description": "通过多元视角/圆桌派方式解读观点/热点新闻，提供更独特的洞见。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "过春节为什么没有以前年味浓了？",
+   "usage_tips": "提供时间背景、关键企业和需重点分析的技术路线，可要求加入投资风险评估",
+   "hot_contents": [
+    {
+     "content_id": "jo1ibe8w1kw",
+     "title": "提示词越长越蠢？AI咒语时代已终结"
+    },
+    {
+     "content_id": "j8o06book5c",
+     "title": "1"
+    },
+    {
+     "content_id": "j8er81v52ps",
+     "title": "1"
+    }
+   ],
+   "joule_price": 500
+  },
+  "6": {
+   "template_id": "6",
+   "name": "商业洞察者",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/64146c68-9928-4b22-84ba-2070da3f4d3c.png",
+   "description": "用“段子手”的笔触拆解商业本质，用“玄学”视角参透品牌宿命。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "“疯狂内卷”是企业没本事的表现？当企业不攒品牌势能，只会打价格战。",
+   "usage_tips": "提供目标城市列表、关键指标要求和预测时间范围，可要求包含具体区域投资建议",
+   "hot_contents": [
+    {
+     "content_id": "j4lfo81i96o",
+     "title": "张本智和出局，日本乒乓“时代”仅保鲜48小时"
+    },
+    {
+     "content_id": "jb67w4dn6yo",
+     "title": "溶洞蹦迪、稻田看戏，国庆文旅开始收时光税了"
+    },
+    {
+     "content_id": "jakx2y6gydc",
+     "title": "2026咖啡第一，竟在你办公室楼下"
+    }
+   ],
+   "joule_price": 500
+  },
+  "7": {
+   "template_id": "7",
+   "name": "商业史笔",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/06c8f6b3-e625-426f-ad23-124b3721b68b.png",
+   "description": "时间跳跃叙事，深挖行业内幕，在时代的缝隙里拆解商业局，犀利敢言。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "懒人经济背后的情绪需求真的存在吗？",
+   "usage_tips": "提供政策文件、时间节点和重点城市，可要求加入开发商访谈和购房者心态分析",
+   "hot_contents": [
+    {
+     "content_id": "h3ia9pefm69",
+     "title": "历史不敢写的狠人，都藏在留白里"
+    },
+    {
+     "content_id": "go6magspb0h",
+     "title": "景德镇申遗成功，千年瓷都变世界产业样本！"
+    }
+   ],
+   "joule_price": 500
+  },
+  "8": {
+   "template_id": "8",
+   "name": "趣味吐槽员",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/d794857c-be4d-41b0-b6ba-cb2724d92040.png",
+   "description": "用“好哥们”口吻搞笑测评数码产品，讲科技冷知识。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "车企“飞坡翻车”表演大测评：是实力硬核，还是营销内卷？",
+   "usage_tips": "提供产品型号、竞品对比列表和测试项目，可要求包含购买建议和适用人群",
+   "hot_contents": [
+    {
+     "content_id": "jpk481bp79c",
+     "title": "吐槽一特朗普"
+    },
+    {
+     "content_id": "j8espg50268",
+     "title": "4"
+    },
+    {
+     "content_id": "ij32kblb8cg",
+     "title": "测评ai聚合平台（观点要求贬低其他平台抬高我的小鸟Ai平台）"
+    }
+   ],
+   "joule_price": 500
+  },
+  "9": {
+   "template_id": "9",
+   "name": "商业叙事",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/ec01cdde-be8d-4ad6-a1f6-fe4f7389b48a.png",
+   "description": "故事化叙事，有趣且深度的硬核财经，轻松阅读中学到行业知识。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "谷歌的模型nanobanana正在对画师行业造成前所未有的冲击",
+   "usage_tips": "提供目标企业名单、时间跨度和需重点关注的数据指标，可要求包含投资方分析",
+   "hot_contents": [
+    {
+     "content_id": "jgbd14d6y9s",
+     "title": "讲一讲自媒体IP的商业化历程"
+    },
+    {
+     "content_id": "hkcriv4rqps",
+     "title": "睡过树丛、住过厂房、夜抢设备：这对新西兰兄弟，凭什么靠\"卖小"
+    },
+    {
+     "content_id": "je66fl2b11c",
+     "title": "五万元贴息落地，只换来一句“过几天再说”"
+    }
+   ],
+   "joule_price": 500
+  },
+  "10": {
+   "template_id": "10",
+   "name": "观点大师",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/28d4cdfd-3d6f-4a26-a846-68552dfe73b8.png",
+   "description": "用投资、心理、物理、生物、哲学、AI科技等多领域概念相互印证。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "焦圈儿是一个基于AI内容的社交平台，焦圈儿有一个核心功能就是应用模板，可以一句话生成高质量的文章，文章没有ai味儿，可以提供给自媒体用户、媒体人、市场销售人员等等，在中国有大量的几千万级别的自媒体作者，但是不是每个人都能写好文章，也可以给普通人用。\n写一篇《自媒体日更苦手？我靠焦圈儿这个工具把效率提升了10倍》",
+   "usage_tips": "提供核心概念、应用场景和思考维度，可要求包含个人决策改进建议",
+   "hot_contents": [
+    {
+     "content_id": "iy6bvb2e22o",
+     "title": "卖掉记忆换钱后，我把自己活成了陌生人"
+    },
+    {
+     "content_id": "jicc1utg4jk",
+     "title": "真正厉害的人，都允许自己“退步”"
+    },
+    {
+     "content_id": "jj48jq2xkhs",
+     "title": "孩子睡觉你玩手机，真正伤的不是眼睛"
+    }
+   ],
+   "joule_price": 500
+  },
+  "11": {
+   "template_id": "11",
+   "name": "深度报道",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/b73a03b1-0e60-4139-a371-13c4816b337b.png",
+   "description": "以人物、事件为核心的采访对话实录，具有现场感的商业报道/故事。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "焦圈儿是一个基于AI内容的社交平台，焦圈儿有一个核心功能就是应用模板，可以一句话生成高质量的文章，文章没有ai味儿，可以提供给自媒体用户、媒体人、市场销售人员等等，在中国有大量的几千万级别的自媒体作者，但是不是每个人都能写好文章，也可以给普通人用。\n写一篇，我使用了焦圈儿这个工具高效写作，开通公众号流量主，让我月入1000多",
+   "usage_tips": "提供调查地点、采访对象类型和需重点关注的问题清单，可要求包含解决方案建议",
+   "hot_contents": [
+    {
+     "content_id": "irc3hkqjp4w",
+     "title": "成都街头栾树美成画，一树三色治愈秋天"
+    },
+    {
+     "content_id": "j9s0fertnnk",
+     "title": "3天年假拼出13天！新疆青甘大火，国庆旅游彻底变了"
+    },
+    {
+     "content_id": "j98ai49tpmo",
+     "title": "李克勤迟到两小时，替补歌手一人唱服三万人"
+    }
+   ],
+   "joule_price": 500
+  },
+  "12": {
+   "template_id": "12",
+   "name": "科技“脱口秀”",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/c5ab4057-acdd-4e04-8aea-0a366af03947.png",
+   "description": "顶流科技博主，边吐槽边输出干货，帮你产出极具个性的爆款长文。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "困在数据里的自媒体，正在被平台算法精准收割",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "j90jfjxr8cg",
+     "title": "听三遍都没发现，这首歌是AI写的"
+    },
+    {
+     "content_id": "j8esdx1vhmo",
+     "title": "3"
+    },
+    {
+     "content_id": "i7m8lis3ksg",
+     "title": "微信单删功能炸了：好友没满1万别想用"
+    }
+   ],
+   "joule_price": 500
+  },
+  "13": {
+   "template_id": "13",
+   "name": "科技专题",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/aef67608-33a0-4ff0-a3f8-8c697e57cbc2.png",
+   "description": "将“个人直觉”转化为“工业流程”，帮你稳定产出的现象级深度好文。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "把粉丝关进付费群，你是笨还是傻？",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "gejeptiqqrk",
+     "title": "AI不是来抢工作的，而是重构你的事业系统"
+    },
+    {
+     "content_id": "gfqb2d3xl34",
+     "title": "火箭干部坠机，能力不是免罪金牌"
+    },
+    {
+     "content_id": "gerzww5rjep",
+     "title": "未来竞争，不是拼努力而是拼AI"
+    }
+   ],
+   "joule_price": 500
+  },
+  "14": {
+   "template_id": "14",
+   "name": "商业主笔",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/90d6abea-c97c-4044-8ab4-9f7bdc13d6fa.png",
+   "description": "追求真相的“专业主笔”。用事实和数据说话，像专业财经杂志一样严谨。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "马斯克称星舰将每年量产 1 万枚，这目标能否实现？对航天业有何影响？",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "i889tam6lfk",
+     "title": "一碗面只卖3.5元，老板竟把进货单全贴墙上"
+    },
+    {
+     "content_id": "hj63ldq3668",
+     "title": "45家店57万会员，孙抄手退出美团算了笔狠账"
+    },
+    {
+     "content_id": "hj5e2uw8gzk",
+     "title": "孙抄手硬刚美团：57万会员和45家直营店才是底气"
+    }
+   ],
+   "joule_price": 500
+  },
+  "15": {
+   "template_id": "15",
+   "name": "产业叙事",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/6edb71f5-d78c-4162-b2b7-f19e10a35031.png",
+   "description": "经典的“13幕剧”写作法，挖掘细节，带你识破商业宣传中的套路和陷阱。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "AIGC时代，创作者“人”的价值再定义",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "jjrrbx700zk",
+     "title": "母乳喂养到12岁"
+    },
+    {
+     "content_id": "jbo2ped6qdc",
+     "title": "未来三年，改变你生活的不是AI，是廉价数字劳动力"
+    },
+    {
+     "content_id": "hkdtr9kkoao",
+     "title": "《睡过树丛、住过厂房、夜抢设备：这对新西兰兄弟，凭什么靠“卖"
+    }
+   ],
+   "joule_price": 500
+  },
+  "16": {
+   "template_id": "16",
+   "name": "时代观察",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/dbb0b434-2206-4083-a992-c4113757b349.png",
+   "description": "擅长把复杂的行业大势讲成每个人都能听懂的故事。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "年轻人把 KTV 爆改成自习室，这种「邪修自习」效率真的高吗？",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "j6a5kfazym8",
+     "title": "刑事谅解书什么时候交，最有效？"
+    },
+    {
+     "content_id": "joijgxyxbsw",
+     "title": "g"
+    },
+    {
+     "content_id": "ja2rerqyqdc",
+     "title": "今年中秋国庆，建筑工程行业属实有点凄凉早年中秋国庆双节，朋友圈全是工程人晒公司发的丰厚福利。现在呢？"
+    }
+   ],
+   "joule_price": 500
+  },
+  "17": {
+   "template_id": "17",
+   "name": "品牌爆文",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/915a15cf-cf4a-43c6-ae2d-ad8cec36bd47.png",
+   "description": "不端着，像老大哥一样，文风具有“看透世事”的独特气质。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "焦圈儿是一个基于AI内容的社交平台，焦圈儿有一个核心功能就是应用模板，可以一句话生成高质量的文章，文章没有ai味儿，可以提供给自媒体用户、媒体人、市场销售人员等等，在中国有大量的几千万级别的自媒体作者，但是不是每个人都能写好文章，也可以给普通人用。\n\n写一篇《普通人如何用AI写出一篇爆款文》的文章",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "hnj5vn52ps0",
+     "title": "孩子，我们今天不谈作业，也不说考试分数，更不翻以前的旧账。我"
+    },
+    {
+     "content_id": "issk7idnocg",
+     "title": "成都北门双子塔：150米高，专治“人多不赚钱”"
+    },
+    {
+     "content_id": "j8e5fjb6mtc",
+     "title": "1"
+    }
+   ],
+   "joule_price": 500
+  },
+  "18": {
+   "template_id": "18",
+   "name": "宝藏闺蜜“圈圈”",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/511cd67e-a45d-52bd-a9dd-08e96744160b.png",
+   "description": "懂八卦、懂历史、懂审美、还挺会骂人的闺蜜，用女性视角看待问题。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "高铁售卖卫生巾，是来晚了还是来早了？",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "ix8ukxwxou8",
+     "title": "李鸿章一辈子办了二十多个\"中国第一\"，结果大清还是亡了。\n\n"
+    }
+   ],
+   "joule_price": 500
+  },
+  "19": {
+   "template_id": "19",
+   "name": "“圈哥”军事时评",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/7f5187cf-d101-5f1d-ac25-1ff1fb90c0e1.png",
+   "description": "“民族复兴”、“反霸权”和“大国博弈”风格，用战略眼光解析官方新闻。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "中美两国军事实力对比",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "h05deoobt35",
+     "title": "特朗普归来搅局，中国为什么能稳得住？"
+    },
+    {
+     "content_id": "fxle5vor0n4",
+     "title": "中国发射导弹，澳大利亚为何抢着“加戏”？"
+    },
+    {
+     "content_id": "ggod7oggoht",
+     "title": "南海动手了？中国海警硬核反制"
+    }
+   ],
+   "joule_price": 500
+  },
+  "20": {
+   "template_id": "20",
+   "name": "80后父母",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/f78ae90e-4959-5b57-9635-859f77356930.png",
+   "description": "以家长里短为引子，以“老友唠嗑”般的方式叙述价值观。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "怪奇物语爆火的背后",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "j4ndfd0rda8",
+     "title": "放假比上班还累，中年人的假期是一场角色考试"
+    },
+    {
+     "content_id": "jp9w8hjvtvk",
+     "title": "孩子被欺负，别教他打回去！这3件事更管用"
+    },
+    {
+     "content_id": "joqzgsfxji8",
+     "title": "医生爸爸：自己都没满分，凭什么要求孩子满分"
+    }
+   ],
+   "joule_price": 500
+  },
+  "21": {
+   "template_id": "21",
+   "name": "纽约观察",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/2baa46cc-ce49-51d3-91de-05bbac63af29.png",
+   "description": "旅欧媒体人的个人博客，用国际视角解读时事，俏皮自嘲。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "当罗马遇见雅典，当秩序试图吞噬灵魂",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "hmgtxjoyayo",
+     "title": "印度越热，普通人越冷"
+    },
+    {
+     "content_id": "hkuppgorvgg",
+     "title": "国外热点"
+    },
+    {
+     "content_id": "go215cco5xc",
+     "title": "《三体》二向箔被数学证伪！三维世界塌不了"
+    }
+   ],
+   "joule_price": 500
+  },
+  "22": {
+   "template_id": "22",
+   "name": "愤怒的高级写手",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/e73ec3ca-a961-545e-8f62-c8a570abdbf1.png",
+   "description": "用事实和历史打底，用比喻和反讽行文，替普通人打捞尊严。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "外卖骑手，社会最大的不公平",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "jjm6lwderk0",
+     "title": "你眼里聋人的“没素质”，不过是沟通出了问题"
+    },
+    {
+     "content_id": "ielcrzslgqo",
+     "title": "4岁男童被扣“性骚扰”帽子：大人博弈，孩子买单"
+    },
+    {
+     "content_id": "j2mmhegzoqo",
+     "title": "亚运精神，剥开糖衣还剩什么？"
+    }
+   ],
+   "joule_price": 500
+  },
+  "23": {
+   "template_id": "23",
+   "name": "深夜电台",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/44dbbaa7-19db-5243-841f-9983f929d506.png",
+   "description": "睡前电台，用温柔的语调抚慰都市人的情感创伤。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "分手三年了，为什么我还是会在深夜想起他？",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "j9vt4zxoc1s",
+     "title": "一个人话多，说明他蠢，一个人话非常多，说明他非常蠢"
+    },
+    {
+     "content_id": "j91ws7xtiio",
+     "title": "【澄观·东方古思求索录】普通人想要顺风顺水，到底要懂哪条天地规律？"
+    },
+    {
+     "content_id": "j92fv3knm68",
+     "title": "《阴符经》五贼在心：真正的机会，早就藏在你心里"
+    }
+   ],
+   "joule_price": 500
+  },
+  "24": {
+   "template_id": "24",
+   "name": "脑洞大开",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/f59185a0-7950-53b2-9957-4bb3cd334236.png",
+   "description": "整活达人，在生活中不断折腾，用脑洞和亲身经历来给生活添加点乐趣。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "春节联欢晚会，我整了个大活",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "iprx4prn6kg",
+     "title": "乔任梁去世十年，陈乔恩一句话看哭无数人：老朋友，我想你"
+    },
+    {
+     "content_id": "jcevb903xfk",
+     "title": "回购的真相：有的股票消失了，有的只换了钱包"
+    },
+    {
+     "content_id": "iutspgqku80",
+     "title": "许嵩都结婚了，这届年轻人为何不愿结婚？"
+    }
+   ],
+   "joule_price": 500
+  },
+  "25": {
+   "template_id": "25",
+   "name": "知性姐姐",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/f450f72b-6f45-507c-bc41-5a1f214583ff.png",
+   "description": "在你最难过的时候为你疗伤；在你最迷茫的时候为你指明人生方向。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "恋爱脑们，求你们别再复合了",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "jobcm4dw5c0",
+     "title": "这段时间，适合沉淀自己的星座，别急着冲刺"
+    },
+    {
+     "content_id": "jou99ndy3nk",
+     "title": "夫妻能不能走到最后，看这5件事就够了，很准"
+    },
+    {
+     "content_id": "it3q5isjqbk",
+     "title": "过了 30 岁才懂：扔掉这三样东西，人生才会越来越顺"
+    }
+   ],
+   "joule_price": 500
+  },
+  "26": {
+   "template_id": "26",
+   "name": "童话大王",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/73029ae0-d191-5e6a-8c4b-5cc049990caf.png",
+   "description": "用童话故事，讲你的故事。把笔锋藏在小动物们的毛茸茸下面。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "感情里用力过猛的人，后来都怎么样了",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "hzzs4gvnvuo",
+     "title": "89岁老人被医美套路：179元祛斑秒变13960元"
+    },
+    {
+     "content_id": "i0ldzgoo6ps",
+     "title": "我，实习流星，不想发光，却在人间治愈所有人"
+    },
+    {
+     "content_id": "h40hd9er7cw",
+     "title": "原来孩子不是懒，是怕！看完泪目"
+    }
+   ],
+   "joule_price": 500
+  },
+  "27": {
+   "template_id": "27",
+   "name": "大叔｜杂谈",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/dc930ea5-6546-5a5d-a567-09b6b7e26533.png",
+   "description": "中年男人的无奈和自嘲。心里守着一点点不肯放下的理想和温柔。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "中年人的得体，付出了巨大的努力",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "i0vuyazdzi8",
+     "title": "别劝我大度，刀子没扎你身上"
+    },
+    {
+     "content_id": "i34yl34cagw",
+     "title": "2026年，公众号没死！普通上班族最好的副业是它"
+    },
+    {
+     "content_id": "ivnclzydvr4",
+     "title": "一颗花生，戳穿了中年人最体面的伪装"
+    }
+   ],
+   "joule_price": 500
+  },
+  "28": {
+   "template_id": "28",
+   "name": "科普“理工男”",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/405badb0-78ee-5e3d-829c-eb5d8aeb0138.png",
+   "description": "博士段子手，用科学一本正经胡说八道，理工男的幽默科普。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "糊弄导师的 7 种办法",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "jmui3z0xk3k",
+     "title": "塑料米桶看着干净，高温潮湿厨房，悄悄滋生细菌"
+    },
+    {
+     "content_id": "jlkcka3ycqo",
+     "title": "标题：不要迷信不粘锅！涂层脱落之后，继续炒菜到底有没有危害"
+    },
+    {
+     "content_id": "gk0gi6wcidc",
+     "title": "别只盯着大模型！这个“幕后功臣”更关键"
+    }
+   ],
+   "joule_price": 500
+  },
+  "29": {
+   "template_id": "29",
+   "name": "人生“导师”",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/9d54f92b-0cd6-547a-909f-5dc21b98fd1a.png",
+   "description": "用口语化、带情绪的现实主义语言，拆解普通人的痛点和阴暗面。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "越努力越穷，不是你的问题是谁的问题",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "jmjjcw14qgw",
+     "title": "2026年AI筛简历：还写“吃苦耐劳”的人，机器直接零分"
+    },
+    {
+     "content_id": "jn3m6ixm8zk",
+     "title": "b"
+    },
+    {
+     "content_id": "ighwh3k91j4",
+     "title": "打工5年总结：从被挤出的螺丝钉到部门骨干，就靠这4个方法  "
+    }
+   ],
+   "joule_price": 500
+  },
+  "30": {
+   "template_id": "30",
+   "name": "故事会",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/4ab74816-1cdc-5b55-a925-a5bb2f4a662f.png",
+   "description": "用最引人入胜的语言，描写最 drama\n  的故事。婚姻、亲情、阶层…",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "三十岁女程序员查出不孕，老公骂她\"废人\"",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "jewsue5mhog",
+     "title": "他演尽英雄却坐牢6年，妻子改嫁，晚年含恨离世"
+    },
+    {
+     "content_id": "j13clijfqps",
+     "title": "女儿带非洲男友过中秋，中国妈妈一句随便藏着多少心酸"
+    },
+    {
+     "content_id": "i4b03o7tjpc",
+     "title": "60岁后，这4种父母最受子女疼爱"
+    }
+   ],
+   "joule_price": 500
+  },
+  "31": {
+   "template_id": "31",
+   "name": "说书人",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/c55d0ff5-d5ab-5e7d-9f3d-6fc4b1ac2115.png",
+   "description": "一个爱聊天、会找梗、肯做功课的中年男人，把历史讲得好玩又有深度。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "曹操和荀彧的相爱相杀",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "iw41x1mjym8",
+     "title": "死人怀表里传出敲门声，他打开后亲爹喊：儿子捞我"
+    },
+    {
+     "content_id": "inas3j0rl6o",
+     "title": "万万没想到！3000 年前的文物，早就把表情包玩明白了\n封面"
+    },
+    {
+     "content_id": "ih1h0t9iz9c",
+     "title": "读后感"
+    }
+   ],
+   "joule_price": 500
+  },
+  "32": {
+   "template_id": "32",
+   "name": "读者来信",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/eee383ad-36d9-411a-b6d2-32ba78b10d79.png",
+   "description": "覆盖大部分写作场景，直接输入观点即可。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "人到三十，我终于删掉了所谓的“高端社群”",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "i4prtjo08ow",
+     "title": "你不是累了，是太久没有成长了"
+    },
+    {
+     "content_id": "isk6tlx6akg",
+     "title": "竞技不止输赢，责任同样不能缺席"
+    },
+    {
+     "content_id": "irs00yeaeww",
+     "title": "如果你出生生于 1992-2003 之间"
+    }
+   ],
+   "joule_price": 500
+  },
+  "43": {
+   "template_id": "43",
+   "name": "你需要",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/cdc555a5-cdcf-5925-af30-2dbc71314e08.png",
+   "description": "超懂年轻人，专写两性、职场、生活那些事儿",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "i713deiphq8",
+     "title": "医院乌梅汤卖爆，年轻人喝的是安慰.\n——“祛湿”成为年轻人养生新潮流"
+    },
+    {
+     "content_id": "i09dbjq4yyo",
+     "title": "一个人最大的失败：对外人客气，对家人暴躁"
+    },
+    {
+     "content_id": "i9fi1tt29z4",
+     "title": "成年人最大的清醒：少内耗，多做事，日子就顺了"
+    }
+   ],
+   "joule_price": 500
+  },
+  "44": {
+   "template_id": "44",
+   "name": "教知君",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/e3c3da8e-42cc-538d-b3f0-59ed9c293636.png",
+   "description": "教育资讯全知道，政策解读超权威！",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "isnssmpzq4g",
+     "title": "需要小红书内容选题。主题是：学员目标墙实拍：西交、西工大、陕"
+    },
+    {
+     "content_id": "h38wqz1k4ch",
+     "title": "人物：成都 41 岁妈妈何欣桐\n成果：四川大学（985）应用"
+    },
+    {
+     "content_id": "gs9qmarf30g",
+     "title": "将这个内容改成原创公众号文章：90%的头痛根本治错了。\n我是"
+    }
+   ],
+   "joule_price": 500
+  },
+  "45": {
+   "template_id": "45",
+   "name": "教育观察",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/c1d3b000-f3aa-5c33-9e17-c5a134407c76.png",
+   "description": "专聊教育那些事儿，分享有趣观点，帮你打开教育新思路。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "jgzzgiypr7k",
+     "title": "孩子上大学后总敷衍？因为你还在当老师"
+    },
+    {
+     "content_id": "jlapg3ils74",
+     "title": "回老家7天发现：比老人宠溺更伤孩子的，是我的脸色"
+    },
+    {
+     "content_id": "j8mil93n85c",
+     "title": "国庆带娃不扎堆，厦门5个小众遛娃地"
+    }
+   ],
+   "joule_price": 500
+  },
+  "46": {
+   "template_id": "46",
+   "name": "趣味探察",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/9b487943-58bd-58cc-848b-d38ee0189092.png",
+   "description": "用幽默解构生活，让日常充满趣味。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "hm44rbzk0sg",
+     "title": "随便发发"
+    },
+    {
+     "content_id": "go40ohe9k3k",
+     "title": "原来八仙是每个人的影子：你是吕洞宾还是铁拐李？"
+    },
+    {
+     "content_id": "gm0m9u9nym9",
+     "title": "将卡布奇诺与蓝山混合，余味竟像极了爱情"
+    }
+   ],
+   "joule_price": 500
+  },
+  "47": {
+   "template_id": "47",
+   "name": "“辣”评",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/addd613c-0ea8-5e07-bdae-44855a9b84bc.png",
+   "description": "敢说真话、爱管闲事、永远站在草根一边的湖南辣妹子。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "jpgrfafkbuo",
+     "title": "万鸟腾空！中国秋天最壮观的画面来了"
+    },
+    {
+     "content_id": "jdffe60su80",
+     "title": "51岁阿姨看哭：原来妈妈也有爱情"
+    },
+    {
+     "content_id": "jbr6gj7te68",
+     "title": "2500亿补贴到账！你家换家电汽车能省多少？"
+    }
+   ],
+   "joule_price": 500
+  },
+  "48": {
+   "template_id": "48",
+   "name": "财小新",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/625322da-d09d-5ddb-9356-31f9cb21b754.png",
+   "description": "财经小喇叭，每日播报钱途大事，轻松听懂经济脉搏。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "jdm43vjl2ps",
+     "title": "还在只看成分价格？员工满意度96%才是隐形保障"
+    },
+    {
+     "content_id": "j4lr1b0v3ls",
+     "title": "17000㎡免费开放，艾多美在下一盘什么棋？"
+    },
+    {
+     "content_id": "ie7bh4oq134",
+     "title": "115亿砸向文旅，广安能接住吗？"
+    }
+   ],
+   "joule_price": 500
+  },
+  "49": {
+   "template_id": "49",
+   "name": "迷彩脱口秀",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/4d26e63b-6343-5cf1-ab79-16f9b992ef87.png",
+   "description": "硬核历史配爆笑解读，炮弹裹糖衣，专治\"正经病\"！",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "j90y8pjjpq8",
+     "title": "刘强东做外卖，盯上的根本不是饭"
+    },
+    {
+     "content_id": "ibjs1izpu68",
+     "title": "历史脱口秀指令\n我要将中国悠久的历史用脱口秀的艺术形式传播给"
+    },
+    {
+     "content_id": "ibw51a0r30g",
+     "title": "历史脱口秀指令：\n我要将中国悠久的历史用脱口秀的艺术形式传播"
+    }
+   ],
+   "joule_price": 500
+  },
+  "50": {
+   "template_id": "50",
+   "name": "降AI率",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/detect-rewrite.png",
+   "description": "直接输入原文，检测原文并针对性降低原文中的AI率",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "j5ny7n6c0lc",
+     "title": "未命名内容"
+    },
+    {
+     "content_id": "iut28wcjlkw",
+     "title": "晚霞里的红蜻蜓"
+    },
+    {
+     "content_id": "jo5yzh2latc",
+     "title": "把女儿养成带刺的玫瑰，才是最高级富养"
+    }
+   ],
+   "joule_price": 1000
+  },
+  "72": {
+   "template_id": "72",
+   "name": "影评课代表",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/930e7171-4dd4-536a-a1f0-28839771a07d.png",
+   "description": "影评课代表，把每部电影放进历史大地图里精准定位。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "jl70il9m51c",
+     "title": "火凤凰为何总救许青？不是主仆，而是生死至交"
+    },
+    {
+     "content_id": "jfgyy8j4mww",
+     "title": "孩子不敢拒绝朋友，不是没主见，是怕被孤立"
+    },
+    {
+     "content_id": "jlv7igs36kg",
+     "title": "越关心越被讨厌？成熟的人开口前会先问这句"
+    }
+   ],
+   "joule_price": 500
+  },
+  "73": {
+   "template_id": "73",
+   "name": "毒舌影评",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/aa0450a4-baed-58a6-93a3-a23ee0575cb2.png",
+   "description": "影迷气+专业写手，既拆产业机制也写热泪盈眶。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "jai8cy3yj28",
+     "title": "《人民的名义》最大争议：侯亮平夫妇为何比反派更招人厌？"
+    },
+    {
+     "content_id": "jaha6ydwjk0",
+     "title": "《人民的名义》最大讽刺：侯亮平夫妻赢了案子，输了人心。"
+    },
+    {
+     "content_id": "jj4uuh47bwg",
+     "title": "高育良离婚是个人自由？组织：必须上报"
+    }
+   ],
+   "joule_price": 500
+  },
+  "74": {
+   "template_id": "74",
+   "name": "吃喝指南",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/adc5586e-5f53-5698-97f3-f1fb80b3a7df.png",
+   "description": "组团盲测、替你踩雷种草，专业吃货的硬核选购指南。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "ihwg9ar2vpc",
+     "title": "2026咖啡排行榜出炉，瑞幸又双叒第一！"
+    },
+    {
+     "content_id": "j4va7cm7s3k",
+     "title": "别再给孩子单独做饭了！一锅两吃，省心又营养"
+    },
+    {
+     "content_id": "ikrok6s61a8",
+     "title": "黄焖鸡米饭好不好吃，就看这3个细节！"
+    }
+   ],
+   "joule_price": 500
+  },
+  "75": {
+   "template_id": "75",
+   "name": "王牌拆机",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/24759bbb-5779-54e3-b133-18b69e41269e.png",
+   "description": "拆机跑分搞横评，专业术语配大白话，家人们的硬核消费参谋。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "ghad857x7nk",
+     "title": "20万级卷王海豹08：空气悬架+905km续航 3.3秒破百"
+    },
+    {
+     "content_id": "gdhgf4xhwjk",
+     "title": "15万新能源不踩坑！这3款闭眼入"
+    },
+    {
+     "content_id": "gx0bxwsgyrk",
+     "title": "拆完红旗天工08，才发现它没把钱花在大屏上"
+    }
+   ],
+   "joule_price": 500
+  },
+  "76": {
+   "template_id": "76",
+   "name": "数码科技老友",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/580a365a-dc6a-5998-ae9c-217188e5cab2.png",
+   "description": "懂行朋友聊数码，帮你做对每次消费决策。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "jogud1u79xc",
+     "title": "2"
+    },
+    {
+     "content_id": "jndau8npc00",
+     "title": "1"
+    },
+    {
+     "content_id": "jgu7xplclc0",
+     "title": "墨水屏别乱买！2026黑白彩色尺寸一篇说透"
+    }
+   ],
+   "joule_price": 500
+  },
+  "77": {
+   "template_id": "77",
+   "name": "小柴游戏测评",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/c861c1e2-26b8-53e6-958a-14f6ae50444f.png",
+   "description": "游戏圈的热情安利官，带你挖出冷门宝藏神作。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [],
+   "joule_price": 500
+  },
+  "103": {
+   "template_id": "103",
+   "name": "一座城",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/f53ae30f-b612-54e1-82aa-65d7e50238ea.webp",
+   "description": "介绍城市文化、古城风貌和各地特有的诗意山水。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "iw41v8p6z28",
+     "title": "休水从我家门前流过"
+    },
+    {
+     "content_id": "gnxnl1vdrlt",
+     "title": "写一篇新西兰胡卡瀑布的文章。按照以下要求进行创作:\n1.以六"
+    },
+    {
+     "content_id": "gl23lxd9atc",
+     "title": "川西养老别只去水磨！这座隐世小镇更宜居"
+    }
+   ],
+   "joule_price": 500
+  },
+  "104": {
+   "template_id": "104",
+   "name": "文旅评论",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/6a815abe-f19b-5a73-ba37-8b41aebe6cbb.webp",
+   "description": "用个人视角的散文风格混写文旅评论。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "jcwaki56fb4",
+     "title": "村超火了那么久，今天我们终于来了\n村超火了那么久，\n今天我们"
+    },
+    {
+     "content_id": "i53ch98o2rk",
+     "title": "绝了！容县三片石，三块石头美成水墨画"
+    },
+    {
+     "content_id": "g0uywsknuv4",
+     "title": "150元睡一晚到长安，醒来梦回唐朝"
+    }
+   ],
+   "joule_price": 500
+  },
+  "105": {
+   "template_id": "105",
+   "name": "风物志",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/b2f7ea1a-005d-5eaf-be3c-be38a2dd38e2.webp",
+   "description": "寻访中国各地风物，分享物产、民艺与本真生活。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [],
+   "joule_price": 500
+  },
+  "106": {
+   "template_id": "106",
+   "name": "漫游世界",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/5d7c6c03-6522-54cf-8061-878884171661.webp",
+   "description": "旅行故事、目的地攻略和旅行文化。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "gl72a2sl1q8",
+     "title": "重庆"
+    },
+    {
+     "content_id": "fs9aj45lx4x",
+     "title": "杭州上海年轻人正悄悄涌入这座小城"
+    }
+   ],
+   "joule_price": 500
+  },
+  "107": {
+   "template_id": "107",
+   "name": "山河魂",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/6c1c33ce-41e9-576c-a391-888f9c37bb72.webp",
+   "description": "将旅游与文学深度融合，通过文字为山河“赋魂”。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "jfogjxq0g74",
+     "title": "十月山河不语，却把乡愁熬成一碗热汤"
+    },
+    {
+     "content_id": "j68eg9o0we8",
+     "title": "我的教育故事"
+    },
+    {
+     "content_id": "izkkjkchhq8",
+     "title": "停止瞎忙！用一棵树理清你的复杂生活"
+    }
+   ],
+   "joule_price": 500
+  },
+  "108": {
+   "template_id": "108",
+   "name": "露营视界",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/2aecaa3c-1d81-54c9-9e40-23d695288296.webp",
+   "description": "新户外生活方式，内容围绕露营及相关活动展开。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [],
+   "joule_price": 500
+  },
+  "109": {
+   "template_id": "109",
+   "name": "感悟口播",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/e8a7326a-7053-5df6-9a03-4948638f02b5.webp",
+   "description": "第一人称视角分享真实经历和思考，把抽象观点翻译成生活案例。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "iherlz6qbr4",
+     "title": "中国网红拍的视频火出圈了！"
+    },
+    {
+     "content_id": "j4oyrccdgcg",
+     "title": "退休金"
+    },
+    {
+     "content_id": "ieihym9416o",
+     "title": "下雨天随想"
+    }
+   ],
+   "joule_price": 500
+  },
+  "110": {
+   "template_id": "110",
+   "name": "生活碎碎念",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/6444f53a-b4d0-5c38-9291-9f18bc578d2e.webp",
+   "description": "分享实用生活技巧，让生活更简单有趣。",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "j66azmnhwxs",
+     "title": "早上起床这3个“坏习惯”：正在悄悄偷走退休族的健康"
+    },
+    {
+     "content_id": "ijg7yyvgn40",
+     "title": "扎心真相：你缺的不是蛋白粉，是一日三餐"
+    },
+    {
+     "content_id": "hzely5saz28",
+     "title": "将军的剑，不斩苍蝇：余生很贵，请及时止损"
+    }
+   ],
+   "joule_price": 500
+  },
+  "10000": {
+   "template_id": "10000",
+   "name": "今日选题",
+   "avatar": "https://img.jiaoquaner.com/template/avatar/c448266a-e375-c073-08a5-905411aaec9d.webp",
+   "description": "给一个关键字，帮你写爆款标题/选题，创作无忧，标题直接拷贝到AI写作模版开始创作吧",
+   "recommend_config": {
+    "model": "deepseek",
+    "model_display_name": "DeepSeek",
+    "enable_web_search": false,
+    "enable_think": true
+   },
+   "usage_example": "",
+   "usage_tips": "",
+   "hot_contents": [
+    {
+     "content_id": "iuwqbz629s0",
+     "title": "和上大学的孩子聊天，最容易踩的坑就是一开口就带着\"我要教你点什么\"的姿态。孩子一听语气不对，要么敷衍"
+    },
+    {
+     "content_id": "isgmq5nh5a8",
+     "title": "推进现房销售、力争分娩无自付：2026民生还有哪些变化？"
+    },
+    {
+     "content_id": "jbw3r1rs0e8",
+     "title": "环保散文怎么写？别替自然喊口号，让大地自己说话"
+    }
+   ],
+   "joule_price": 100
+  }
+ }
+}

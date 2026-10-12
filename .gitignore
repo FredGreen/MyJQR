@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# 前端
+node_modules/
+apps/*/dist/
+
+# 密钥与环境（绝不提交）
+.env
+keys/
+*.pem
+
+# 含有效 Bearer token 的原始抓包文件（仓库内已提供脱敏版）
+docs/接口调用.txt
+
+# 系统
+.DS_Store
+Thumbs.db

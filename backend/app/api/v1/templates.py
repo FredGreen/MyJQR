@@ -1,0 +1,120 @@
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy import func, select
+from sqlalchemy.orm import Session
+
+from app.core.deps import get_current_user
+from app.db import get_db
+from app.models.template import (Bookmark, Category, PromptVersion, Template,
+                                 TemplateCategoryRelation, TemplateStat)
+from app.models.user import User
+
+router = APIRouter(prefix="/template", tags=["template"])
+
+
+def _tpl_card(t: Template, stat: TemplateStat | None, bookmarked: bool = False) -> dict:
+    return {
+        "template_id": t.id, "name": t.name, "avatar_url": t.avatar_url,
+        "description": t.description, "score": float(t.score or 5.0),
+        "joule_price": t.joule_price,
+        "enable_web_search": bool(t.enable_web_search), "enable_think": bool(t.enable_think),
+        "stats": {"user_cnt": stat.user_cnt if stat else 0,
+                  "use_cnt": stat.use_cnt if stat else 0},
+        "is_bookmarked": bookmarked,
+    }
+
+
+def _page(q, cursor: int, page_size: int):
+    if cursor:
+        q = q.filter(Template.id < cursor)
+    rows = q.order_by(Template.id.desc()).limit(page_size + 1).all()
+    has_more = len(rows) > page_size
+    rows = rows[:page_size]
+    return {"list": rows, "cursor": rows[-1].id if has_more else 0, "has_more": has_more}
+
+
+@router.get("/category/list")
+def category_list(user: User = Depends(get_current_user),
+                  db: Session = Depends(get_db)):
+    cats = db.query(Category).filter_by(status=1).order_by(Category.sort_order).all()
+    return {"code": 0, "data": {"list": [
+        {"category_id": c.id, "name": c.name, "sort_order": c.sort_order} for c in cats]}}
+
+
+@router.get("/recommend/list")
+def recommend_list(cursor: int = 0, page_size: int = 20,
+                   user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    page_size = min(page_size, 20)
+    q = (db.query(Template, TemplateStat)
+         .outerjoin(TemplateStat, TemplateStat.template_id == Template.id)
+         .filter(Template.status == 1))
+    page = _page(q, cursor, page_size)
+    marks = {b.template_id for b in db.query(Bookmark).filter_by(user_id=user.id)}
+    return {"code": 0, "data": {
+        "list": [_tpl_card(t, s, t.id in marks) for t, s in page["list"]],
+        "cursor": page["cursor"], "has_more": page["has_more"]}}
+
+
+@router.get("/list")
+def category_templates(category_id: int, cursor: int = 0, page_size: int = 20,
+                       user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    page_size = min(page_size, 20)
+    q = (db.query(Template, TemplateStat, TemplateCategoryRelation)
+         .outerjoin(TemplateStat, TemplateStat.template_id == Template.id)
+         .join(TemplateCategoryRelation,
+               TemplateCategoryRelation.template_id == Template.id)
+         .filter(Template.status == 1, TemplateCategoryRelation.category_id == category_id))
+    if cursor:
+        q = q.filter(TemplateCategoryRelation.rank < cursor)
+    rows = (q.order_by(TemplateCategoryRelation.rank)
+             .limit(page_size + 1).all())
+    has_more = len(rows) > page_size
+    rows = rows[:page_size]
+    marks = {b.template_id for b in db.query(Bookmark).filter_by(user_id=user.id)}
+    return {"code": 0, "data": {
+        "list": [{**_tpl_card(t, s, t.id in marks), "rank": rel.rank} for t, s, rel in rows],
+        "cursor": rows[-1][2].rank if has_more else 0, "has_more": has_more}}
+
+
+@router.get("/detail")
+def template_detail(template_id: int, user: User = Depends(get_current_user),
+                    db: Session = Depends(get_db)):
+    t = db.get(Template, template_id)
+    if not t or t.status != 1:
+        raise HTTPException(404, "模板不存在或已下架")
+    stat = db.get(TemplateStat, t.id)
+    cats = (db.query(Category.name)
+            .join(TemplateCategoryRelation,
+                  TemplateCategoryRelation.category_id == Category.id)
+            .filter(TemplateCategoryRelation.template_id == t.id).all())
+    # 注意：不返回 system_prompt / user_prompt_template（核心资产不下发）
+    return {"code": 0, "data": {
+        **_tpl_card(t, stat),
+        "categories": [c[0] for c in cats],
+        "usage_example": t.usage_example or "",
+        "usage_tips": t.usage_tips or "",
+        "response_length": t.response_length,
+    }}
+
+
+@router.post("/{template_id}/bookmark")
+def add_bookmark(template_id: int, user: User = Depends(get_current_user),
+                 db: Session = Depends(get_db)):
+    if not db.get(Template, template_id):
+        raise HTTPException(404, "模板不存在")
+    if not db.query(Bookmark).filter_by(user_id=user.id, template_id=template_id).first():
+        db.add(Bookmark(user_id=user.id, template_id=template_id))
+        stat = db.get(TemplateStat, template_id) or TemplateStat(template_id=template_id)
+        stat.bookmark_cnt += 1
+        db.merge(stat)
+        db.commit()
+    return {"code": 0, "data": "ok"}
+
+
+@router.delete("/{template_id}/bookmark")
+def remove_bookmark(template_id: int, user: User = Depends(get_current_user),
+                    db: Session = Depends(get_db)):
+    b = db.query(Bookmark).filter_by(user_id=user.id, template_id=template_id).first()
+    if b:
+        db.delete(b)
+        db.commit()
+    return {"code": 0, "data": "ok"}
