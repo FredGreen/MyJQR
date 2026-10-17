@@ -1,58 +1,10 @@
 <template>
-  <div class="page">
-    <h2>开始创作</h2>
-
-    <!-- ⓪ 未选模板：选择创作方式（不再直接暴露输入框导致报错） -->
-    <el-row v-if="phase === 'input' && !tpl" :gutter="16">
-      <el-col :xs="24" :sm="12" style="margin-bottom:16px">
-        <el-card shadow="hover" class="mode-card free" @click="useFree">
-          <div class="mode-ico">🎨</div>
-          <div class="mode-name">自由创作</div>
-          <div class="mode-desc">不想挑模板？一句话说清想写什么，AI 自选文体与结构自由发挥</div>
-          <el-button type="primary" round style="margin-top:14px"
-                     :loading="freeLoading">开始自由创作{{ freeTpl ? `（${freeTpl.joule_price} J/次）` : '' }}</el-button>
-        </el-card>
-      </el-col>
-      <el-col :xs="24" :sm="12" style="margin-bottom:16px">
-        <el-card shadow="hover" class="mode-card tpl" @click="$router.push('/market')">
-          <div class="mode-ico">🧩</div>
-          <div class="mode-name">模板创作</div>
-          <div class="mode-desc">{{ tplCount ? `${tplCount}+ 个文风模板` : '精选文风模板' }}：故事会、今日选题、种草笔记……挑一个更对味</div>
-          <el-button round style="margin-top:14px">去模板市场挑选</el-button>
-        </el-card>
-      </el-col>
-    </el-row>
-
-    <!-- ① 选模板 + 输入 -->
-    <el-card v-if="phase === 'input' && tpl" style="max-width:760px">
-      <div v-if="tpl" class="tpl-bar">
-        <b>{{ tpl.name }}</b>
-        <el-tag type="warning" size="small">{{ tpl.joule_price }} J/次</el-tag>
-        <span class="muted">{{ tpl.description }}</span>
-        <el-button text size="small" @click="$router.push('/market')">换模板</el-button>
-      </div>
-      <el-input v-model="input" type="textarea" :rows="5" size="large"
-                :placeholder="tpl?.workflow_hint || '一句话描述你想写什么，例如：写瑞幸×茅台联名营销分析'" />
-      <el-input v-model="material" type="textarea" :rows="3" style="margin-top:10px"
-                placeholder="参考素材/你的观点（可选，附素材 AI 味更低）" />
-      <div class="opts">
-        <el-select v-model="responseLength" style="width:130px">
-          <el-option :value="0" label="微篇 ~100字" />
-          <el-option :value="1" label="短篇 ~1200字" />
-          <el-option :value="2" label="中篇 ~2000字" />
-          <el-option :value="3" label="长篇 ~3000字" />
-        </el-select>
-        <el-switch v-model="enableThink" active-text="深度思考" />
-        <el-switch v-model="showRefs" active-text="展示引用" />
-      </div>
-      <el-button type="primary" size="large" style="margin-top:14px" :loading="starting"
-                 @click="start">{{ starting ? '提交中...' : `生成（扣 ${tpl?.joule_price ?? '—'} J）` }}</el-button>
-    </el-card>
-
+  <div class="page create-page">
     <!-- ② 生成过程 -->
-    <el-card v-else style="max-width:860px">
+    <el-card v-if="phase === 'run'" class="run-card">
       <div class="statusbar">
         <el-tag :type="statusType" size="large">{{ stageText }}</el-tag>
+        <span class="tpl-going">{{ tpl?.name }} · {{ tpl?.joule_price }}J</span>
         <span v-if="aiRate !== null" class="report">
           AI 率检测：<b :style="{ color: aiRate < 50 ? '#1b7d46' : '#d4820a' }">{{ aiRate }}%</b>
           （{{ aiLevel }}）
@@ -69,6 +21,87 @@
         <el-button type="primary" @click="reset">再写一篇</el-button>
       </div>
     </el-card>
+
+    <!-- ① 选择 + 输入 -->
+    <template v-else>
+      <div class="greet">
+        <div>
+          <h2>Hi，{{ auth.nickname || '创作者' }} 👋</h2>
+          <p class="sub">今天想写点什么？选个文风模板，或让 AI 自由发挥</p>
+        </div>
+        <el-tag class="joule-chip" effect="plain" size="large">💰 {{ auth.joule }} J</el-tag>
+      </div>
+
+      <!-- 模板横滑卡片流 -->
+      <div class="sec-head">
+        <b>✨ 创作模板</b>
+        <el-button text type="primary" @click="$router.push('/market')">更多模板 ›</el-button>
+      </div>
+      <div class="strip-wrap">
+      <div class="tpl-strip">
+        <div v-if="freeTpl" class="tpl-card free"
+             :class="{ on: tpl?.template_id === freeTpl.template_id }"
+             @click="selectFree">
+          <div class="tc-head">
+            <span class="tc-ico">🎨</span>
+            <b class="tc-name">{{ freeTpl.name }}</b>
+            <el-tag size="small" type="warning" effect="plain">{{ freeTpl.joule_price }}J</el-tag>
+          </div>
+          <div class="tc-stats"><span>⚡ 原生大模型</span><span>🤖 AI 自选文体</span></div>
+          <div class="tc-desc">{{ freeTpl.description }}</div>
+          <div v-if="tpl?.template_id === freeTpl.template_id" class="tc-check">✓ 已选择</div>
+        </div>
+        <div v-for="t in tplCards" :key="t.template_id" class="tpl-card"
+             :class="{ on: tpl?.template_id === t.template_id }"
+             @click="selectTpl(t)">
+          <div class="tc-head">
+            <span class="tc-ico">🧩</span>
+            <b class="tc-name">{{ t.name }}</b>
+            <el-tag size="small" type="warning" effect="plain">{{ t.joule_price }}J</el-tag>
+          </div>
+          <div class="tc-stats">
+            <span>⭐ {{ Number(t.score).toFixed(1) }}</span>
+            <span>🔥 {{ heat(t.stats?.use_cnt || 0) }}</span>
+          </div>
+          <div class="tc-desc">{{ t.description }}</div>
+          <div v-if="tpl?.template_id === t.template_id" class="tc-check">✓ 已选择</div>
+        </div>
+      </div>
+      </div>
+
+      <!-- 输入区 -->
+      <el-card class="input-card">
+        <div v-if="tpl" class="sel-bar">
+          <span>已选：<b>{{ tpl.name }}</b></span>
+          <el-tag size="small" type="warning" effect="plain">{{ tpl.joule_price }} J/次</el-tag>
+          <el-button text size="small" type="primary" @click="$router.push('/market')">换一个</el-button>
+        </div>
+        <el-input v-model="input" type="textarea" :rows="4" size="large"
+                  :placeholder="tpl?.workflow_hint || '您可以输入一个词或一段素材，例如：瑞幸×茅台联名营销分析'" />
+        <el-input v-model="material" type="textarea" :rows="2" class="material"
+                  placeholder="＋ 参考素材 / 你的观点（可选，附素材 AI 味更低）" />
+        <div class="chips">
+          <span class="chip-label">长度</span>
+          <el-radio-group v-model="responseLength" size="small">
+            <el-radio-button :value="0">微 100字</el-radio-button>
+            <el-radio-button :value="1">短 1200</el-radio-button>
+            <el-radio-button :value="2">中 2000</el-radio-button>
+            <el-radio-button :value="3">长 3000</el-radio-button>
+          </el-radio-group>
+          <span class="chip-label" :class="{ off: !tpl?.enable_web_search }">🌐 联网</span>
+          <el-switch v-model="showRefs" size="small" :disabled="!tpl?.enable_web_search" />
+          <span class="chip-label" :class="{ off: !tpl?.enable_think }">🧠 深度思考</span>
+          <el-switch v-model="enableThink" size="small" :disabled="!tpl?.enable_think" />
+        </div>
+        <div class="send-row">
+          <span class="price-hint">{{ tpl ? `本次消耗 ${tpl.joule_price} J` : '请先在上方选择模板' }}</span>
+          <el-button type="primary" size="large" round :loading="starting"
+                     :disabled="!tpl || input.trim().length < 5" @click="start">
+            {{ starting ? '提交中…' : '开始创作 ✨' }}
+          </el-button>
+        </div>
+      </el-card>
+    </template>
   </div>
 </template>
 
@@ -85,8 +118,10 @@ const auth = useAuth()
 
 const tpl = ref<any>(null)
 const freeTpl = ref<any>(null)
-const freeLoading = ref(false)
-const tplCount = ref(0)
+const recommend = ref<any[]>([])
+const tplCards = computed(() =>
+  recommend.value.filter((t: any) =>
+    t.name !== '自由创作' && t.template_id !== freeTpl.value?.template_id))
 const input = ref('')
 const material = ref('')
 const responseLength = ref(2)
@@ -108,35 +143,52 @@ const statusType = computed(() =>
   finished.value ? 'success' : streaming.value ? 'primary' : 'info')
 const plain = computed(() => output.value.replace(/[#*`>\-\[\]]/g, ''))
 
+function heat(cnt: number): string {
+  return cnt >= 10000 ? `${(cnt / 10000).toFixed(1)}万人使用` : `${cnt}人使用`
+}
+
 onMounted(async () => {
-  // 兜底模式信息（无论是否带模板进来都预取，点击卡片零等待）
   get('/template/free-creation').then(r => { freeTpl.value = r.data }).catch(() => {})
-  get('/template/recommend/list?page_size=1').then(r => { tplCount.value = r.data.total }).catch(() => {})
-  const tid = route.query.template_id
-  if (!tid) return
-  const r = await get(`/template/detail?template_id=${tid}`)
-  tpl.value = r.data
-  if (r.data.name === '降AI率') {
-    tpl.value.workflow_hint = '把需要降 AI 率的全文直接粘贴到这里'
-  }
-  responseLength.value = r.data.response_length || 2
+  get('/template/recommend/list?page_size=10').then(r => {
+    recommend.value = r.data.list
+    // 带 template_id 进来：优先选中对应卡片；不在前 10 里则拉详情直接选中
+    const tid = Number(route.query.template_id) || 0
+    if (tid) {
+      const inStrip = r.data.list.find((t: any) => t.template_id === tid)
+      if (inStrip) selectTpl(inStrip)
+      else selectById(tid)
+    }
+  }).catch(() => {})
 })
 
-async function useFree() {
-  freeLoading.value = true
+async function selectById(tid: number) {
+  try {
+    const r = await get(`/template/detail?template_id=${tid}`)
+    tpl.value = r.data
+    responseLength.value = r.data.response_length || 2
+    if (r.data.name === '降AI率') tpl.value.workflow_hint = '把需要降 AI 率的全文直接粘贴到这里'
+  } catch (e: any) { ElMessage.error(e.message) }
+}
+
+async function selectTpl(t: any) {
+  if (tpl.value?.template_id === t.template_id) return
+  await selectById(t.template_id)
+}
+
+async function selectFree() {
+  if (tpl.value?.template_id === freeTpl.value?.template_id) return
   try {
     const r = await get('/template/free-creation')
     freeTpl.value = r.data
     tpl.value = { ...r.data, enable_web_search: false, enable_think: true }
     responseLength.value = r.data.response_length || 2
-  } catch (e: any) {
-    ElMessage.error(e.message || '自由创作暂不可用，请选择模板')
-  } finally { freeLoading.value = false }
+    showRefs.value = false
+  } catch (e: any) { ElMessage.error(e.message || '自由创作暂不可用') }
 }
 
 async function start() {
   if (input.value.trim().length < 5) return ElMessage.warning('请至少输入 5 个字')
-  if (!tpl.value) return ElMessage.warning('请先选择创作方式：自由创作或挑选模板')
+  if (!tpl.value) return ElMessage.warning('请先选择创作模板')
   starting.value = true
   try {
     const r = await post('/works/generate', {
@@ -156,10 +208,10 @@ async function start() {
         else if (event === 'error') {
           finished.value = true; streaming.value = false
           stageText.value = `失败：${data.code}`
-          if (data.refunded) { ElMessage.warning('生成失败，焦耳已退回'); auth.joule = auth.joule }
+          if (data.refunded) { ElMessage.warning('生成失败，焦耳已退回') }
         }
       },
-      onError: (e) => { stageText.value = '连接中断，请刷新查看结果' },
+      onError: () => { stageText.value = '连接中断，请刷新查看结果' },
     })
   } catch (e: any) {
     ElMessage.error(e.message)
@@ -178,21 +230,73 @@ function reset() {
 </script>
 
 <style scoped>
-.tpl-bar { margin-bottom: 12px; display: flex; gap: 10px; align-items: center; }
-.muted { color: #999; font-size: 13px; flex: 1; }
-.mode-card { cursor: pointer; text-align: center; padding: 28px 18px; border: 1.5px solid transparent; }
-.mode-card:hover { transform: translateY(-2px); }
-.mode-card.free { background: linear-gradient(160deg,#f0f7ff 0%,#fdf6ec 100%); }
-.mode-card.tpl { background: linear-gradient(160deg,#f6f1fd 0%,#eefaf3 100%); }
-.mode-ico { font-size: 40px; }
-.mode-name { font-size: 20px; font-weight: 700; margin-top: 10px; color: #1b2a4a; }
-.mode-desc { color: #888; font-size: 13px; margin-top: 8px; line-height: 1.7; }
-.opts { margin-top: 12px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
-.statusbar { display: flex; justify-content: space-between; margin-bottom:  12px; flex-wrap: wrap; gap: 8px; }
+.create-page { max-width: 1000px; margin: 0 auto; }
+
+.greet { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.greet h2 { margin: 4px 0; font-size: 24px; }
+.sub { color: #999; margin: 4px 0 0; font-size: 14px; }
+.joule-chip { color: #d4820a; font-weight: 600; }
+
+.sec-head { display: flex; justify-content: space-between; align-items: center; margin: 18px 0 10px; }
+.sec-head b { font-size: 16px; }
+
+.strip-wrap { position: relative; }
+.strip-wrap::after {
+  content: ''; position: absolute; right: 0; top: 0; bottom: 10px; width: 36px;
+  background: linear-gradient(90deg, rgba(245, 246, 248, 0), #f5f6f8);
+  pointer-events: none;
+}
+.tpl-strip {
+  display: flex; gap: 12px; overflow-x: auto; padding: 4px 2px 12px;
+  scroll-snap-type: x mandatory;
+}
+.tpl-strip::-webkit-scrollbar { height: 4px; }
+.tpl-strip::-webkit-scrollbar-track { background: transparent; }
+.tpl-strip::-webkit-scrollbar-thumb { background: transparent; border-radius: 2px; }
+.strip-wrap:hover .tpl-strip::-webkit-scrollbar-thumb { background: #dfe3ea; }
+.tpl-card {
+  flex: 0 0 250px; height: 148px; scroll-snap-align: start; cursor: pointer;
+  background: #fff; border: 1.5px solid #eceef2; border-radius: 12px; padding: 14px;
+  position: relative; overflow: hidden; transition: all .15s;
+}
+.tpl-card:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(27,42,74,.08); }
+.tpl-card.on { border-color: #409eff; box-shadow: 0 0 0 3px rgba(64,158,255,.12); }
+.tpl-card.free { background: linear-gradient(150deg,#f2f8ff 0%,#fdf6ec 100%); }
+.tc-head { display: flex; align-items: center; gap: 6px; }
+.tc-ico { font-size: 18px; }
+.tc-name { flex: 1; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tc-stats { color: #d4820a; font-size: 12px; display: flex; gap: 12px; margin-top: 8px; }
+.tc-desc { color: #888; font-size: 12px; line-height: 1.6; margin-top: 6px; height: 38px;
+  overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.tc-check {
+  position: absolute; right: 10px; bottom: 10px;
+  background: #409eff; color: #fff; font-size: 11px;
+  padding: 2px 8px; border-radius: 10px;
+}
+
+.input-card { max-width: 860px; }
+.sel-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 14px; }
+.sel-bar .el-button { margin-left: auto; }
+.run-card { max-width: 860px; }
+.material { margin-top: 10px; }
+.chips { display: flex; align-items: center; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+.chip-label { color: #666; font-size: 13px; }
+.chip-label.off { color: #c0c4cc; }
+.send-row { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; }
+.price-hint { color: #999; font-size: 13px; }
+
+.statusbar { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+.tpl-going { color: #999; font-size: 13px; }
+.report { margin-left: auto; }
 .output { white-space: pre-wrap; font-size: 15px; line-height: 1.9; min-height: 300px;
   background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
 .cursor { animation: blink 1s infinite; }
 @keyframes blink { 50% { opacity: 0 } }
 .refs { margin-top: 12px; font-size: 12px; color: #888; }
 .ref { margin: 2px 0; }
+
+@media (max-width: 768px) {
+  .tpl-card { flex: 0 0 78%; }
+  .send-row .el-button { flex: 1; }
+}
 </style>
