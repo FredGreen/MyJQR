@@ -19,24 +19,28 @@ MyJQR/
 cp .env.example .env          # 填入 DEEPSEEK_API_KEY（必填）、ZHIPU_API_KEY、BOCHA_API_KEY（可选）
 docker compose up -d --build  # 起 nginx/api/worker/mysql/redis
 docker compose run --rm api python -m app.seeds   # 建表 + 15分类/10模板/管理员
+# 容器内 DSN 由 compose 自动覆盖为内部主机名，.env 保持 localhost 即可；
+# 宿主机端口冲突（如本机已有 MySQL 占 3306）改 .env 的 MYSQL_HOST_PORT/REDIS_HOST_PORT/HTTP_PORT/API_PORT。
+# 所有服务隔离在 compose 项目 myjqr 下（专属网络 myjqr-net、容器 myjqr-*），与本机其他 Docker 部署互不干扰。
 # 前端（本机构建产物挂给 nginx）
 cd apps/web && npm i && npm run build && cd ../..
 cd apps/admin && npm i && npm run build && cd ../..
 # 访问：http://服务器IP/（用户端）  http://服务器IP/admin/（管理后台 admin / admin123456）
 ```
 
-## 本机开发（无 Docker）
+## 本机开发（数据库用 Docker，前后端裸跑）
 
-需要自备 MySQL 8 与 Redis，`.env` 中主机名改 `localhost`：
+`.env` 主机名保持 `localhost`（compose 全量部署时会自动覆盖成容器主机名，无需手改）：
 
 ```bash
+docker compose up -d mysql redis     # 数据库 :13306/:6379（3306 被本机 MySQL80 占用时）
 cd backend
 pip install -r requirements.txt
-python -m app.seeds                                # 建表+种子
-uvicorn app.main:app --reload --port 9000          # API :9000
-arq app.tasks.worker.WorkerSettings                # ARQ worker（另开终端）
-cd ../apps/web && npm i && npm run dev             # 用户端 :8080（/api 已代理）
-cd ../admin && npm i && npm run dev                # 后台 :8081
+python -X utf8 -m app.seeds                          # 建表+种子
+uvicorn app.main:app --reload --port 9000            # API :9000
+arq app.tasks.worker.WorkerSettings                  # ARQ worker（另开终端）
+cd ../apps/web && npm i && npm run dev               # 用户端 :8080（/api 已代理）
+cd ../admin && npm i && npm run dev                  # 后台 :8081
 ```
 
 ## 已实现功能（MVP 骨架）
