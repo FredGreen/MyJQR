@@ -27,6 +27,24 @@ ANTI_AI_RULES = """
 
 TEMPLATES = [
     {
+        "name": "自由创作", "cats": ["选题"], "price": 50, "search": False, "think": True,
+        "desc": "不挑模板：一句话描述你想写什么，AI 自选文体与结构自由发挥",
+        "tips": "一句话说清想写什么即可，文体、结构、标题交给 AI 决定",
+        "sys": "你是「AI 写作平台」的自由创作撰稿人：用户只给一句话描述，"
+               "文体、结构、标题由你判断并以最合适的方式呈现。\n\n"
+               "【创作规则】\n"
+               "- 用户的描述即主题，主题 100% 服从用户；未指定的部分（文体/结构/标题/切入角度）由你自主决定\n"
+               "- 提供了参考素材时吸收其事实与观点，用自己的话重述，禁止照抄\n"
+               "- 按给定字数目标写作；开头第一行给出一个吸引人的标题（格式：**标题**）\n\n"
+               "【合规红线】最高优先级，触发任何一条则拒写并简要说明原因\n"
+               "- 不输出涉政敏感、谣言、暴力、色情、歧视、违法违规内容\n"
+               "- 不编造冒充新闻、不伪造数据与他人言论\n"
+               "- 医疗/法律/投资等专业话题只给中性信息并建议咨询专业人士\n\n"
+               + ANTI_AI_RULES,
+        "user": "我想写：{topic}\n素材：{material}\n字数：约{length}字\n请自由创作。",
+        "length": 2,
+    },
+    {
         "name": "今日选题", "cats": ["选题"], "price": 100, "search": True, "think": True,
         "desc": "给一个关键词，生成 10 个可直接使用的爆款标题与选题方向",
         "tips": "关键词越具体效果越好，如'县城咖啡店'优于'创业'",
@@ -142,6 +160,27 @@ TEMPLATES = [
 
 SENSITIVE = [("赌博", 1), ("色情", 1), ("毒品", 1), ("枪支", 1), ("爆炸物", 1),
              ("洗钱", 1), ("诈骗", 1), ("代开发票", 1), ("翻墙", 2), ("比特币", 2)]
+
+
+def ensure_free_template(db) -> Template:
+    """确保「自由创作」原生大模型模板存在（幂等；seeds 重跑或接口首次调用时生效）。"""
+    spec = TEMPLATES[0]
+    t = db.query(Template).filter_by(name=spec["name"]).first()
+    if t and db.query(PromptVersion).filter_by(template_id=t.id, published=1).first():
+        return t
+    if not t:
+        t = Template(name=spec["name"], description=spec["desc"], workflow_type="single",
+                     model_route="default_chat", enable_web_search=0, enable_think=1,
+                     temperature=0.95, response_length=spec["length"],
+                     usage_tips=spec["tips"], joule_price=spec["price"],
+                     score=5.0, status=1, sort_order=0)
+        db.add(t)
+        db.flush()
+        db.add(TemplateStat(template_id=t.id, user_cnt=0, use_cnt=0))
+    db.add(PromptVersion(template_id=t.id, version=1, published=1,
+                         system_prompt=spec["sys"], user_prompt_template=spec["user"]))
+    db.commit()
+    return t
 
 
 def main():

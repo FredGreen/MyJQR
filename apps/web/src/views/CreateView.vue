@@ -2,8 +2,29 @@
   <div class="page">
     <h2>开始创作</h2>
 
+    <!-- ⓪ 未选模板：选择创作方式（不再直接暴露输入框导致报错） -->
+    <el-row v-if="phase === 'input' && !tpl" :gutter="16">
+      <el-col :xs="24" :sm="12" style="margin-bottom:16px">
+        <el-card shadow="hover" class="mode-card free" @click="useFree">
+          <div class="mode-ico">🎨</div>
+          <div class="mode-name">自由创作</div>
+          <div class="mode-desc">不想挑模板？一句话说清想写什么，AI 自选文体与结构自由发挥</div>
+          <el-button type="primary" round style="margin-top:14px"
+                     :loading="freeLoading">开始自由创作{{ freeTpl ? `（${freeTpl.joule_price} J/次）` : '' }}</el-button>
+        </el-card>
+      </el-col>
+      <el-col :xs="24" :sm="12" style="margin-bottom:16px">
+        <el-card shadow="hover" class="mode-card tpl" @click="$router.push('/market')">
+          <div class="mode-ico">🧩</div>
+          <div class="mode-name">模板创作</div>
+          <div class="mode-desc">{{ tplCount ? `${tplCount}+ 个文风模板` : '精选文风模板' }}：故事会、今日选题、种草笔记……挑一个更对味</div>
+          <el-button round style="margin-top:14px">去模板市场挑选</el-button>
+        </el-card>
+      </el-col>
+    </el-row>
+
     <!-- ① 选模板 + 输入 -->
-    <el-card v-if="phase === 'input'" style="max-width:760px">
+    <el-card v-if="phase === 'input' && tpl" style="max-width:760px">
       <div v-if="tpl" class="tpl-bar">
         <b>{{ tpl.name }}</b>
         <el-tag type="warning" size="small">{{ tpl.joule_price }} J/次</el-tag>
@@ -63,6 +84,9 @@ const route = useRoute()
 const auth = useAuth()
 
 const tpl = ref<any>(null)
+const freeTpl = ref<any>(null)
+const freeLoading = ref(false)
+const tplCount = ref(0)
 const input = ref('')
 const material = ref('')
 const responseLength = ref(2)
@@ -85,6 +109,9 @@ const statusType = computed(() =>
 const plain = computed(() => output.value.replace(/[#*`>\-\[\]]/g, ''))
 
 onMounted(async () => {
+  // 兜底模式信息（无论是否带模板进来都预取，点击卡片零等待）
+  get('/template/free-creation').then(r => { freeTpl.value = r.data }).catch(() => {})
+  get('/template/recommend/list?page_size=1').then(r => { tplCount.value = r.data.total }).catch(() => {})
   const tid = route.query.template_id
   if (!tid) return
   const r = await get(`/template/detail?template_id=${tid}`)
@@ -95,8 +122,21 @@ onMounted(async () => {
   responseLength.value = r.data.response_length || 2
 })
 
+async function useFree() {
+  freeLoading.value = true
+  try {
+    const r = await get('/template/free-creation')
+    freeTpl.value = r.data
+    tpl.value = { ...r.data, enable_web_search: false, enable_think: true }
+    responseLength.value = r.data.response_length || 2
+  } catch (e: any) {
+    ElMessage.error(e.message || '自由创作暂不可用，请选择模板')
+  } finally { freeLoading.value = false }
+}
+
 async function start() {
   if (input.value.trim().length < 5) return ElMessage.warning('请至少输入 5 个字')
+  if (!tpl.value) return ElMessage.warning('请先选择创作方式：自由创作或挑选模板')
   starting.value = true
   try {
     const r = await post('/works/generate', {
@@ -140,8 +180,15 @@ function reset() {
 <style scoped>
 .tpl-bar { margin-bottom: 12px; display: flex; gap: 10px; align-items: center; }
 .muted { color: #999; font-size: 13px; flex: 1; }
-.opts { margin-top: 12px; display: flex; gap: 24px; align-items: center; }
-.statusbar { display: flex; justify-content: space-between; margin-bottom: 12px; }
+.mode-card { cursor: pointer; text-align: center; padding: 28px 18px; border: 1.5px solid transparent; }
+.mode-card:hover { transform: translateY(-2px); }
+.mode-card.free { background: linear-gradient(160deg,#f0f7ff 0%,#fdf6ec 100%); }
+.mode-card.tpl { background: linear-gradient(160deg,#f6f1fd 0%,#eefaf3 100%); }
+.mode-ico { font-size: 40px; }
+.mode-name { font-size: 20px; font-weight: 700; margin-top: 10px; color: #1b2a4a; }
+.mode-desc { color: #888; font-size: 13px; margin-top: 8px; line-height: 1.7; }
+.opts { margin-top: 12px; display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+.statusbar { display: flex; justify-content: space-between; margin-bottom:  12px; flex-wrap: wrap; gap: 8px; }
 .output { white-space: pre-wrap; font-size: 15px; line-height: 1.9; min-height: 300px;
   background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
 .cursor { animation: blink 1s infinite; }

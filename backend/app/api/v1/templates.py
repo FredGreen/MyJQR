@@ -76,6 +76,17 @@ def category_templates(category_id: int, cursor: int = 0, page_size: int = 20,
         "cursor": rows[-1][2].rank if has_more else 0, "has_more": has_more}}
 
 
+@router.get("/free-creation")
+def free_creation(user: User = Depends(get_current_user),
+                  db: Session = Depends(get_db)):
+    """创作页兜底模式：原生大模型自由创作（不存在则自动初始化，幂等）。"""
+    from app.seeds import ensure_free_template
+    t = ensure_free_template(db)
+    return {"code": 0, "data": {
+        "template_id": t.id, "name": t.name, "description": t.description,
+        "joule_price": t.joule_price, "response_length": t.response_length}}
+
+
 @router.get("/detail")
 def template_detail(template_id: int, user: User = Depends(get_current_user),
                     db: Session = Depends(get_db)):
