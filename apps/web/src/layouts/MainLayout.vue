@@ -23,7 +23,14 @@
         <span class="m-joule">{{ auth.joule }} J</span>
         <el-button size="small" text @click="logout">退出</el-button>
       </el-header>
-      <el-main class="main"><router-view /></el-main>
+      <el-main class="main">
+        <router-view v-slot="{ Component }">
+          <!-- 创作页缓存：去市场选模板/切其他页回来，已输入内容与选中状态不丢 -->
+          <keep-alive include="CreateView">
+            <component :is="Component" />
+          </keep-alive>
+        </router-view>
+      </el-main>
     </el-container>
 
     <!-- 手机底部导航 -->

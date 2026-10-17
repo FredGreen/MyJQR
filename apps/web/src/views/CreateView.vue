@@ -38,35 +38,28 @@
         <el-button text type="primary" @click="$router.push('/market')">更多模板 ›</el-button>
       </div>
       <div class="strip-wrap">
-      <div class="tpl-strip">
-        <div v-if="freeTpl" class="tpl-card free"
-             :class="{ on: tpl?.template_id === freeTpl.template_id }"
-             @click="selectFree(true)">
-          <div class="tc-head">
-            <span class="tc-ico">🎨</span>
-            <b class="tc-name">{{ freeTpl.name }}</b>
-            <el-tag size="small" type="warning" effect="plain">{{ freeTpl.joule_price }}J</el-tag>
+        <div ref="stripEl" class="tpl-strip">
+          <div v-for="t in allCards" :key="t.template_id" class="tpl-card"
+               :class="{ on: tpl?.template_id === t.template_id, free: t.isFree }"
+               @click="t.isFree ? selectFree(true) : selectTpl(t)">
+            <div class="tc-head">
+              <span class="tc-ico">{{ t.isFree ? '🎨' : '🧩' }}</span>
+              <b class="tc-name">{{ t.name }}</b>
+              <el-tag size="small" type="warning" effect="plain">{{ t.joule_price }}J</el-tag>
+            </div>
+            <div class="tc-stats">
+              <template v-if="t.isFree">
+                <span>⚡ 原生大模型</span><span>🤖 AI 自选文体</span>
+              </template>
+              <template v-else>
+                <span>⭐ {{ Number(t.score).toFixed(1) }}</span>
+                <span>🔥 {{ heat(t.stats?.use_cnt || 0) }}</span>
+              </template>
+            </div>
+            <div class="tc-desc">{{ t.description }}</div>
+            <div v-if="tpl?.template_id === t.template_id" class="tc-check">✓ 已选择</div>
           </div>
-          <div class="tc-stats"><span>⚡ 原生大模型</span><span>🤖 AI 自选文体</span></div>
-          <div class="tc-desc">{{ freeTpl.description }}</div>
-          <div v-if="tpl?.template_id === freeTpl.template_id" class="tc-check">✓ 已选择</div>
         </div>
-        <div v-for="t in tplCards" :key="t.template_id" class="tpl-card"
-             :class="{ on: tpl?.template_id === t.template_id }"
-             @click="selectTpl(t)">
-          <div class="tc-head">
-            <span class="tc-ico">🧩</span>
-            <b class="tc-name">{{ t.name }}</b>
-            <el-tag size="small" type="warning" effect="plain">{{ t.joule_price }}J</el-tag>
-          </div>
-          <div class="tc-stats">
-            <span>⭐ {{ Number(t.score).toFixed(1) }}</span>
-            <span>🔥 {{ heat(t.stats?.use_cnt || 0) }}</span>
-          </div>
-          <div class="tc-desc">{{ t.description }}</div>
-          <div v-if="tpl?.template_id === t.template_id" class="tc-check">✓ 已选择</div>
-        </div>
-      </div>
       </div>
 
       <!-- 输入区 -->
@@ -106,12 +99,14 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { get, post } from '../api/http'
 import { openSse } from '../api/sse'
 import { useAuth } from '../stores/auth'
+
+defineOptions({ name: 'CreateView' })
 
 const route = useRoute()
 const auth = useAuth()
@@ -120,13 +115,21 @@ const tpl = ref<any>(null)
 const freeTpl = ref<any>(null)
 const recommend = ref<any[]>([])
 const selectedTid = ref(0)
-const tplCards = computed(() => {
-  const list = recommend.value.filter((t: any) =>
-    t.name !== '自由创作' && t.template_id !== freeTpl.value?.template_id)
-  // 选中的模板卡置顶，保证用户看得见
-  const i = list.findIndex((t: any) => t.template_id === selectedTid.value)
-  if (i > 0) return [list[i], ...list.slice(0, i), ...list.slice(i + 1)]
-  return list
+const stripEl = ref<HTMLElement | null>(null)
+const allCards = computed(() => {
+  const free = freeTpl.value
+    ? [{ template_id: freeTpl.value.template_id, name: freeTpl.value.name,
+        description: freeTpl.value.description, joule_price: freeTpl.value.joule_price,
+        isFree: true }]
+    : []
+  const list = recommend.value
+    .filter((t: any) => t.name !== '自由创作' && t.template_id !== freeTpl.value?.template_id)
+    .map((t: any) => ({ ...t, isFree: false }))
+  const cards = [...free, ...list]
+  // 选中的卡永远排第一位，保证用户一眼看到 ✓已选择
+  const i = cards.findIndex((c: any) => c.template_id === selectedTid.value)
+  if (i > 0) return [cards[i], ...cards.slice(0, i), ...cards.slice(i + 1)]
+  return cards
 })
 const input = ref('')
 const material = ref('')
@@ -172,6 +175,17 @@ onMounted(async () => {
     recommend.value = r.data.list
   } catch { /* 列表失败不影响选中 */ }
   if (initTid) await applySelection(initTid, saveIt)
+})
+
+// 选中变化 → 卡片已重排到第一位，横滑条滚回开头让用户看到 ✓已选择
+watch(selectedTid, () => {
+  nextTick(() => stripEl.value?.scrollTo({ left: 0, behavior: 'smooth' }))
+})
+
+// 页面被 KeepAlive 缓存后仍要响应市场带入的模板（输入内容不清空）
+watch(() => route.query.template_id, async (nv, ov) => {
+  const tid = Number(nv) || 0
+  if (tid && tid !== Number(ov)) await applySelection(tid, true)
 })
 
 async function applySelection(tid: number, save = false) {
