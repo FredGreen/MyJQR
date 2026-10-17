@@ -6,6 +6,8 @@ export default defineConfig({
   base: '/admin/',
   server: {
     port: 8081,
+    // 临时外网分享（ngrok）
+    allowedHosts: true,
     proxy: { '/api': 'http://localhost:9000' },
   },
 })
