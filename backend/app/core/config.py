@@ -1,9 +1,16 @@
 from functools import lru_cache
+from pathlib import Path
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+# 项目根 MyJQR/（backend/app/core/config.py 向上三级），.env 固定从根读，
+# 与运行时工作目录（PyCharm/终端/Docker）无关
+_REPO_ROOT = Path(__file__).resolve().parents[3]
+ROOT_ENV_FILE = _REPO_ROOT / ".env"
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
+    model_config = SettingsConfigDict(env_file=str(ROOT_ENV_FILE), extra="ignore")
 
     app_env: str = "dev"
     mysql_dsn: str = "mysql+pymysql://root:myjqr_root@localhost:3306/writing?charset=utf8mb4"
