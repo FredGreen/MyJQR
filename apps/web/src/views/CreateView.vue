@@ -41,7 +41,7 @@
       <div class="tpl-strip">
         <div v-if="freeTpl" class="tpl-card free"
              :class="{ on: tpl?.template_id === freeTpl.template_id }"
-             @click="selectFree">
+             @click="selectFree(true)">
           <div class="tc-head">
             <span class="tc-ico">🎨</span>
             <b class="tc-name">{{ freeTpl.name }}</b>
@@ -119,9 +119,15 @@ const auth = useAuth()
 const tpl = ref<any>(null)
 const freeTpl = ref<any>(null)
 const recommend = ref<any[]>([])
-const tplCards = computed(() =>
-  recommend.value.filter((t: any) =>
-    t.name !== '自由创作' && t.template_id !== freeTpl.value?.template_id))
+const selectedTid = ref(0)
+const tplCards = computed(() => {
+  const list = recommend.value.filter((t: any) =>
+    t.name !== '自由创作' && t.template_id !== freeTpl.value?.template_id)
+  // 选中的模板卡置顶，保证用户看得见
+  const i = list.findIndex((t: any) => t.template_id === selectedTid.value)
+  if (i > 0) return [list[i], ...list.slice(0, i), ...list.slice(i + 1)]
+  return list
+})
 const input = ref('')
 const material = ref('')
 const responseLength = ref(2)
@@ -148,41 +154,64 @@ function heat(cnt: number): string {
 }
 
 onMounted(async () => {
-  get('/template/free-creation').then(r => { freeTpl.value = r.data }).catch(() => {})
-  get('/template/recommend/list?page_size=10').then(r => {
+  try {
+    const f = await get('/template/free-creation')
+    freeTpl.value = f.data
+  } catch { /* 自由创作卡缺失不影响主流程 */ }
+  // 初始选中：URL 带入（市场跳转）> 服务端记住的上次选择 > 后端默认（今日选题）
+  let initTid = 0
+  let saveIt = false
+  try {
+    const p = await get('/template/preference')
+    initTid = p.data.template_id || 0
+  } catch { /* 无偏好也能进 */ }
+  const qtid = Number(route.query.template_id) || 0
+  if (qtid) { initTid = qtid; saveIt = true }
+  try {
+    const r = await get('/template/recommend/list?page_size=20')
     recommend.value = r.data.list
-    // 带 template_id 进来：优先选中对应卡片；不在前 10 里则拉详情直接选中
-    const tid = Number(route.query.template_id) || 0
-    if (tid) {
-      const inStrip = r.data.list.find((t: any) => t.template_id === tid)
-      if (inStrip) selectTpl(inStrip)
-      else selectById(tid)
-    }
-  }).catch(() => {})
+  } catch { /* 列表失败不影响选中 */ }
+  if (initTid) await applySelection(initTid, saveIt)
 })
 
-async function selectById(tid: number) {
+async function applySelection(tid: number, save = false) {
+  if (freeTpl.value && tid === freeTpl.value.template_id) {
+    await selectFree(save)
+  } else {
+    await selectById(tid, save)
+  }
+}
+
+async function selectById(tid: number, save = false) {
   try {
     const r = await get(`/template/detail?template_id=${tid}`)
     tpl.value = r.data
+    selectedTid.value = tid
     responseLength.value = r.data.response_length || 2
     if (r.data.name === '降AI率') tpl.value.workflow_hint = '把需要降 AI 率的全文直接粘贴到这里'
+    // 不在推荐列表里（如市场深处模板）→ 用详情数据补一张卡，置顶展示
+    if (!recommend.value.some((t: any) => t.template_id === tid)) {
+      recommend.value.unshift(r.data)
+    }
+    if (save) post('/template/preference', { template_id: tid }).catch(() => {})
   } catch (e: any) { ElMessage.error(e.message) }
 }
 
 async function selectTpl(t: any) {
   if (tpl.value?.template_id === t.template_id) return
-  await selectById(t.template_id)
+  await applySelection(t.template_id, true)
 }
 
-async function selectFree() {
+async function selectFree(save = false) {
   if (tpl.value?.template_id === freeTpl.value?.template_id) return
   try {
     const r = await get('/template/free-creation')
     freeTpl.value = r.data
     tpl.value = { ...r.data, enable_web_search: false, enable_think: true }
+    selectedTid.value = r.data.template_id
     responseLength.value = r.data.response_length || 2
     showRefs.value = false
+    if (save) post('/template/preference', { template_id: r.data.template_id }).catch(() => {})
   } catch (e: any) { ElMessage.error(e.message || '自由创作暂不可用') }
 }
 

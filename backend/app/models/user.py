@@ -35,3 +35,12 @@ class AdminUser(Base):
     password_hash: Mapped[str] = mapped_column(String(255))
     role: Mapped[str] = mapped_column(String(16), default="super")
     created_at: Mapped[datetime] = mapped_column(TIMESTAMP, server_default=func.now())
+
+
+class UserPref(Base):
+    """用户偏好：创作页记住上次选择的模板。"""
+    __tablename__ = "user_prefs"
+    user_id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    last_template_id: Mapped[int] = mapped_column(Integer, default=0)
+    updated_at: Mapped[datetime] = mapped_column(TIMESTAMP, server_default=func.now(),
+                                                 onupdate=func.now())

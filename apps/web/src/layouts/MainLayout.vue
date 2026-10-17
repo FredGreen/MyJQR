@@ -4,8 +4,8 @@
     <el-aside width="200px" class="aside desktop-only">
       <div class="logo">🅜 MyJQR</div>
       <el-menu router :default-active="$route.path" class="menu">
-        <el-menu-item index="/market">🧩 模板市场</el-menu-item>
         <el-menu-item index="/create">✍️ 开始创作</el-menu-item>
+        <el-menu-item index="/market">🧩 模板市场</el-menu-item>
         <el-menu-item index="/works">📚 我的作品</el-menu-item>
         <el-menu-item index="/joule">💰 我的焦耳</el-menu-item>
       </el-menu>
@@ -45,8 +45,8 @@ import { get } from '../api/http'
 const auth = useAuth()
 const router = useRouter()
 const navs = [
-  { to: '/market', ico: '🧩', label: '市场' },
   { to: '/create', ico: '✍️', label: '创作' },
+  { to: '/market', ico: '🧩', label: '市场' },
   { to: '/works', ico: '📚', label: '作品' },
   { to: '/joule', ico: '💰', label: '焦耳' },
 ]

@@ -1,4 +1,5 @@
 from fastapi import APIRouter, Depends, HTTPException
+from pydantic import BaseModel, Field
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
@@ -6,7 +7,7 @@ from app.core.deps import get_current_user
 from app.db import get_db
 from app.models.template import (Bookmark, Category, PromptVersion, Template,
                                  TemplateCategoryRelation, TemplateStat)
-from app.models.user import User
+from app.models.user import User, UserPref
 
 router = APIRouter(prefix="/template", tags=["template"])
 
@@ -85,6 +86,52 @@ def free_creation(user: User = Depends(get_current_user),
     return {"code": 0, "data": {
         "template_id": t.id, "name": t.name, "description": t.description,
         "joule_price": t.joule_price, "response_length": t.response_length}}
+
+
+def _default_template(db: Session) -> Template:
+    """从未选过时的默认模板：今日选题，其次任意上线模板。"""
+    t = (db.query(Template).filter(Template.status == 1, Template.name == "今日选题")
+         .order_by(Template.sort_order, Template.id).first())
+    if not t:
+        t = (db.query(Template).filter(Template.status == 1)
+             .order_by(Template.sort_order, Template.id).first())
+    if not t:
+        from app.seeds import ensure_free_template
+        t = ensure_free_template(db)
+    return t
+
+
+@router.get("/preference")
+def get_preference(user: User = Depends(get_current_user),
+                   db: Session = Depends(get_db)):
+    """创作页初始选择：上次选择（仍在线有效）> 默认模板。"""
+    pref = db.get(UserPref, user.id)
+    last_id = 0
+    if pref and pref.last_template_id:
+        t = db.get(Template, pref.last_template_id)
+        if t and t.status == 1:
+            last_id = t.id
+    chosen = last_id or _default_template(db).id
+    return {"code": 0, "data": {
+        "template_id": chosen, "last_template_id": last_id,
+        "is_default": last_id == 0}}
+
+
+class PreferenceIn(BaseModel):
+    template_id: int = Field(gt=0)
+
+
+@router.post("/preference")
+def save_preference(body: PreferenceIn, user: User = Depends(get_current_user),
+                    db: Session = Depends(get_db)):
+    t = db.get(Template, body.template_id)
+    if not t or t.status != 1:
+        raise HTTPException(404, "模板不存在或已下架")
+    pref = db.get(UserPref, user.id) or UserPref(user_id=user.id)
+    pref.last_template_id = t.id
+    db.merge(pref)
+    db.commit()
+    return {"code": 0, "data": "ok"}
 
 
 @router.get("/detail")

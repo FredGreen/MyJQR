@@ -8,7 +8,7 @@ const router = createRouter({
       path: '/',
       component: () => import('../layouts/MainLayout.vue'),
       children: [
-        { path: '', redirect: '/market' },
+        { path: '', redirect: '/create' },
         { path: 'market', component: () => import('../views/MarketView.vue') },
         { path: 'create', component: () => import('../views/CreateView.vue') },
         { path: 'works', component: () => import('../views/WorksView.vue') },
