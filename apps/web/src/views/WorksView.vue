@@ -1,15 +1,15 @@
 <template>
-  <div class="page">
+  <div class="page works-page">
     <h2>我的作品</h2>
-    <el-table :data="works" stripe>
+
+    <!-- 桌面：表格 -->
+    <el-table :data="works" stripe class="desk-table">
       <el-table-column prop="work_id" label="ID" width="70" />
       <el-table-column prop="title" label="标题" min-width="240" />
       <el-table-column prop="topic" label="主题" min-width="180" show-overflow-tooltip />
       <el-table-column label="状态" width="100">
         <template #default="{ row }">
-          <el-tag :type="row.status === 'done' ? 'success' : row.status === 'failed' ? 'danger' : 'info'" size="small">
-            {{ ({ done: '完成', failed: '失败', banned: '拦截', generating: '生成中' } as Record<string, string>)[row.status] || row.status }}
-          </el-tag>
+          <el-tag :type="typeOf(row.status)" size="small">{{ labelOf(row.status) }}</el-tag>
         </template>
       </el-table-column>
       <el-table-column prop="word_cnt" label="字数" width="90" />
@@ -20,6 +20,22 @@
         </template>
       </el-table-column>
     </el-table>
+
+    <!-- 手机：卡片列表 -->
+    <div class="m-list">
+      <div v-for="w in works" :key="w.work_id" class="m-card" @click="open(w.work_id)">
+        <div class="m-top">
+          <div class="m-title">{{ w.title || '(未命名)' }}</div>
+          <el-tag :type="typeOf(w.status)" size="small">{{ labelOf(w.status) }}</el-tag>
+        </div>
+        <div class="m-topic">{{ w.topic }}</div>
+        <div class="m-foot">
+          <span>{{ w.word_cnt || 0 }} 字</span>
+          <span>{{ fmt(w.created_at) }}</span>
+        </div>
+      </div>
+      <div v-if="!works.length" class="m-empty">还没有作品，去创作第一篇吧 ✍️</div>
+    </div>
 
     <el-dialog v-model="visible" :title="detail?.title" width="760px" top="5vh">
       <template v-if="detail">
@@ -48,6 +64,17 @@ const works = ref<any[]>([])
 const visible = ref(false)
 const detail = ref<any>(null)
 
+const STATUS: Record<string, { label: string; type: string }> = {
+  done: { label: '完成', type: 'success' },
+  failed: { label: '失败', type: 'danger' },
+  banned: { label: '拦截', type: 'danger' },
+  generating: { label: '生成中', type: 'info' },
+}
+
+function labelOf(s: string) { return STATUS[s]?.label || s }
+function typeOf(s: string) { return STATUS[s]?.type || 'info' }
+function fmt(s: string) { return (s || '').slice(5, 16) }
+
 onMounted(async () => {
   const r = await get('/works?page_size=20')
   works.value = r.data.list
@@ -61,7 +88,25 @@ async function open(id: number) {
 </script>
 
 <style scoped>
-.meta { margin-bottom: 12px; display: flex; gap: 8px; }
+.works-page { max-width: 1000px; margin: 0 auto; }
+.meta { margin-bottom: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
 .content { white-space: pre-wrap; line-height: 1.9; max-height: 60vh; overflow: auto; background: #fff; padding: 16px; border: 1px solid #eee; border-radius: 8px; }
 .refs { margin-top: 12px; font-size: 12px; color: #888; }
+
+.m-list { display: none; }
+
+@media (max-width: 768px) {
+  .desk-table { display: none; }
+  .m-list { display: block; }
+  .m-card {
+    background: #fff; border: 1px solid #eceef2; border-radius: 10px;
+    padding: 12px 14px; margin-bottom: 10px; cursor: pointer;
+  }
+  .m-card:active { background: #f7f8fa; }
+  .m-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  .m-title { font-size: 14px; font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .m-topic { color: #888; font-size: 12px; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .m-foot { display: flex; justify-content: space-between; color: #bbb; font-size: 12px; margin-top: 6px; }
+  .m-empty { text-align: center; color: #bbb; padding: 40px 0; }
+}
 </style>
