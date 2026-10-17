@@ -110,7 +110,7 @@ def list_templates(page: int = 1, page_size: int = 20,
                    admin: AdminUser = Depends(get_current_admin),
                    db: Session = Depends(get_db)):
     page = max(page, 1)
-    page_size = min(max(page_size, 1), 100)
+    page_size = min(max(page_size, 1), 500)
     q = db.query(Template)
     total = q.count()
     rows = (q.order_by(Template.id.desc())
@@ -203,7 +203,7 @@ def admin_works(user_id: int = 0, template_id: int = 0, status: str = "",
                 admin: AdminUser = Depends(get_current_admin),
                 db: Session = Depends(get_db)):
     page = max(page, 1)
-    page_size = min(max(page_size, 1), 100)
+    page_size = min(max(page_size, 1), 500)
     q = (db.query(Work, User, Template)
          .outerjoin(User, User.id == Work.user_id)
          .outerjoin(Template, Template.id == Work.template_id))
@@ -321,7 +321,7 @@ def review_queue(page: int = 1, page_size: int = 20,
                  admin: AdminUser = Depends(get_current_admin),
                  db: Session = Depends(get_db)):
     page = max(page, 1)
-    page_size = min(max(page_size, 1), 100)
+    page_size = min(max(page_size, 1), 500)
     q = db.query(ContentModeration).filter_by(verdict="review")
     total = q.count()
     rows = (q.order_by(ContentModeration.id.desc())
@@ -355,7 +355,7 @@ def list_users(q: str = "", page: int = 1, page_size: int = 20,
                admin: AdminUser = Depends(get_current_admin), db: Session = Depends(get_db)):
     from app.models.joule import JouleAccount
     page = max(page, 1)
-    page_size = min(max(page_size, 1), 100)
+    page_size = min(max(page_size, 1), 500)
     query = db.query(User)
     if q:
         query = query.filter(User.email.contains(q))

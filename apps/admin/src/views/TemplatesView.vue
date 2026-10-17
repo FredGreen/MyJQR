@@ -30,10 +30,11 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination v-model:current-page="page" :page-size="pageSize" :total="total"
-                   layout="total, prev, pager, next" background
+    <el-pagination v-model:current-page="page" v-model:page-size="pageSize" :total="total"
+                   :page-sizes="[10, 20, 30, 50, 100, 500]"
+                   layout="total, sizes, prev, pager, next, jumper" background
                    style="margin-top:14px;justify-content:flex-end;flex-wrap:wrap"
-                   @current-change="load" />
+                   @size-change="sizeChange" @current-change="load" />
 
     <el-dialog v-model="visible" :title="form.id ? '编辑模板' : '新建模板'" width="680px">
       <el-form label-width="100px">
@@ -141,7 +142,7 @@ const router = useRouter()
 const rows = ref<any[]>([])
 const cats = ref<any[]>([])
 const page = ref(1)
-const pageSize = 20
+const pageSize = ref(10)
 const total = ref(0)
 const visible = ref(false)
 const detailVisible = ref(false)
@@ -156,8 +157,13 @@ onMounted(async () => {
   cats.value = c.data.list
 })
 
+function sizeChange() {
+  page.value = 1
+  load()
+}
+
 async function load() {
-  const r = await get(`/admin/templates?page=${page.value}&page_size=${pageSize}`)
+  const r = await get(`/admin/templates?page=${page.value}&page_size=${pageSize.value}`)
   rows.value = r.data.list
   total.value = r.data.total
 }

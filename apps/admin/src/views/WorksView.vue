@@ -40,10 +40,11 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-pagination v-model:current-page="page" :page-size="pageSize" :total="total"
-                   layout="total, prev, pager, next" background
+    <el-pagination v-model:current-page="page" v-model:page-size="pageSize" :total="total"
+                   :page-sizes="[10, 20, 30, 50, 100, 500]"
+                   layout="total, sizes, prev, pager, next, jumper" background
                    style="margin-top:14px;justify-content:flex-end;flex-wrap:wrap"
-                   @current-change="load" />
+                   @size-change="sizeChange" @current-change="load" />
 
     <el-dialog v-model="detailVisible" title="作品详情" width="760px" top="5vh">
       <template v-if="detail">
@@ -82,7 +83,7 @@ const route = useRoute()
 const router = useRouter()
 const rows = ref<any[]>([])
 const page = ref(1)
-const pageSize = 20
+const pageSize = ref(10)
 const total = ref(0)
 const status = ref('')
 const detailVisible = ref(false)
@@ -95,8 +96,13 @@ const filterTemplateLabel = computed(() => rows.value[0]?.template_name || `#${f
 
 onMounted(load)
 
+function sizeChange() {
+  page.value = 1
+  load()
+}
+
 async function load() {
-  const params = new URLSearchParams({ page: String(page.value), page_size: String(pageSize) })
+  const params = new URLSearchParams({ page: String(page.value), page_size: String(pageSize.value) })
   if (filterUser.value) params.set('user_id', String(filterUser.value))
   if (filterTemplate.value) params.set('template_id', String(filterTemplate.value))
   if (status.value) params.set('status', status.value)

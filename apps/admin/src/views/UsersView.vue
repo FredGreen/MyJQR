@@ -29,10 +29,11 @@
       </el-table-column>
       <el-table-column prop="created_at" label="注册时间" width="180" />
     </el-table>
-    <el-pagination v-model:current-page="page" :page-size="pageSize" :total="total"
-                   layout="total, prev, pager, next" background
+    <el-pagination v-model:current-page="page" v-model:page-size="pageSize" :total="total"
+                   :page-sizes="[10, 20, 30, 50, 100, 500]"
+                   layout="total, sizes, prev, pager, next, jumper" background
                    style="margin-top:14px;justify-content:flex-end;flex-wrap:wrap"
-                   @current-change="load" />
+                   @size-change="sizeChange" @current-change="load" />
   </div>
 </template>
 
@@ -45,13 +46,18 @@ const router = useRouter()
 const rows = ref<any[]>([])
 const q = ref('')
 const page = ref(1)
-const pageSize = 20
+const pageSize = ref(10)
 const total = ref(0)
 
 onMounted(load)
 
+function sizeChange() {
+  page.value = 1
+  load()
+}
+
 async function load() {
-  const params = new URLSearchParams({ page: String(page.value), page_size: String(pageSize) })
+  const params = new URLSearchParams({ page: String(page.value), page_size: String(pageSize.value) })
   if (q.value) params.set('q', q.value)
   const r = await get(`/admin/users?${params}`)
   rows.value = r.data.list
