@@ -75,9 +75,10 @@ async def _stream_once(conf: dict, model: str, system: str, user: str,
     usage = None
     timeout = httpx.Timeout(connect=15, read=180, write=30, pool=15)
     async with httpx.AsyncClient(timeout=timeout) as client:
-        async with client.post(f"{conf['base_url']}/chat/completions",
-                               headers={"Authorization": f"Bearer {conf['api_key']}"},
-                               json=payload) as resp:
+        # 流式必须用 client.stream()（它才是异步上下文管理器；client.post 返回 coroutine）
+        async with client.stream("POST", f"{conf['base_url']}/chat/completions",
+                                 headers={"Authorization": f"Bearer {conf['api_key']}"},
+                                 json=payload) as resp:
             resp.raise_for_status()
             async for line in resp.aiter_lines():
                 if not line.startswith("data:"):

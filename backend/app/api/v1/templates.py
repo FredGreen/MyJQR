@@ -29,7 +29,8 @@ def _page(q, cursor: int, page_size: int):
     rows = q.order_by(Template.id.desc()).limit(page_size + 1).all()
     has_more = len(rows) > page_size
     rows = rows[:page_size]
-    return {"list": rows, "cursor": rows[-1].id if has_more else 0, "has_more": has_more}
+    # rows 是 (Template, TemplateStat) 元组，游标取元组里的 Template.id
+    return {"list": rows, "cursor": rows[-1][0].id if has_more else 0, "has_more": has_more}
 
 
 @router.get("/category/list")

@@ -1,14 +1,13 @@
 import asyncio
 import json
 
-from arq import create_pool
 from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel, Field
 from sqlalchemy.orm import Session
 
-from app.core.config import get_settings
 from app.core.deps import get_current_user
+from app.core.redis import create_arq_pool
 from app.db import get_db
 from app.models.template import Template, PromptVersion
 from app.models.user import User
@@ -59,13 +58,20 @@ async def generate(body: GenerateIn, user: User = Depends(get_current_user),
         db.rollback()
         raise HTTPException(402, "焦耳不足")
 
-    # 投递 ARQ
-    pool = await create_pool(get_settings().redis_url)
+    # 投递 ARQ（失败必须退款，否则焦耳被冻结卡死、作品永远 pending）
+    pool = await create_arq_pool()
     try:
         job = await pool.enqueue_job("generate_work", work.id)
         task = GenerationTask(work_id=work.id, arq_job_id=job.job_id if job else "")
         db.add(task)
         db.commit()
+    except Exception:
+        db.rollback()
+        stuck = db.get(Work, work.id)
+        if stuck:
+            stuck.status = "failed"
+        joule.release(db, work.id, remark="enqueue failed, refunded")
+        raise HTTPException(500, "任务投递失败，焦耳已退回，请重试")
     finally:
         await pool.aclose()
 

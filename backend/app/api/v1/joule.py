@@ -45,8 +45,11 @@ class RedeemIn(BaseModel):
 def redeem(body: RedeemIn, user: User = Depends(get_current_user),
            db: Session = Depends(get_db)):
     rc = db.query(RedeemCode).filter_by(code=body.code.strip()).first()
-    if not rc or rc.status != 1:
+    if not rc:
         raise HTTPException(404, "兑换码无效")
+    if rc.status != 1:
+        # 已被使用（含他人抢用）明确提示；下面的原子更新仅作并发兜底
+        raise HTTPException(409, "兑换码已被使用")
     # 原子核销：status 1→2 抢占
     rows = (db.query(RedeemCode)
             .filter(RedeemCode.id == rc.id, RedeemCode.status == 1)
