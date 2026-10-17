@@ -10,7 +10,7 @@
             <el-button type="primary" size="large" style="width:100%;margin-top:16px" :loading="loading" @click="doLogin">登录</el-button>
           </el-form>
         </el-tab-pane>
-        <el-tab-pane label="注册（送{{gift}}焦耳）" name="register">
+        <el-tab-pane :label="'注册（送' + gift + '焦耳）'" name="register">
           <el-form @keyup.enter="doRegister">
             <el-input v-model="regForm.email" placeholder="邮箱" size="large" />
             <el-input v-model="regForm.nickname" placeholder="昵称" size="large" style="margin-top:12px" />
@@ -32,7 +32,8 @@ import { useAuth } from '../stores/auth'
 
 const tab = ref('login')
 const loading = ref(false)
-const gift = 100
+// 注册赠送焦耳数，须与后端 .env 的 SIGNUP_GIFT_JOULE 保持一致
+const gift = 1000
 const router = useRouter()
 const auth = useAuth()
 const loginForm = reactive({ email: '', password: '' })
@@ -53,7 +54,7 @@ async function doRegister() {
   try {
     const r = await post('/auth/register', regForm)
     auth.setTokens(r.data.tokens)
-    ElMessage.success(`注册成功，已赠送 ${gift} 焦耳`)
+    ElMessage.success(`注册成功，已赠送 ${r.data.gift_joule ?? gift} 焦耳`)
     router.push('/market')
   } catch (e: any) { ElMessage.error(e.message) } finally { loading.value = false }
 }

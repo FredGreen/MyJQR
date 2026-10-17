@@ -44,7 +44,8 @@ def register(body: RegisterIn, db: Session = Depends(get_db)):
                  remark="新人注册赠送")
     user.joule_gifted = 1
     db.commit()
-    return {"code": 0, "data": {"id": user.id, "tokens": issue_tokens(str(user.id))}}
+    return {"code": 0, "data": {"id": user.id, "tokens": issue_tokens(str(user.id)),
+                                "gift_joule": get_settings().signup_gift_joule}}
 
 
 @router.post("/login")
