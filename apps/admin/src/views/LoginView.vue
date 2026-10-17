@@ -25,7 +25,7 @@ async function login() {
   try {
     const r = await post('/admin/login', { username: username.value, password: password.value })
     localStorage.setItem('admin_token', r.data.access_token)
-    router.push('/admin/dashboard')
+    router.push('/dashboard')
   } catch (e: any) { ElMessage.error(e.message) } finally { loading.value = false }
 }
 </script>

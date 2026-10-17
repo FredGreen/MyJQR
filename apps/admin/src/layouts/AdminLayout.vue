@@ -3,10 +3,10 @@
     <el-aside width="200px" class="aside">
       <div class="logo">🛠 MyJQR 后台</div>
       <el-menu router :default-active="$route.path" class="menu">
-        <el-menu-item index="/admin/dashboard">📊 数据看板</el-menu-item>
-        <el-menu-item index="/admin/templates">🧩 模板管理</el-menu-item>
-        <el-menu-item index="/admin/redeem">🎟 兑换码</el-menu-item>
-        <el-menu-item index="/admin/review">🛡 内容审核</el-menu-item>
+        <el-menu-item index="/dashboard">📊 数据看板</el-menu-item>
+        <el-menu-item index="/templates">🧩 模板管理</el-menu-item>
+        <el-menu-item index="/redeem">🎟 兑换码</el-menu-item>
+        <el-menu-item index="/review">🛡 内容审核</el-menu-item>
       </el-menu>
       <div class="user-box"><el-button size="small" text @click="logout">退出登录</el-button></div>
     </el-aside>
