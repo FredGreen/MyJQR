@@ -5,6 +5,8 @@
       <el-menu router :default-active="$route.path" class="menu">
         <el-menu-item index="/dashboard">📊 数据看板</el-menu-item>
         <el-menu-item index="/templates">🧩 模板管理</el-menu-item>
+        <el-menu-item index="/users">👥 用户管理</el-menu-item>
+        <el-menu-item index="/works">📄 作品列表</el-menu-item>
         <el-menu-item index="/redeem">🎟 兑换码</el-menu-item>
         <el-menu-item index="/review">🛡 内容审核</el-menu-item>
       </el-menu>
