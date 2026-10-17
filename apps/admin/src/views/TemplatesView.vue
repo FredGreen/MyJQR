@@ -30,7 +30,10 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-button v-if="cursor" style="margin-top:12px" @click="loadMore">加载更多</el-button>
+    <el-pagination v-model:current-page="page" :page-size="pageSize" :total="total"
+                   layout="total, prev, pager, next" background
+                   style="margin-top:14px;justify-content:flex-end;flex-wrap:wrap"
+                   @current-change="load" />
 
     <el-dialog v-model="visible" :title="form.id ? '编辑模板' : '新建模板'" width="680px">
       <el-form label-width="100px">
@@ -48,9 +51,25 @@
           </el-select>
         </el-form-item>
         <el-form-item label="价格(J)"><el-input-number v-model="form.joule_price" :min="0" :step="100" /></el-form-item>
+        <el-form-item label="默认长度档">
+          <el-select v-model="form.response_length" style="width:200px">
+            <el-option :value="0" label="微篇 ~100字" />
+            <el-option :value="1" label="短篇 ~1200字" />
+            <el-option :value="2" label="中篇 ~2000字" />
+            <el-option :value="3" label="长篇 ~3000字" />
+          </el-select>
+        </el-form-item>
         <el-form-item label="联网搜索"><el-switch v-model="form.enable_web_search" /></el-form-item>
         <el-form-item label="深度思考"><el-switch v-model="form.enable_think" /></el-form-item>
         <el-form-item label="使用提示"><el-input v-model="form.usage_tips" type="textarea" :rows="2" /></el-form-item>
+        <el-form-item label="提示词">
+          <div style="width:100%">
+            <el-input v-model="form.system_prompt" type="textarea" :rows="6"
+                      placeholder="系统提示词（≥10 字生效）：人设/任务/风格/要求。留空=不修改现有提示词；改动后保存会自动生成新版本并发布" />
+            <el-input v-model="form.user_prompt_template" type="textarea" :rows="2" style="margin-top:6px"
+                      placeholder="用户提示词模板（可选）：可用 {topic} {material} {length} 占位" />
+          </div>
+        </el-form-item>
         <el-form-item label="状态">
           <el-radio-group v-model="form.status">
             <el-radio :value="0">草稿</el-radio><el-radio :value="1">上线</el-radio><el-radio :value="2">下架</el-radio>
@@ -121,7 +140,9 @@ import { get, post, put } from '../api/http'
 const router = useRouter()
 const rows = ref<any[]>([])
 const cats = ref<any[]>([])
-const cursor = ref(0)
+const page = ref(1)
+const pageSize = 20
+const total = ref(0)
 const visible = ref(false)
 const detailVisible = ref(false)
 const detail = ref<any>(null)
@@ -136,22 +157,16 @@ onMounted(async () => {
 })
 
 async function load() {
-  cursor.value = 0
-  rows.value = []
-  await loadMore()
-}
-
-async function loadMore() {
-  const r = await get(`/admin/templates?page_size=20${cursor.value ? `&cursor=${cursor.value}` : ''}`)
-  rows.value.push(...r.data.list)
-  cursor.value = r.data.cursor
+  const r = await get(`/admin/templates?page=${page.value}&page_size=${pageSize}`)
+  rows.value = r.data.list
+  total.value = r.data.total
 }
 
 function openCreate() {
   Object.assign(form, { id: null, name: '', description: '', category_ids: [], status: 0,
     joule_price: 1000, workflow_type: 'single', enable_web_search: true, enable_think: true,
     temperature: 0.95, model_route: 'default_chat', response_length: 2,
-    usage_example: '', usage_tips: '' })
+    usage_example: '', usage_tips: '', system_prompt: '', user_prompt_template: '' })
   visible.value = true
 }
 
@@ -165,6 +180,8 @@ async function openEdit(row: any) {
     enable_web_search: d.enable_web_search, enable_think: d.enable_think,
     temperature: d.temperature, model_route: d.model_route,
     response_length: d.response_length, usage_example: d.usage_example, usage_tips: d.usage_tips,
+    system_prompt: d.prompt?.system_prompt || '',
+    user_prompt_template: d.prompt?.user_prompt_template || '',
   })
   visible.value = true
 }
@@ -179,7 +196,7 @@ async function save() {
   try {
     if (form.id) await put(`/admin/templates/${form.id}`, form)
     else await post('/admin/templates', form)
-    ElMessage.success('已保存（新模板记得在数据库或后续版本页发布提示词）')
+    ElMessage.success(form.system_prompt ? '已保存，提示词变更已自动发布' : '已保存（未填提示词的模板无法被用户生成）')
     visible.value = false
     await load()
   } catch (e: any) { ElMessage.error(e.message) }

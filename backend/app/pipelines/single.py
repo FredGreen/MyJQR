@@ -17,7 +17,7 @@ from app.services.moderation import check_text
 
 log = logging.getLogger(__name__)
 
-LENGTH_WORDS = {1: 1200, 2: 2000, 3: 3000}
+LENGTH_WORDS = {0: 100, 1: 1200, 2: 2000, 3: 3000}
 
 
 def render(template: str, **slots) -> str:
@@ -104,7 +104,7 @@ async def run_single(db: Session, work: Work, template: Template,
     work.status = "done"
     joule.settle(db, work.id, work.joule_cost)
     stat = db.get(TemplateStat, template.id) or TemplateStat(template_id=template.id)
-    stat.use_cnt += 1
+    stat.use_cnt = (stat.use_cnt or 0) + 1  # 新建对象 flush 前是 None，直接 += 会炸
     db.merge(stat)
     if task:
         from datetime import datetime as _dt

@@ -23,7 +23,7 @@ router = APIRouter(prefix="/works", tags=["works"])
 class GenerateIn(BaseModel):
     template_id: int
     input: str = Field(min_length=5, max_length=2000)
-    response_length: int = Field(default=2, ge=1, le=3)
+    response_length: int = Field(default=2, ge=0, le=3)
     enable_think: bool = True
     show_references: bool = True
     material: str = Field(default="", max_length=4000)

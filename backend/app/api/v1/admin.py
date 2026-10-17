@@ -74,36 +74,70 @@ class TemplateIn(BaseModel):
     usage_example: str = ""
     usage_tips: str = ""
     status: int = 0
+    # 提示词（可选）：留空不动；与当前发布版不同则自动生成新版本并发布（同 xlsx 导入语义）
+    system_prompt: str = ""
+    user_prompt_template: str = ""
+
+
+DEFAULT_UPT = "主题：{topic}\n素材：{material}\n字数：约{length}字"
+
+
+def _upsert_prompt(db: Session, template_id: int, system_prompt: str,
+                   user_prompt_template: str, admin_id: int):
+    """新建/更新模板时同步提示词：内容相同跳过，不同则新版本并发布。"""
+    if not system_prompt or len(system_prompt) < 10:
+        return
+    new_upt = user_prompt_template or DEFAULT_UPT
+    cur = (db.query(PromptVersion).filter_by(template_id=template_id, published=1)
+           .order_by(PromptVersion.version.desc()).first())
+    if cur and cur.system_prompt == system_prompt and \
+            (cur.user_prompt_template or DEFAULT_UPT) == new_upt:
+        return
+    latest = (db.query(PromptVersion).filter_by(template_id=template_id)
+              .order_by(PromptVersion.version.desc()).first())
+    pv = PromptVersion(template_id=template_id, version=(latest.version + 1) if latest else 1,
+                       system_prompt=system_prompt, user_prompt_template=new_upt)
+    db.add(pv)
+    db.flush()
+    db.query(PromptVersion).filter_by(template_id=template_id).update({"published": 0})
+    pv.published = 1
+    db.add(AuditLog(admin_id=admin_id, action="prompt.add",
+                    target=f"{template_id}:v{pv.version}"))
 
 
 @router.get("/templates")
-def list_templates(cursor: int = 0, page_size: int = 20,
+def list_templates(page: int = 1, page_size: int = 20,
                    admin: AdminUser = Depends(get_current_admin),
                    db: Session = Depends(get_db)):
+    page = max(page, 1)
+    page_size = min(max(page_size, 1), 100)
     q = db.query(Template)
-    if cursor:
-        q = q.filter(Template.id < cursor)
-    rows = q.order_by(Template.id.desc()).limit(page_size).all()
+    total = q.count()
+    rows = (q.order_by(Template.id.desc())
+             .offset((page - 1) * page_size).limit(page_size).all())
     ids = [t.id for t in rows]
     stats = {s.template_id: s for s in db.query(TemplateStat).filter(
         TemplateStat.template_id.in_(ids))} if ids else {}
-    return {"code": 0, "data": {"list": [{
-        "id": t.id, "name": t.name, "description": t.description, "status": t.status,
-        "joule_price": t.joule_price, "workflow_type": t.workflow_type,
-        "use_cnt": stats[t.id].use_cnt if t.id in stats else 0,
-        "updated_at": str(t.updated_at)} for t in rows],
-        "cursor": rows[-1].id if len(rows) == page_size else 0}}
+    return {"code": 0, "data": {
+        "list": [{
+            "id": t.id, "name": t.name, "description": t.description, "status": t.status,
+            "joule_price": t.joule_price, "workflow_type": t.workflow_type,
+            "use_cnt": stats[t.id].use_cnt if t.id in stats else 0,
+            "updated_at": str(t.updated_at)} for t in rows],
+        "total": total, "page": page, "page_size": page_size}}
 
 
 @router.post("/templates")
 def create_template(body: TemplateIn, admin: AdminUser = Depends(get_current_admin),
                     db: Session = Depends(get_db)):
     from app.models.template import TemplateCategoryRelation
-    t = Template(**body.model_dump(exclude={"category_ids"}))
+    fields = body.model_dump(exclude={"category_ids", "system_prompt", "user_prompt_template"})
+    t = Template(**fields)
     db.add(t)
     db.flush()
     for rank, cid in enumerate(body.category_ids):
         db.add(TemplateCategoryRelation(template_id=t.id, category_id=cid, rank=rank))
+    _upsert_prompt(db, t.id, body.system_prompt, body.user_prompt_template, admin.id)
     db.commit()
     db.add(AuditLog(admin_id=admin.id, action="template.create", target=str(t.id)))
     db.commit()
@@ -117,12 +151,14 @@ def update_template(template_id: int, body: TemplateIn,
     t = db.get(Template, template_id)
     if not t:
         raise HTTPException(404, "not found")
-    for k, v in body.model_dump(exclude={"category_ids"}).items():
+    fields = body.model_dump(exclude={"category_ids", "system_prompt", "user_prompt_template"})
+    for k, v in fields.items():
         setattr(t, k, v)
     from app.models.template import TemplateCategoryRelation
     db.query(TemplateCategoryRelation).filter_by(template_id=t.id).delete()
     for rank, cid in enumerate(body.category_ids):
         db.add(TemplateCategoryRelation(template_id=t.id, category_id=cid, rank=rank))
+    _upsert_prompt(db, t.id, body.system_prompt, body.user_prompt_template, admin.id)
     db.add(AuditLog(admin_id=admin.id, action="template.update", target=str(t.id)))
     db.commit()
     return {"code": 0, "data": "ok"}
@@ -163,9 +199,11 @@ def template_detail(template_id: int, admin: AdminUser = Depends(get_current_adm
 # ---------- 作品（后台全量视角，可按用户/模板筛选） ----------
 @router.get("/works")
 def admin_works(user_id: int = 0, template_id: int = 0, status: str = "",
-                cursor: int = 0, page_size: int = 20,
+                page: int = 1, page_size: int = 20,
                 admin: AdminUser = Depends(get_current_admin),
                 db: Session = Depends(get_db)):
+    page = max(page, 1)
+    page_size = min(max(page_size, 1), 100)
     q = (db.query(Work, User, Template)
          .outerjoin(User, User.id == Work.user_id)
          .outerjoin(Template, Template.id == Work.template_id))
@@ -175,11 +213,9 @@ def admin_works(user_id: int = 0, template_id: int = 0, status: str = "",
         q = q.filter(Work.template_id == template_id)
     if status:
         q = q.filter(Work.status == status)
-    if cursor:
-        q = q.filter(Work.id < cursor)
-    rows = q.order_by(Work.id.desc()).limit(page_size + 1).all()
-    has_more = len(rows) > page_size
-    rows = rows[:page_size]
+    total = q.count()
+    rows = (q.order_by(Work.id.desc())
+             .offset((page - 1) * page_size).limit(page_size).all())
     return {"code": 0, "data": {
         "list": [{"work_id": w.id, "user_id": w.user_id,
                   "user_email": u.email if u else "", "user_nickname": u.nickname if u else "",
@@ -188,7 +224,7 @@ def admin_works(user_id: int = 0, template_id: int = 0, status: str = "",
                   "word_cnt": w.word_cnt, "joule_cost": w.joule_cost,
                   "model_used": w.model_used, "created_at": str(w.created_at)}
                  for w, u, t in rows],
-        "cursor": rows[-1][0].id if has_more else 0, "has_more": has_more}}
+        "total": total, "page": page, "page_size": page_size}}
 
 
 @router.get("/works/{work_id}")
@@ -281,13 +317,20 @@ def gen_redeem_codes(body: RedeemBatchIn,
 
 # ---------- 审核 ----------
 @router.get("/review/queue")
-def review_queue(admin: AdminUser = Depends(get_current_admin),
+def review_queue(page: int = 1, page_size: int = 20,
+                 admin: AdminUser = Depends(get_current_admin),
                  db: Session = Depends(get_db)):
-    rows = (db.query(ContentModeration).filter_by(verdict="review")
-            .order_by(ContentModeration.id.desc()).limit(50).all())
-    return {"code": 0, "data": {"list": [{
-        "id": m.id, "biz_type": m.biz_type, "biz_id": m.biz_id,
-        "created_at": str(m.created_at)} for m in rows]}}
+    page = max(page, 1)
+    page_size = min(max(page_size, 1), 100)
+    q = db.query(ContentModeration).filter_by(verdict="review")
+    total = q.count()
+    rows = (q.order_by(ContentModeration.id.desc())
+             .offset((page - 1) * page_size).limit(page_size).all())
+    return {"code": 0, "data": {
+        "list": [{
+            "id": m.id, "biz_type": m.biz_type, "biz_id": m.biz_id,
+            "created_at": str(m.created_at)} for m in rows],
+        "total": total, "page": page, "page_size": page_size}}
 
 
 @router.post("/review/{mid}")
@@ -308,15 +351,17 @@ def review_decide(mid: int, verdict: str = "pass",
 
 # ---------- 用户 ----------
 @router.get("/users")
-def list_users(q: str = "", cursor: int = 0,
+def list_users(q: str = "", page: int = 1, page_size: int = 20,
                admin: AdminUser = Depends(get_current_admin), db: Session = Depends(get_db)):
     from app.models.joule import JouleAccount
+    page = max(page, 1)
+    page_size = min(max(page_size, 1), 100)
     query = db.query(User)
     if q:
         query = query.filter(User.email.contains(q))
-    if cursor:
-        query = query.filter(User.id < cursor)
-    rows = query.order_by(User.id.desc()).limit(20).all()
+    total = query.count()
+    rows = (query.order_by(User.id.desc())
+                 .offset((page - 1) * page_size).limit(page_size).all())
     ids = [u.id for u in rows]
     accs = {a.user_id: a for a in db.query(JouleAccount).filter(
         JouleAccount.user_id.in_(ids))} if ids else {}
@@ -328,7 +373,7 @@ def list_users(q: str = "", cursor: int = 0,
         "frozen": accs[u.id].frozen if u.id in accs else 0,
         "work_cnt": work_cnts.get(u.id, 0),
         "created_at": str(u.created_at)} for u in rows],
-        "cursor": rows[-1].id if len(rows) == 20 else 0}}
+        "total": total, "page": page, "page_size": page_size}}
 
 
 class AdjustIn(BaseModel):

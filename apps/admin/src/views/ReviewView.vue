@@ -13,6 +13,10 @@
         </template>
       </el-table-column>
     </el-table>
+    <el-pagination v-model:current-page="page" :page-size="pageSize" :total="total"
+                   layout="total, prev, pager, next" background
+                   style="margin-top:14px;justify-content:flex-end;flex-wrap:wrap"
+                   @current-change="load" />
     <el-empty v-if="!rows.length" description="队列为空" />
   </div>
 </template>
@@ -23,11 +27,15 @@ import { ElMessage } from 'element-plus'
 import { get, post } from '../api/http'
 
 const rows = ref<any[]>([])
+const page = ref(1)
+const pageSize = 20
+const total = ref(0)
 onMounted(load)
 
 async function load() {
-  const r = await get('/admin/review/queue')
+  const r = await get(`/admin/review/queue?page=${page.value}&page_size=${pageSize}`)
   rows.value = r.data.list
+  total.value = r.data.total
 }
 
 async function decide(id: number, verdict: string) {

@@ -15,7 +15,8 @@
       <el-input v-model="material" type="textarea" :rows="3" style="margin-top:10px"
                 placeholder="参考素材/你的观点（可选，附素材 AI 味更低）" />
       <div class="opts">
-        <el-select v-model="responseLength" style="width:120px">
+        <el-select v-model="responseLength" style="width:130px">
+          <el-option :value="0" label="微篇 ~100字" />
           <el-option :value="1" label="短篇 ~1200字" />
           <el-option :value="2" label="中篇 ~2000字" />
           <el-option :value="3" label="长篇 ~3000字" />

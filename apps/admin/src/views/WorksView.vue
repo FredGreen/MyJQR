@@ -9,7 +9,8 @@
           （模板：{{ filterTemplateLabel }} <el-button link @click="clearFilter">清除筛选</el-button>）
         </span>
       </h2>
-      <el-select v-model="status" placeholder="全部状态" clearable style="width:150px" @change="reload">
+      <el-select v-model="status" placeholder="全部状态" clearable style="width:150px"
+                 @change="statusSearch">
         <el-option value="done" label="已完成" />
         <el-option value="failed" label="失败" />
         <el-option value="generating" label="生成中" />
@@ -39,7 +40,10 @@
         </template>
       </el-table-column>
     </el-table>
-    <el-button v-if="cursor" style="margin-top:12px" @click="loadMore">加载更多</el-button>
+    <el-pagination v-model:current-page="page" :page-size="pageSize" :total="total"
+                   layout="total, prev, pager, next" background
+                   style="margin-top:14px;justify-content:flex-end;flex-wrap:wrap"
+                   @current-change="load" />
 
     <el-dialog v-model="detailVisible" title="作品详情" width="760px" top="5vh">
       <template v-if="detail">
@@ -77,7 +81,9 @@ import { get } from '../api/http'
 const route = useRoute()
 const router = useRouter()
 const rows = ref<any[]>([])
-const cursor = ref(0)
+const page = ref(1)
+const pageSize = 20
+const total = ref(0)
 const status = ref('')
 const detailVisible = ref(false)
 const detail = ref<any>(null)
@@ -87,28 +93,27 @@ const filterTemplate = computed(() => Number(route.query.template_id) || 0)
 const filterUserLabel = computed(() => rows.value[0]?.user_email || `#${filterUser.value}`)
 const filterTemplateLabel = computed(() => rows.value[0]?.template_name || `#${filterTemplate.value}`)
 
-onMounted(reload)
+onMounted(load)
 
-async function reload() {
-  cursor.value = 0
-  rows.value = []
-  await loadMore()
-}
-
-async function loadMore() {
-  const params = new URLSearchParams()
+async function load() {
+  const params = new URLSearchParams({ page: String(page.value), page_size: String(pageSize) })
   if (filterUser.value) params.set('user_id', String(filterUser.value))
   if (filterTemplate.value) params.set('template_id', String(filterTemplate.value))
   if (status.value) params.set('status', status.value)
-  if (cursor.value) params.set('cursor', String(cursor.value))
   const r = await get(`/admin/works?${params}`)
-  rows.value.push(...r.data.list)
-  cursor.value = r.data.cursor
+  rows.value = r.data.list
+  total.value = r.data.total
+}
+
+function statusSearch() {
+  page.value = 1
+  load()
 }
 
 function clearFilter() {
   router.replace({ path: '/works' })
-  reload()
+  page.value = 1
+  load()
 }
 
 async function openDetail(id: number) {

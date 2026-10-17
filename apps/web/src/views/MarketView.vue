@@ -9,7 +9,7 @@
     </div>
 
     <el-row :gutter="16">
-      <el-col v-for="t in templates" :key="t.template_id" :span="8" style="margin-bottom:16px">
+      <el-col v-for="t in templates" :key="t.template_id" :xs="24" :sm="12" :md="8" style="margin-bottom:16px">
         <el-card shadow="hover" style="cursor:pointer" @click="openDetail(t)">
           <div class="tname">{{ t.name }} <el-tag size="small" type="warning">{{ t.joule_price }}J</el-tag></div>
           <div class="tdesc">{{ t.description }}</div>

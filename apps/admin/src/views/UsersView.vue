@@ -4,8 +4,8 @@
       <h2>用户管理</h2>
       <div style="display:flex;gap:8px">
         <el-input v-model="q" placeholder="搜索邮箱" clearable style="width:240px"
-                  @keyup.enter="reload" @clear="reload" />
-        <el-button @click="reload">搜索</el-button>
+                  @keyup.enter="search" @clear="search" />
+        <el-button @click="search">搜索</el-button>
       </div>
     </div>
     <el-table :data="rows" stripe>
@@ -29,7 +29,10 @@
       </el-table-column>
       <el-table-column prop="created_at" label="注册时间" width="180" />
     </el-table>
-    <el-button v-if="cursor" style="margin-top:12px" @click="loadMore">加载更多</el-button>
+    <el-pagination v-model:current-page="page" :page-size="pageSize" :total="total"
+                   layout="total, prev, pager, next" background
+                   style="margin-top:14px;justify-content:flex-end;flex-wrap:wrap"
+                   @current-change="load" />
   </div>
 </template>
 
@@ -41,23 +44,23 @@ import { get } from '../api/http'
 const router = useRouter()
 const rows = ref<any[]>([])
 const q = ref('')
-const cursor = ref(0)
+const page = ref(1)
+const pageSize = 20
+const total = ref(0)
 
-onMounted(reload)
+onMounted(load)
 
-async function reload() {
-  cursor.value = 0
-  rows.value = []
-  await loadMore()
+async function load() {
+  const params = new URLSearchParams({ page: String(page.value), page_size: String(pageSize) })
+  if (q.value) params.set('q', q.value)
+  const r = await get(`/admin/users?${params}`)
+  rows.value = r.data.list
+  total.value = r.data.total
 }
 
-async function loadMore() {
-  const params = new URLSearchParams()
-  if (q.value) params.set('q', q.value)
-  if (cursor.value) params.set('cursor', String(cursor.value))
-  const r = await get(`/admin/users?${params}`)
-  rows.value.push(...r.data.list)
-  cursor.value = r.data.cursor
+function search() {
+  page.value = 1
+  load()
 }
 
 function viewWorks(row: any) {
