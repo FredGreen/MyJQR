@@ -19,5 +19,9 @@ docs/接口调用.txt
 .DS_Store
 Thumbs.db
 
+# IDE（PyCharm/VSCode 本机配置，含机器相关路径，不入库）
+.idea/
+.vscode/
+
 # Excel 打开时的临时锁文件
 ~$*.xlsx
