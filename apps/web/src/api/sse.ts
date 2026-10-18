@@ -3,12 +3,15 @@ export interface SseHandlers {
   onEvent: (event: string, data: any) => void
   onError?: (err: unknown) => void
   onDone?: () => void
+  /** 中断订阅（组件卸载时 abort，避免卸载后仍写状态） */
+  signal?: AbortSignal
 }
 
 export async function openSse(url: string, h: SseHandlers) {
   const token = localStorage.getItem('access_token')
   const resp = await fetch(url, {
     headers: token ? { Authorization: `Bearer ${token}` } : {},
+    signal: h.signal,
   })
   if (!resp.ok || !resp.body) throw new Error(`SSE HTTP ${resp.status}`)
   const reader = resp.body.getReader()

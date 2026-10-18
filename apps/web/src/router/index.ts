@@ -12,6 +12,7 @@ const router = createRouter({
         { path: 'market', component: () => import('../views/MarketView.vue') },
         { path: 'create', component: () => import('../views/CreateView.vue') },
         { path: 'works', component: () => import('../views/WorksView.vue') },
+        { path: 'work/:id', component: () => import('../views/WorkDetailView.vue') },
         { path: 'joule', component: () => import('../views/JouleView.vue') },
       ],
     },

@@ -14,9 +14,11 @@
       </el-table-column>
       <el-table-column prop="word_cnt" label="字数" width="90" />
       <el-table-column prop="created_at" label="时间" width="180" />
-      <el-table-column label="操作" width="100">
+      <el-table-column label="操作" width="140">
         <template #default="{ row }">
-          <el-button size="small" @click="open(row.work_id)">查看</el-button>
+          <el-button size="small" @click="open(row.work_id)">
+            {{ row.status === 'done' ? '查看 / 修改' : '查看' }}
+          </el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -36,33 +38,16 @@
       </div>
       <div v-if="!works.length" class="m-empty">还没有作品，去创作第一篇吧 ✍️</div>
     </div>
-
-    <el-dialog v-model="visible" :title="detail?.title" width="760px" top="5vh">
-      <template v-if="detail">
-        <div class="meta">
-          <el-tag v-if="detail.report" :type="detail.report.ai_rate < 50 ? 'success' : 'warning'">
-            AI 率 {{ detail.report.ai_rate }}%（{{ detail.report.level }}）
-          </el-tag>
-          <el-tag type="info">{{ detail.model_used }}</el-tag>
-          <el-tag type="warning">{{ detail.joule_cost }} J</el-tag>
-        </div>
-        <div class="content">{{ detail.content_md }}</div>
-        <div v-if="detail.references?.length" class="refs">
-          <b>参考来源：</b>
-          <div v-for="r in detail.references" :key="r.idx">[{{ r.idx }}] {{ r.title }}</div>
-        </div>
-      </template>
-    </el-dialog>
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { get } from '../api/http'
 
+const router = useRouter()
 const works = ref<any[]>([])
-const visible = ref(false)
-const detail = ref<any>(null)
 
 const STATUS: Record<string, { label: string; type: string }> = {
   done: { label: '完成', type: 'success' },
@@ -80,18 +65,13 @@ onMounted(async () => {
   works.value = r.data.list
 })
 
-async function open(id: number) {
-  const r = await get(`/works/${id}`)
-  detail.value = r.data
-  visible.value = true
+function open(id: number) {
+  router.push(`/work/${id}`)
 }
 </script>
 
 <style scoped>
 .works-page { max-width: 1000px; margin: 0 auto; }
-.meta { margin-bottom: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
-.content { white-space: pre-wrap; line-height: 1.9; max-height: 60vh; overflow: auto; background: #fff; padding: 16px; border: 1px solid #eee; border-radius: 8px; }
-.refs { margin-top: 12px; font-size: 12px; color: #888; }
 
 .m-list { display: none; }
 

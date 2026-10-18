@@ -24,4 +24,6 @@ export async function api<T = any>(path: string, options: RequestInit = {}): Pro
 export const get = (path: string) => api(path)
 export const post = (path: string, data?: unknown) =>
   api(path, { method: 'POST', body: JSON.stringify(data ?? {}) })
+export const put = (path: string, data?: unknown) =>
+  api(path, { method: 'PUT', body: JSON.stringify(data ?? {}) })
 export const del = (path: string) => api(path, { method: 'DELETE' })

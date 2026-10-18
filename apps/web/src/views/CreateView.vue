@@ -1,26 +1,8 @@
 <template>
   <div class="page create-page">
-    <!-- ② 生成过程 -->
-    <el-card v-if="phase === 'run'" class="run-card">
-      <div class="statusbar">
-        <el-tag :type="statusType" size="large">{{ stageText }}</el-tag>
-        <span class="tpl-going">{{ tpl?.name }} · {{ tpl?.joule_price }}J</span>
-        <span v-if="aiRate !== null" class="report">
-          AI 率检测：<b :style="{ color: aiRate < 50 ? '#1b7d46' : '#d4820a' }">{{ aiRate }}%</b>
-          （{{ aiLevel }}）
-        </span>
-      </div>
-      <div ref="outputEl" class="output">{{ output }}<span v-if="streaming" class="cursor">▊</span></div>
-      <div v-if="references.length" class="refs">
-        <b>参考来源：</b>
-        <div v-for="(r, i) in references" :key="i" class="ref">[{{ i + 1 }}] {{ r.title }} — {{ r.site_name }}</div>
-      </div>
-      <div v-if="finished && workId" style="margin-top:16px">
-        <el-button @click="copy(output, 'markdown')">复制 Markdown</el-button>
-        <el-button @click="copy(plain, '纯文本')">复制纯文本</el-button>
-        <el-button type="primary" @click="reset">再写一篇</el-button>
-      </div>
-    </el-card>
+    <!-- ② 生成 + 追问改稿工作台 -->
+    <WorkRoom v-if="phase === 'run' && workId" :key="workId" :work-id="workId"
+              @back="reset" />
 
     <!-- ① 选择 + 输入 -->
     <template v-else>
@@ -29,7 +11,10 @@
           <h2>Hi，{{ auth.nickname || '创作者' }} 👋</h2>
           <p class="sub">今天想写点什么？选个文风模板，或让 AI 自由发挥</p>
         </div>
-        <el-tag class="joule-chip" effect="plain" size="large">💰 {{ auth.joule }} J</el-tag>
+        <div class="greet-actions">
+          <el-button class="mem-btn" round @click="memoryOpen = true">🧠 写作记忆</el-button>
+          <el-tag class="joule-chip" effect="plain" size="large">💰 {{ auth.joule }} J</el-tag>
+        </div>
       </div>
 
       <!-- 模板横滑卡片流 -->
@@ -94,6 +79,8 @@
           </el-button>
         </div>
       </el-card>
+
+      <MemoryPanel v-model="memoryOpen" />
     </template>
   </div>
 </template>
@@ -103,8 +90,9 @@ import { computed, nextTick, onMounted, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
 import { get, post } from '../api/http'
-import { openSse } from '../api/sse'
 import { useAuth } from '../stores/auth'
+import MemoryPanel from '../components/MemoryPanel.vue'
+import WorkRoom from '../components/WorkRoom.vue'
 
 defineOptions({ name: 'CreateView' })
 
@@ -139,18 +127,8 @@ const showRefs = ref(true)
 
 const phase = ref<'input' | 'run'>('input')
 const starting = ref(false)
-const streaming = ref(false)
-const stageText = ref('准备中...')
-const output = ref('')
 const workId = ref<number | null>(null)
-const finished = ref(false)
-const aiRate = ref<number | null>(null)
-const aiLevel = ref('')
-const references = ref<any[]>([])
-
-const statusType = computed(() =>
-  finished.value ? 'success' : streaming.value ? 'primary' : 'info')
-const plain = computed(() => output.value.replace(/[#*`>\-\[\]]/g, ''))
+const memoryOpen = ref(false)
 
 function heat(cnt: number): string {
   return cnt >= 10000 ? `${(cnt / 10000).toFixed(1)}万人使用` : `${cnt}人使用`
@@ -241,34 +219,15 @@ async function start() {
     })
     workId.value = r.data.work_id
     phase.value = 'run'
-    await openSse(`/api/v1/works/${workId.value}/stream?seq=0`, {
-      onEvent(event, data) {
-        if (event === 'stage') stageText.value = data.text
-        else if (event === 'delta') { streaming.value = true; output.value += data.text; stageText.value = '正在撰写...' }
-        else if (event === 'search_end' && data.references) references.value = data.references
-        else if (event === 'report' && data.phase !== 'before') { aiRate.value = data.ai_rate; aiLevel.value = data.level }
-        else if (event === 'done') { finished.value = true; streaming.value = false; stageText.value = '完成 ✅'; auth.joule -= r.data.joule_cost }
-        else if (event === 'error') {
-          finished.value = true; streaming.value = false
-          stageText.value = `失败：${data.code}`
-          if (data.refunded) { ElMessage.warning('生成失败，焦耳已退回') }
-        }
-      },
-      onError: () => { stageText.value = '连接中断，请刷新查看结果' },
-    })
   } catch (e: any) {
     ElMessage.error(e.message)
   } finally { starting.value = false }
 }
 
-function copy(text: string, label: string) {
-  navigator.clipboard.writeText(text)
-  ElMessage.success(`已复制${label}`)
-}
-
+// 返回输入页：输入内容与选中模板全部保留（KeepAlive + 本组件状态）
 function reset() {
-  phase.value = 'input'; output.value = ''; finished.value = false
-  aiRate.value = null; references.value = []; stageText.value = '准备中...'
+  phase.value = 'input'
+  workId.value = null
 }
 </script>
 
@@ -278,6 +237,7 @@ function reset() {
 .greet { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
 .greet h2 { margin: 4px 0; font-size: 24px; }
 .sub { color: #999; margin: 4px 0 0; font-size: 14px; }
+.greet-actions { display: flex; align-items: center; gap: 10px; }
 .joule-chip { color: #d4820a; font-weight: 600; }
 
 .sec-head { display: flex; justify-content: space-between; align-items: center; margin: 18px 0 10px; }
@@ -320,7 +280,6 @@ function reset() {
 .input-card { max-width: 860px; }
 .sel-bar { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; font-size: 14px; }
 .sel-bar .el-button { margin-left: auto; }
-.run-card { max-width: 860px; }
 .material { margin-top: 10px; }
 .chips { display: flex; align-items: center; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
 .chip-label { color: #666; font-size: 13px; }
@@ -328,18 +287,9 @@ function reset() {
 .send-row { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; }
 .price-hint { color: #999; font-size: 13px; }
 
-.statusbar { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
-.tpl-going { color: #999; font-size: 13px; }
-.report { margin-left: auto; }
-.output { white-space: pre-wrap; font-size: 15px; line-height: 1.9; min-height: 300px;
-  background: #fff; padding: 20px; border-radius: 8px; border: 1px solid #eee; }
-.cursor { animation: blink 1s infinite; }
-@keyframes blink { 50% { opacity: 0 } }
-.refs { margin-top: 12px; font-size: 12px; color: #888; }
-.ref { margin: 2px 0; }
-
 @media (max-width: 768px) {
   .tpl-card { flex: 0 0 78%; }
   .send-row .el-button { flex: 1; }
+  .greet-actions .mem-btn { padding: 8px 12px; }
 }
 </style>
