@@ -1,4 +1,4 @@
-from app.models.user import User, UserCredential, AdminUser, UserPref
+from app.models.user import User, UserCredential, AdminUser, UserPref, UserMemory
 from app.models.joule import (JouleAccount, JouleTransaction, JouleFreeze, RedeemCode)
 from app.models.template import (Category, Template, TemplateCategoryRelation,
                                  PromptVersion, TemplateStat, Bookmark)

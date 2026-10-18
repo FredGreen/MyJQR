@@ -4,7 +4,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from app.api.v1 import admin, auth, joule, templates, works
+from app.api.v1 import admin, auth, joule, memory, templates, works
 
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s %(levelname)s [%(name)s] %(message)s")
@@ -19,6 +19,7 @@ app.include_router(auth.router, prefix=API_PREFIX)
 app.include_router(templates.router, prefix=API_PREFIX)
 app.include_router(works.router, prefix=API_PREFIX)
 app.include_router(joule.router, prefix=API_PREFIX)
+app.include_router(memory.router, prefix=API_PREFIX)
 app.include_router(admin.router, prefix=API_PREFIX)
 
 

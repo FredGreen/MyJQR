@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from sqlalchemy import Integer, String, TIMESTAMP, UniqueConstraint, func
+from sqlalchemy import Integer, String, TIMESTAMP, Text, UniqueConstraint, func
 from sqlalchemy.orm import Mapped, mapped_column
 
 from app.db import Base
@@ -44,3 +44,20 @@ class UserPref(Base):
     last_template_id: Mapped[int] = mapped_column(Integer, default=0)
     updated_at: Mapped[datetime] = mapped_column(TIMESTAMP, server_default=func.now(),
                                                  onupdate=func.now())
+
+
+class UserMemory(Base):
+    """三层记忆：scope=global(全局偏好)/template(模板专属Skill)/category(分类通用)。
+
+    只存用户偏好文本，永不存文章正文 —— 新创作永远是独立新篇章。
+    scope_id 对应模板/分类 id，global 恒为 0。
+    """
+    __tablename__ = "user_memories"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, autoincrement=True)
+    user_id: Mapped[int] = mapped_column(Integer, index=True)
+    scope: Mapped[str] = mapped_column(String(16), comment="global|template|category")
+    scope_id: Mapped[int] = mapped_column(Integer, default=0)
+    content: Mapped[str] = mapped_column(Text)
+    updated_at: Mapped[datetime] = mapped_column(TIMESTAMP, server_default=func.now(),
+                                                 onupdate=func.now())
+    __table_args__ = (UniqueConstraint("user_id", "scope", "scope_id", name="uk_user_scope"),)

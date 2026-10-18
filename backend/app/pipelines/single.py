@@ -7,12 +7,13 @@ import logging
 from sqlalchemy.orm import Session
 
 from app.models.template import Template, PromptVersion, TemplateStat
-from app.models.work import Work, SearchReference, AiRateCheck, GenerationTask
+from app.models.work import Work, SearchReference, AiRateCheck, GenerationTask, WorkSegment
 from app.services import joule
 from app.services.bocha import search_references
 from app.services.detector import detect_ai_rate
 from app.services.events import WorkEvents
 from app.services.llm import stream_chat
+from app.services.memory import build_memory_block
 from app.services.moderation import check_text
 
 log = logging.getLogger(__name__)
@@ -60,13 +61,15 @@ async def run_single(db: Session, work: Work, template: Template,
     user_prompt = render(prompt.user_prompt_template, topic=work.topic,
                          material=params.get("material", ""), length=length_words)
     user_prompt += f"\n\n参考资料（仅供背景，禁止照抄，禁止在文中标注来源编号）：\n{ref_block}"
+    # 三层记忆（全局偏好/分类通用/模板专属）：只注入偏好文本，不加载历史文章
+    memory_block = build_memory_block(db, work.user_id, template)
 
     # ③ LLM 流式
     await ev.emit("stage", {"stage": "writing", "text": "正在撰写全文..."})
     pieces: list[str] = []
     final = None
     async for chunk, result in stream_chat(
-            route, system=prompt.system_prompt, user=user_prompt,
+            route, system=prompt.system_prompt + memory_block, user=user_prompt,
             temperature=float(template.temperature or 0.9),
             max_tokens=template.max_tokens or 8192):
         if chunk:
@@ -102,6 +105,10 @@ async def run_single(db: Session, work: Work, template: Template,
     first_line = next((l.lstrip("# ").strip() for l in content.splitlines() if l.strip()), "")
     work.title = first_line[:120]
     work.status = "done"
+    # 初始版本入版本链（V1=body；老作品无 segment，versions 接口用 work 兜底）
+    if not db.query(WorkSegment).filter_by(work_id=work.id).first():
+        db.add(WorkSegment(work_id=work.id, turn=1, role="body", input=work.topic,
+                           content_md=content, word_cnt=work.word_cnt))
     joule.settle(db, work.id, work.joule_cost)
     stat = db.get(TemplateStat, template.id) or TemplateStat(template_id=template.id)
     stat.use_cnt = (stat.use_cnt or 0) + 1  # 新建对象 flush 前是 None，直接 += 会炸
