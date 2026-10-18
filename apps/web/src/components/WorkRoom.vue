@@ -58,8 +58,8 @@
           作品状态：{{ info.status === 'banned' ? '内容被拦截' : '生成失败' }}，焦耳已退回，可返回重试
         </div>
         <template v-if="editing">
-          <el-input v-model="editBuf" type="textarea" class="edit-area"
-                    :autosize="{ minRows: 16, maxRows: 30 }" />
+          <div class="edit-hint">✏️ 正在手动编辑，保存后生成新版本（免费），之前的版本都保留、可随时切回；顶部按钮在编辑期间停用</div>
+          <el-input v-model="editBuf" type="textarea" class="edit-area" resize="none" />
           <div class="edit-row">
             <el-button @click="editing = false">取消</el-button>
             <el-button type="primary" :loading="saving" @click="saveEdit">保存为新版本</el-button>
@@ -393,7 +393,11 @@ watch([() => messages.value.length, streamBuf], () => {
 .err-banner { background: #fef0f0; color: #f56c6c; font-size: 13px;
   padding: 10px 12px; border-radius: 8px; margin-bottom: 10px; }
 .content { flex: 1; overflow-y: auto; white-space: pre-wrap; font-size: 15px; line-height: 1.9; }
-.edit-row { display: flex; justify-content: flex-end; gap: 8px; margin-top: 8px; }
+/* 编辑态：编辑框吃掉剩余空间，保存/取消永远固定在可视区内 */
+.edit-hint { color: #999; font-size: 12px; margin-bottom: 8px; }
+.edit-area { flex: 1; min-height: 140px; }
+.edit-area :deep(textarea) { height: 100%; resize: none; }
+.edit-row { display: flex; justify-content: flex-end; gap: 8px; margin-top: 8px; flex: 0 0 auto; }
 .refs { margin-top: 10px; font-size: 12px; color: #999; }
 .ref { margin-right: 8px; }
 
