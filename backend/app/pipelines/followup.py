@@ -108,6 +108,7 @@ async def run_followup(db: Session, work: Work, seg: WorkSegment, template: Temp
 
     work.content_md = content
     work.word_cnt = len(content)
+    work.joule_cost = (work.joule_cost or 0) + FOLLOWUP_PRICE
     joule.settle(db, freeze_key, FOLLOWUP_PRICE, biz_type="followup")
     if task:
         task.status, task.finished_at = "success", datetime.now()

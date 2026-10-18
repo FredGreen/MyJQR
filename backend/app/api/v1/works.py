@@ -304,3 +304,65 @@ async def followup(work_id: int, body: FollowupIn,
                                              "turn": seg.turn})
     return {"code": 0, "data": {"segment_id": seg.id, "turn": seg.turn,
                                 "joule_cost": FOLLOWUP_PRICE}}
+
+
+class RegenIn(BaseModel):
+    template_id: int
+
+
+@router.post("/{work_id}/regenerate")
+async def regenerate(work_id: int, body: RegenIn,
+                     user: User = Depends(get_current_user),
+                     db: Session = Depends(get_db)):
+    """同屏换模板：同主题用新模板重写整篇，作为当前作品的新版本（按新模板价计费）。"""
+    w = db.get(Work, work_id)
+    if not w or w.user_id != user.id:
+        raise HTTPException(404, "作品不存在")
+    if w.status != "done":
+        raise HTTPException(409, "作品尚未完成")
+    if (db.query(GenerationTask).filter_by(work_id=work_id)
+            .filter(GenerationTask.status.in_(("queued", "running"))).first()):
+        raise HTTPException(409, "上一次生成/修改还在进行中，请稍候")
+
+    tpl = db.get(Template, body.template_id)
+    if not tpl or tpl.status != 1:
+        raise HTTPException(404, "模板不存在或已下架")
+    if tpl.workflow_type == "de_ai":
+        raise HTTPException(422, "不支持切换到降AI率工作流")
+    prompt = (db.query(PromptVersion).filter_by(template_id=tpl.id, published=1)
+              .order_by(PromptVersion.version.desc()).first())
+    if not prompt:
+        raise HTTPException(409, "该模板提示词未发布")
+
+    acc = joule.ensure_account(db, user.id)
+    if acc.balance < tpl.joule_price:
+        raise HTTPException(402, f"焦耳不足（需 {tpl.joule_price}J，余额 {acc.balance}J）")
+
+    last = (db.query(WorkSegment).filter_by(work_id=work_id)
+            .order_by(WorkSegment.turn.desc()).first())
+    seg = WorkSegment(work_id=work_id, parent_id=last.id if last else None,
+                      turn=(last.turn + 1) if last else 2, role="regen",
+                      input=f"换模板重生成：{tpl.name}", template_id=tpl.id)
+    db.add(seg)
+    db.flush()
+    if not joule.freeze(db, user.id, work_id * 100000 + seg.id, tpl.joule_price):
+        db.rollback()
+        raise HTTPException(402, "焦耳不足")
+
+    pool = await create_arq_pool()
+    try:
+        job = await pool.enqueue_job("regen_work", work_id, seg.id)
+        db.add(GenerationTask(work_id=work_id, arq_job_id=job.job_id if job else ""))
+        db.commit()
+    except Exception:
+        db.rollback()
+        joule.release(db, work_id * 100000 + seg.id, "enqueue failed, refunded")
+        raise HTTPException(500, "任务投递失败，焦耳已退回，请重试")
+    finally:
+        await pool.aclose()
+    await WorkEvents(work_id).emit("stage", {"stage": "queued",
+                                             "text": f"正在切换到「{tpl.name}」...",
+                                             "turn": seg.turn})
+    return {"code": 0, "data": {"segment_id": seg.id, "turn": seg.turn,
+                                "template_id": tpl.id, "template_name": tpl.name,
+                                "joule_cost": tpl.joule_price}}

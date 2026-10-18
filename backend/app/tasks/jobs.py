@@ -108,5 +108,54 @@ async def followup_work(ctx, work_id: int, segment_id: int) -> str:
         db.close()
 
 
+async def regen_work(ctx, work_id: int, segment_id: int) -> str:
+    """换模板重生成：失败兜底退款，work 恢复为最后一份可用版本（模板不切换）。"""
+    db = SessionLocal()
+    ev = WorkEvents(work_id)
+    freeze_key = work_id * 100000 + segment_id
+    try:
+        work = db.get(Work, work_id)
+        seg = db.get(WorkSegment, segment_id)
+        if not work or not seg or seg.work_id != work_id:
+            return "missing"
+        turn, new_tid = seg.turn, seg.template_id
+        template = db.get(Template, new_tid)
+        prompt = (db.query(PromptVersion)
+                  .filter_by(template_id=new_tid, published=1)
+                  .order_by(PromptVersion.version.desc()).first())
+        if not template or not prompt:
+            joule.release(db, freeze_key, "template/prompt missing")
+            db.commit()
+            await ev.emit("error", {"code": "TEMPLATE_MISSING", "refunded": True,
+                                    "turn": turn})
+            return "failed"
+
+        from app.pipelines.regen import run_regen
+        return await run_regen(db, work, seg, template, prompt)
+    except Exception as e:  # noqa: BLE001 —— 兜底：回滚正文 + 退款 + 错误事件
+        log.exception("regen_work %s/%s failed", work_id, segment_id)
+        db.rollback()
+        seg = db.get(WorkSegment, segment_id)
+        turn = seg.turn if seg else 0
+        if seg:
+            seg.content_md = None
+            seg.word_cnt = 0
+        work = db.get(Work, work_id)
+        if work:
+            from app.pipelines.followup import latest_content
+            work.content_md = latest_content(db, work, exclude_id=segment_id)
+        joule.release(db, freeze_key)
+        task = (db.query(GenerationTask).filter_by(work_id=work_id)
+                .order_by(GenerationTask.id.desc()).first())
+        if task and task.status in ("queued", "running"):
+            task.status, task.finished_at, task.error_code = "failed", datetime.now(), "INTERNAL"
+        db.commit()
+        await ev.emit("error", {"code": "INTERNAL", "message": str(e)[:200],
+                                "refunded": True, "turn": turn})
+        return "failed"
+    finally:
+        db.close()
+
+
 async def ping(ctx) -> str:
     return "pong"
