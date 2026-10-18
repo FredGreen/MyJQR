@@ -102,7 +102,8 @@ async def run_single(db: Session, work: Work, template: Template,
     rep = detect_ai_rate(content)
     db.add(AiRateCheck(work_id=work.id, detector="heuristic",
                        ai_rate=rep["ai_rate"], level=rep["level"], detail=rep["detail"]))
-    first_line = next((l.lstrip("# ").strip() for l in content.splitlines() if l.strip()), "")
+    first_line = next((l.strip().lstrip("#").strip("*").strip()
+                       for l in content.splitlines() if l.strip()), "")
     work.title = first_line[:120]
     work.status = "done"
     # 初始版本入版本链（V1=body；老作品无 segment，versions 接口用 work 兜底）

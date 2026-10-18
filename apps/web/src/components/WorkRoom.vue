@@ -155,7 +155,7 @@ function chatLine(v: any): string {
   return `已按你的要求修改 → V${v.turn}（${v.word_cnt}字）`
 }
 
-onMounted(load)
+onMounted(() => load().catch(() => ElMessage.error('作品加载失败，请刷新重试')))
 onBeforeUnmount(() => abort?.abort())
 
 async function load() {
@@ -165,6 +165,8 @@ async function load() {
   ])
   info.value = d.data
   aiRate.value = d.data.report ? d.data.report.ai_rate : null
+  // 同步事件流游标：追问订阅从最新位置续传，避免回放初始生成并在旧 done 处断流
+  if (typeof d.data.last_seq === 'number') lastSeq.value = d.data.last_seq
   versions.value = v.data.versions
   if (!viewTurn.value) viewTurn.value = v.data.current_turn || 0
   buildChat()
@@ -218,11 +220,12 @@ async function finish(turn: number, cost: number) {
     ])
     info.value = d.data
     aiRate.value = d.data.report ? d.data.report.ai_rate : null
+    if (typeof d.data.last_seq === 'number') lastSeq.value = d.data.last_seq
     versions.value = v.data.versions
+    // 完成后由版本链统一重建对话流（初始生成/追问/换模板一致）
+    buildChat()
     if (turn) {
       viewTurn.value = turn
-      const nv = versions.value.find((x) => x.turn === turn)
-      if (nv && nv.role !== 'body') messages.value.push({ role: 'assistant', text: chatLine(nv) })
     } else {
       viewTurn.value = v.data.current_turn || viewTurn.value
     }
@@ -320,7 +323,13 @@ watch(tplVisible, async (open) => {
       const f = await get('/template/free-creation')
       if (f.data?.template_id !== info.value?.template_id) list = [f.data, ...list]
     } catch { /* 自由创作兜底失败忽略 */ }
-    tplOptions.value = list.filter((t) => t.template_id !== info.value?.template_id)
+    const seen = new Set<number>()
+    tplOptions.value = list.filter((t) => {
+      if (!t.template_id || t.template_id === info.value?.template_id
+          || seen.has(t.template_id)) return false
+      seen.add(t.template_id)
+      return true
+    })
   } catch (e: any) {
     ElMessage.error(e.message)
   }

@@ -139,8 +139,8 @@ def list_works(status: str = "", cursor: int = 0, page_size: int = 20,
 
 
 @router.get("/{work_id}")
-def work_detail(work_id: int, user: User = Depends(get_current_user),
-                db: Session = Depends(get_db)):
+async def work_detail(work_id: int, user: User = Depends(get_current_user),
+                      db: Session = Depends(get_db)):
     w = db.get(Work, work_id)
     if not w or w.user_id != user.id:
         raise HTTPException(404, "作品不存在")
@@ -149,11 +149,16 @@ def work_detail(work_id: int, user: User = Depends(get_current_user),
     check = (db.query(AiRateCheck).filter_by(work_id=work_id)
              .order_by(AiRateCheck.id.desc()).first())
     tpl = db.get(Template, w.template_id)
+    try:
+        last_seq = max(0, await WorkEvents.seq_of(work_id))
+    except Exception:  # noqa: BLE001 —— Redis 不可用时仍返回详情，续传退化
+        last_seq = 0
     return {"code": 0, "data": {
         "work_id": w.id, "title": w.title, "topic": w.topic, "status": w.status,
         "template_id": w.template_id, "template_name": tpl.name if tpl else "",
         "content_md": w.content_md or "", "word_cnt": w.word_cnt,
         "joule_cost": w.joule_cost, "model_used": w.model_used,
+        "last_seq": last_seq,
         "references": [{"idx": r.idx, "title": r.title, "url": r.url,
                         "site_name": r.site_name} for r in refs],
         "report": ({"ai_rate": check.ai_rate, "level": check.level}

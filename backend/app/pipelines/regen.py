@@ -92,7 +92,8 @@ async def run_regen(db: Session, work: Work, seg: WorkSegment, template: Templat
     db.add(AiRateCheck(work_id=work.id, segment_id=seg.id, detector="heuristic",
                        ai_rate=rep["ai_rate"], level=rep["level"], detail=rep["detail"]))
 
-    first_line = next((l.lstrip("# ").strip() for l in content.splitlines() if l.strip()), "")
+    first_line = next((l.strip().lstrip("#").strip("*").strip()
+                       for l in content.splitlines() if l.strip()), "")
     work.title = first_line[:120]
     work.content_md = content
     work.word_cnt = len(content)
