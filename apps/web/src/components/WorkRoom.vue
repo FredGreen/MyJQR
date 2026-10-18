@@ -53,6 +53,8 @@
           </div>
           <el-button v-if="viewTurn && viewTurn !== latestTurn" text size="small" type="primary"
                      @click="restore(viewTurn)">恢复此版本</el-button>
+          <el-button v-if="viewTurn && !busy && !editing" text size="small" type="danger"
+                     @click="removeVersion">删除此版本</el-button>
         </div>
         <div v-if="info && ['failed', 'banned'].includes(info.status)" class="err-banner">
           作品状态：{{ info.status === 'banned' ? '内容被拦截' : '生成失败' }}，焦耳已退回，可返回重试
@@ -98,8 +100,8 @@
 
 <script setup lang="ts">
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
-import { ElMessage } from 'element-plus'
-import { get, post, put } from '../api/http'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import { del, get, post, put } from '../api/http'
 import { openSse } from '../api/sse'
 import { useAuth } from '../stores/auth'
 
@@ -175,11 +177,14 @@ async function load() {
 
 // 由版本链重建对话流（刷新/再进后仍能看到完整修改历史）
 function buildChat() {
+  const emptyText = info.value?.status === 'done'
+    ? '当前没有版本：已被全部删除。可返回重新创作，或点右上角换模板重写。'
+    : '正在生成，稍候…'
   const msgs: { role: 'user' | 'assistant'; text: string }[] = [{
     role: 'assistant',
     text: versions.value.length
       ? '文章已生成 ✅ 输入修改要求继续打磨，或点右上角换模板换种写法。'
-      : '正在生成，稍候…',
+      : emptyText,
   }]
   for (const v of versions.value) {
     if (v.role === 'followup') msgs.push({ role: 'user', text: v.input })
@@ -302,6 +307,27 @@ async function restore(turn: number) {
     ElMessage.success(`已把 V${turn} 恢复为最新版（V${r.data.turn}）`)
     await load()
     viewTurn.value = r.data.turn
+  } catch (e: any) {
+    ElMessage.error(e.message)
+  }
+}
+
+async function removeVersion() {
+  const v = versions.value.find((x) => x.turn === viewTurn.value)
+  if (!v || busy.value) return
+  if (!v.segment_id) return ElMessage.warning('旧作品没有版本记录，暂不支持删除')
+  const name = v.role === 'regen' ? `V${v.turn}（换模板·${v.template_name || ''}）` : `V${v.turn}`
+  try {
+    await ElMessageBox.confirm(
+      `确定删除 ${name} 吗？删除后不可恢复，已消耗的焦耳不退；若删除的是最新版，正文将回滚到前一版本。`,
+      '删除版本', { type: 'warning', confirmButtonText: '删除', cancelButtonText: '取消' })
+  } catch { return }
+  try {
+    const r = await del(`/works/${props.workId}/segments/${v.segment_id}`)
+    ElMessage.success(`已删除 V${r.data.deleted_turn}`)
+    viewTurn.value = 0
+    await load()
+    viewTurn.value = latestTurn.value
   } catch (e: any) {
     ElMessage.error(e.message)
   }

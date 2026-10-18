@@ -247,6 +247,42 @@ async def restore_version(work_id: int, segment_id: int,
     return {"code": 0, "data": {"turn": new.turn, "segment_id": new.id}}
 
 
+@router.delete("/{work_id}/segments/{segment_id}")
+def delete_version(work_id: int, segment_id: int,
+                   user: User = Depends(get_current_user),
+                   db: Session = Depends(get_db)):
+    """删除任意版本（不可恢复、不退焦耳）；删到最新版时正文回滚到前一版本。"""
+    w = db.get(Work, work_id)
+    if not w or w.user_id != user.id:
+        raise HTTPException(404, "作品不存在")
+    seg = db.get(WorkSegment, segment_id)
+    if not seg or seg.work_id != work_id or not seg.content_md:
+        raise HTTPException(404, "版本不存在")
+    if (db.query(GenerationTask).filter_by(work_id=work_id)
+            .filter(GenerationTask.status.in_(("queued", "running"))).first()):
+        raise HTTPException(409, "生成/修改进行中，请稍候再删除")
+
+    was_latest = (db.query(WorkSegment)
+                  .filter(WorkSegment.work_id == work_id,
+                          WorkSegment.content_md.isnot(None))
+                  .order_by(WorkSegment.turn.desc()).first().id == seg.id)
+    turn_deleted = seg.turn
+    db.delete(seg)
+    db.flush()  # session autoflush=False：先落删除，下面的 latest 查询才看不到它
+    # 版本级 AI 率检测记录跟随删除
+    db.query(AiRateCheck).filter_by(segment_id=segment_id).delete()
+    latest = (db.query(WorkSegment)
+              .filter(WorkSegment.work_id == work_id,
+                      WorkSegment.content_md.isnot(None))
+              .order_by(WorkSegment.turn.desc()).first())
+    if was_latest:
+        w.content_md = latest.content_md if latest else ""
+        w.word_cnt = (latest.word_cnt or len(latest.content_md)) if latest else 0
+    db.commit()
+    return {"code": 0, "data": {"deleted_turn": turn_deleted,
+                                "current_turn": latest.turn if latest else 0}}
+
+
 class FollowupIn(BaseModel):
     input: str = Field(min_length=2, max_length=2000)
     remember: bool = False
@@ -261,6 +297,8 @@ async def followup(work_id: int, body: FollowupIn,
         raise HTTPException(404, "作品不存在")
     if w.status != "done":
         raise HTTPException(409, "作品尚未完成")
+    if not w.content_md:
+        raise HTTPException(409, "当前没有可修改的文章内容（版本可能已被全部删除）")
     if (db.query(GenerationTask).filter_by(work_id=work_id)
             .filter(GenerationTask.status.in_(("queued", "running"))).first()):
         raise HTTPException(409, "上一次生成/修改还在进行中，请稍候")
