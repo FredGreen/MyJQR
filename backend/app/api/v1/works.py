@@ -13,7 +13,8 @@ from app.models.template import Template, PromptVersion
 from app.models.user import User
 from app.models.work import (AiRateCheck, GenerationTask, SearchReference, Work,
                              WorkSegment)
-from app.services import joule
+from app.pipelines.followup import FOLLOWUP_PRICE
+from app.services import joule, memory
 from app.services.events import WorkEvents
 from app.services.moderation import check_text
 
@@ -94,7 +95,9 @@ async def stream(work_id: int, seq: int = 0, user: User = Depends(get_current_us
             events = await ev.poll_new(last)
             for e in events:
                 last = e["seq"]
-                payload = json.dumps(e["data"], ensure_ascii=False)
+                data = dict(e["data"])
+                data["seq"] = e["seq"]  # 前端记录 lastSeq，追问时从断点续传
+                payload = json.dumps(data, ensure_ascii=False)
                 yield f"event: {e['event']}\ndata: {payload}\n\n"
                 if e["event"] in ("done", "error"):
                     return
@@ -145,8 +148,10 @@ def work_detail(work_id: int, user: User = Depends(get_current_user),
         SearchReference.idx).all()
     check = (db.query(AiRateCheck).filter_by(work_id=work_id)
              .order_by(AiRateCheck.id.desc()).first())
+    tpl = db.get(Template, w.template_id)
     return {"code": 0, "data": {
         "work_id": w.id, "title": w.title, "topic": w.topic, "status": w.status,
+        "template_id": w.template_id, "template_name": tpl.name if tpl else "",
         "content_md": w.content_md or "", "word_cnt": w.word_cnt,
         "joule_cost": w.joule_cost, "model_used": w.model_used,
         "references": [{"idx": r.idx, "title": r.title, "url": r.url,
@@ -155,31 +160,147 @@ def work_detail(work_id: int, user: User = Depends(get_current_user),
                    if check else None)}}
 
 
-class FollowupIn(BaseModel):
-    input: str = Field(min_length=2, max_length=2000)
+@router.get("/{work_id}/versions")
+def versions(work_id: int, user: User = Depends(get_current_user),
+             db: Session = Depends(get_db)):
+    """版本链：V1=初始(body)，其后 followup/regen/edit 依次递增。
+    老作品无 segment 时用 work 本身兜底为 V1。"""
+    w = db.get(Work, work_id)
+    if not w or w.user_id != user.id:
+        raise HTTPException(404, "作品不存在")
+    segs = (db.query(WorkSegment).filter_by(work_id=work_id)
+            .order_by(WorkSegment.turn.asc()).all())
+    rows = [{"segment_id": s.id, "turn": s.turn, "role": s.role, "input": s.input,
+             "template_id": s.template_id, "content": s.content_md or "",
+             "word_cnt": s.word_cnt, "created_at": str(s.created_at)}
+            for s in segs if s.content_md]
+    if not rows and w.content_md:
+        rows = [{"segment_id": 0, "turn": 1, "role": "body", "input": w.topic,
+                 "template_id": w.template_id, "content": w.content_md,
+                 "word_cnt": w.word_cnt, "created_at": str(w.created_at)}]
+    tpl_ids = {r["template_id"] for r in rows if r["template_id"]}
+    names = ({t.id: t.name for t in
+              db.query(Template).filter(Template.id.in_(tpl_ids)).all()}
+             if tpl_ids else {})
+    for r in rows:
+        r["template_name"] = names.get(r["template_id"], "")
+    return {"code": 0, "data": {"versions": rows,
+                                "current_turn": rows[-1]["turn"] if rows else 0}}
 
 
-@router.post("/{work_id}/followup")
-async def followup(work_id: int, body: FollowupIn,
-                   user: User = Depends(get_current_user), db: Session = Depends(get_db)):
-    """追问：复用生成管道，turn+1（M2 简版：基于原文+追问生成新段落，5J/次）。"""
+class ContentIn(BaseModel):
+    content_md: str = Field(min_length=1, max_length=30000)
+
+
+def _save_edit(db: Session, w: Work, content: str, note: str) -> WorkSegment:
+    """手动编辑/恢复版本：写 role=edit 的新版本并同步 work 为最新。"""
+    last = (db.query(WorkSegment).filter_by(work_id=w.id)
+            .order_by(WorkSegment.turn.desc()).first())
+    seg = WorkSegment(work_id=w.id, parent_id=last.id if last else None,
+                      turn=(last.turn + 1) if last else 2, role="edit", input=note,
+                      template_id=w.template_id, content_md=content,
+                      word_cnt=len(content))
+    db.add(seg)
+    w.content_md = content
+    w.word_cnt = len(content)
+    db.commit()
+    return seg
+
+
+@router.put("/{work_id}/content")
+async def edit_content(work_id: int, body: ContentIn,
+                       user: User = Depends(get_current_user),
+                       db: Session = Depends(get_db)):
+    """直接修改已生成作品全文（免费，生成新版本）。"""
     w = db.get(Work, work_id)
     if not w or w.user_id != user.id:
         raise HTTPException(404, "作品不存在")
     if w.status != "done":
         raise HTTPException(409, "作品尚未完成")
+    verdict = await check_text(db, body.content_md, "work", work_id)
+    if verdict == "block":
+        raise HTTPException(422, "内容未通过安全检测")
+    seg = _save_edit(db, w, body.content_md, "手动编辑")
+    return {"code": 0, "data": {"turn": seg.turn, "segment_id": seg.id}}
+
+
+@router.post("/{work_id}/segments/{segment_id}/restore")
+async def restore_version(work_id: int, segment_id: int,
+                          user: User = Depends(get_current_user),
+                          db: Session = Depends(get_db)):
+    """把某个历史版本恢复为最新版（作为新 edit 版本，免费）。"""
+    w = db.get(Work, work_id)
+    if not w or w.user_id != user.id:
+        raise HTTPException(404, "作品不存在")
+    seg = db.get(WorkSegment, segment_id)
+    if not seg or seg.work_id != work_id or not seg.content_md:
+        raise HTTPException(404, "版本不存在")
+    verdict = await check_text(db, seg.content_md, "work", work_id)
+    if verdict == "block":
+        raise HTTPException(422, "内容未通过安全检测")
+    new = _save_edit(db, w, seg.content_md, f"恢复 V{seg.turn}")
+    return {"code": 0, "data": {"turn": new.turn, "segment_id": new.id}}
+
+
+class FollowupIn(BaseModel):
+    input: str = Field(min_length=2, max_length=2000)
+    remember: bool = False
+
+
+@router.post("/{work_id}/followup")
+async def followup(work_id: int, body: FollowupIn,
+                   user: User = Depends(get_current_user), db: Session = Depends(get_db)):
+    """追问改稿：原文+修改要求 → 新版本全文，5J/次；remember=true 沉淀为模板记忆。"""
+    w = db.get(Work, work_id)
+    if not w or w.user_id != user.id:
+        raise HTTPException(404, "作品不存在")
+    if w.status != "done":
+        raise HTTPException(409, "作品尚未完成")
+    if (db.query(GenerationTask).filter_by(work_id=work_id)
+            .filter(GenerationTask.status.in_(("queued", "running"))).first()):
+        raise HTTPException(409, "上一次生成/修改还在进行中，请稍候")
+
+    verdict = await check_text(db, body.input, "followup", user.id)
+    if verdict == "block":
+        raise HTTPException(422, "修改要求包含违规信息")
+
+    tpl = db.get(Template, w.template_id)
+    prompt = (db.query(PromptVersion).filter_by(template_id=w.template_id, published=1)
+              .order_by(PromptVersion.version.desc()).first()) if tpl else None
+    if not tpl or not prompt:
+        raise HTTPException(409, "模板已下架或提示词未发布，无法修改")
+
     acc = joule.ensure_account(db, user.id)
-    if acc.balance < 5:
-        raise HTTPException(402, "焦耳不足（追问需 5J）")
+    if acc.balance < FOLLOWUP_PRICE:
+        raise HTTPException(402, f"焦耳不足（追问需 {FOLLOWUP_PRICE}J）")
 
     last = (db.query(WorkSegment).filter_by(work_id=work_id)
             .order_by(WorkSegment.turn.desc()).first())
     seg = WorkSegment(work_id=work_id, parent_id=last.id if last else None,
                       turn=(last.turn + 1) if last else 2, role="followup",
-                      input=body.input)
+                      input=body.input, template_id=w.template_id)
     db.add(seg)
     db.flush()
-    joule.freeze(db, user.id, work_id * 100000 + seg.id, 5)
-    db.commit()
+    if not joule.freeze(db, user.id, work_id * 100000 + seg.id, FOLLOWUP_PRICE):
+        db.rollback()
+        raise HTTPException(402, "焦耳不足")
+    if body.remember:
+        memory.append(db, user.id, "template", w.template_id, body.input)
+
+    # 投递 ARQ（失败必须退款；segment 留作意图记录，content 为空不进版本链）
+    pool = await create_arq_pool()
+    try:
+        job = await pool.enqueue_job("followup_work", work_id, seg.id)
+        db.add(GenerationTask(work_id=work_id, arq_job_id=job.job_id if job else ""))
+        db.commit()
+    except Exception:
+        db.rollback()
+        joule.release(db, work_id * 100000 + seg.id, "enqueue failed, refunded")
+        raise HTTPException(500, "任务投递失败，焦耳已退回，请重试")
+    finally:
+        await pool.aclose()
+    await WorkEvents(work_id).emit("stage", {"stage": "queued",
+                                             "text": "已收到修改要求，正在排队...",
+                                             "turn": seg.turn})
     return {"code": 0, "data": {"segment_id": seg.id, "turn": seg.turn,
-                                "hint": "追问生成管道见 M2-2.7，当前版本记录意图"}}
+                                "joule_cost": FOLLOWUP_PRICE}}

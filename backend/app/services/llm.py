@@ -35,9 +35,15 @@ def _resolve(route_key: str) -> list[tuple[str, str]]:
             if s.llm_providers.get(provider, {}).get("api_key")]
 
 
-async def stream_chat(route_key: str, system: str, user: str, *, temperature: float = 0.9,
+async def stream_chat(route_key: str, messages: list[dict] | None = None, *,
+                      system: str = "", user: str = "", temperature: float = 0.9,
                       max_tokens: int = 8192) -> AsyncIterator[tuple[str, LLMResult]]:
-    """yield (增量文本, None)；结束时 yield ("", LLMResult)。按路由降级链尝试。"""
+    """yield (增量文本, None)；结束时 yield ("", LLMResult)。按路由降级链尝试。
+
+    messages：完整多轮消息列表（追问用）；不传则按 system+user 拼两条（单轮生成用）。
+    """
+    if messages is None:
+        messages = [{"role": "system", "content": system}, {"role": "user", "content": user}]
     s = get_settings()
     chain = _resolve(route_key)
     if not chain:
@@ -48,7 +54,7 @@ async def stream_chat(route_key: str, system: str, user: str, *, temperature: fl
         try:
             acc, tin, tout = [], 0, 0
             async for chunk, usage in _stream_once(
-                    s.llm_providers[provider], model, system, user, temperature, max_tokens):
+                    s.llm_providers[provider], model, messages, temperature, max_tokens):
                 if chunk:
                     acc.append(chunk)
                     yield chunk, None
@@ -62,11 +68,11 @@ async def stream_chat(route_key: str, system: str, user: str, *, temperature: fl
     raise LLMError(f"all providers failed: {last_err!r}")
 
 
-async def _stream_once(conf: dict, model: str, system: str, user: str,
+async def _stream_once(conf: dict, model: str, messages: list[dict],
                        temperature: float, max_tokens: int):
     payload = {
         "model": model,
-        "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
+        "messages": messages,
         "temperature": temperature,
         "max_tokens": max_tokens,
         "stream": True,

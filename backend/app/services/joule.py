@@ -56,8 +56,9 @@ def freeze(db: Session, user_id: int, work_id: int, amount: int) -> bool:
     return True
 
 
-def settle(db: Session, work_id: int, amount: int, remark: str = ""):
-    """成功：冻结转扣减。幂等键 work:work_id:settle。"""
+def settle(db: Session, work_id: int, amount: int, remark: str = "",
+           biz_type: str = "generate"):
+    """成功：冻结转扣减。幂等键 work:work_id:settle（work_id 即冻结键）。"""
     fz = db.query(JouleFreeze).filter_by(work_id=work_id, status=1).first()
     if not fz:
         return
@@ -65,7 +66,7 @@ def settle(db: Session, work_id: int, amount: int, remark: str = ""):
                     "WHERE user_id=:u"), {"a": amount, "u": fz.user_id})
     fz.status, fz.settled_at = 2, datetime.now()
     acc = ensure_account(db, fz.user_id)
-    _record(db, fz.user_id, "generate", -amount, acc.balance, str(work_id),
+    _record(db, fz.user_id, biz_type, -amount, acc.balance, str(work_id),
             f"work:{work_id}:settle", remark)
     db.commit()
 

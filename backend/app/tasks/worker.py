@@ -4,7 +4,7 @@ import logging
 from arq import cron
 
 from app.core.redis import arq_redis_settings
-from app.tasks.jobs import generate_work, ping
+from app.tasks.jobs import followup_work, generate_work, ping
 
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s %(levelname)s [%(name)s] %(message)s")
@@ -35,7 +35,7 @@ async def aggregate_stats(ctx):
 
 
 class WorkerSettings:
-    functions = [generate_work, ping, fetch_hot_topics, aggregate_stats]
+    functions = [generate_work, followup_work, ping, fetch_hot_topics, aggregate_stats]
     # 从 .env 的 REDIS_URL 读取并放宽连接超时（见 app/core/redis.py）；
     # 不配则 ARQ 默认 localhost:6379，.env 改了也不生效
     redis_settings = arq_redis_settings()
