@@ -97,9 +97,7 @@ async function save(scope: string, scopeId: number, content: string) {
   try {
     await put('/memory', { scope, scope_id: scopeId, content })
     ElMessage.success('记忆已保存，下次创作即生效')
-    await load()
-    if (scope === 'category') onCatChange()
-    if (scope === 'template') onTplChange()
+    emit('update:modelValue', false)
   } catch (e: any) {
     ElMessage.error(e.message)
   } finally {
