@@ -20,7 +20,7 @@
       <!-- 模板横滑卡片流 -->
       <div class="sec-head">
         <b>✨ 创作模板</b>
-        <el-button text type="primary" @click="$router.push('/market')">更多模板 ›</el-button>
+        <el-button text type="primary" @click="pickerOpen = true">更多模板 ›</el-button>
       </div>
       <div class="strip-wrap">
         <div ref="stripEl" class="tpl-strip">
@@ -52,7 +52,7 @@
         <div v-if="tpl" class="sel-bar">
           <span>已选：<b>{{ tpl.name }}</b></span>
           <el-tag size="small" type="warning" effect="plain">{{ tpl.joule_price }} J/次</el-tag>
-          <el-button text size="small" type="primary" @click="$router.push('/market')">换一个</el-button>
+          <el-button text size="small" type="primary" :loading="batchLoading" @click="refreshBatch">换一批 ↻</el-button>
         </div>
         <el-input v-model="input" type="textarea" :rows="4" size="large"
                   :placeholder="tpl?.workflow_hint || '您可以输入一个词或一段素材，例如：瑞幸×茅台联名营销分析'" />
@@ -81,6 +81,8 @@
       </el-card>
 
       <MemoryPanel v-model="memoryOpen" />
+      <TemplatePicker v-model="pickerOpen" :initial-tid="pickerInitialTid"
+                      :initial-cat-id="pickerInitialCat" @confirm="onPicked" />
     </template>
   </div>
 </template>
@@ -92,6 +94,7 @@ import { ElMessage } from 'element-plus'
 import { get, post } from '../api/http'
 import { useAuth } from '../stores/auth'
 import MemoryPanel from '../components/MemoryPanel.vue'
+import TemplatePicker from '../components/TemplatePicker.vue'
 import WorkRoom from '../components/WorkRoom.vue'
 
 defineOptions({ name: 'CreateView' })
@@ -129,6 +132,39 @@ const phase = ref<'input' | 'run'>('input')
 const starting = ref(false)
 const workId = ref<number | null>(null)
 const memoryOpen = ref(false)
+
+const isFreeSel = computed(() =>
+  !!freeTpl.value && tpl.value?.template_id === freeTpl.value.template_id)
+const pickerOpen = ref(false)
+const pickerInitialCat = computed(() =>
+  isFreeSel.value ? 0 : (tpl.value?.category_ids || [])[0] || 0)
+const pickerInitialTid = computed(() =>
+  isFreeSel.value ? 0 : tpl.value?.template_id || 0)
+
+async function onPicked(t: any) {
+  pickerOpen.value = false
+  await applySelection(t.template_id, true)
+}
+
+const batchLoading = ref(false)
+// 换一批：同分类随机刷新（自由创作/无分类 → 全站随机），选中卡保持不变
+async function refreshBatch() {
+  if (!tpl.value || batchLoading.value) return
+  batchLoading.value = true
+  try {
+    const catIds: number[] = tpl.value.category_ids || []
+    const r = (!isFreeSel.value && catIds.length)
+      ? await get(`/template/list?category_id=${catIds[0]}&page_size=20&random=1`)
+      : await get('/template/recommend/list?page_size=20&random=1')
+    const list: any[] = (r.data.list || [])
+      .filter((t: any) => t.name !== '自由创作' && t.template_id !== freeTpl.value?.template_id)
+    // 选中模板不在新批次里也要保住卡片（allCards 会把它排到第一位）
+    if (!list.some((t: any) => t.template_id === tpl.value.template_id)) list.unshift(tpl.value)
+    recommend.value = list
+  } catch (e: any) {
+    ElMessage.error(e.message || '换一批失败，请重试')
+  } finally { batchLoading.value = false }
+}
 
 function heat(cnt: number): string {
   return cnt >= 10000 ? `${(cnt / 10000).toFixed(1)}万人使用` : `${cnt}人使用`

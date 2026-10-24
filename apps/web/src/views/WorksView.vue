@@ -5,7 +5,12 @@
     <!-- 桌面：表格 -->
     <el-table :data="works" stripe class="desk-table">
       <el-table-column prop="work_id" label="ID" width="70" />
-      <el-table-column prop="title" label="标题" min-width="240" />
+      <el-table-column label="标题" min-width="280">
+        <template #default="{ row }">
+          <el-link type="primary" :underline="false" class="w-title"
+                   @click="open(row.work_id)">{{ row.title || '(未命名)' }}</el-link>
+        </template>
+      </el-table-column>
       <el-table-column prop="topic" label="主题" min-width="180" show-overflow-tooltip />
       <el-table-column label="状态" width="100">
         <template #default="{ row }">
@@ -14,13 +19,6 @@
       </el-table-column>
       <el-table-column prop="word_cnt" label="字数" width="90" />
       <el-table-column prop="created_at" label="时间" width="180" />
-      <el-table-column label="操作" width="140">
-        <template #default="{ row }">
-          <el-button size="small" @click="open(row.work_id)">
-            {{ row.status === 'done' ? '查看 / 修改' : '查看' }}
-          </el-button>
-        </template>
-      </el-table-column>
     </el-table>
 
     <!-- 手机：卡片列表 -->
@@ -72,6 +70,7 @@ function open(id: number) {
 
 <style scoped>
 .works-page { max-width: 1000px; margin: 0 auto; }
+.w-title { font-size: 14px; }
 
 .m-list { display: none; }
 

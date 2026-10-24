@@ -43,14 +43,20 @@ def category_list(user: User = Depends(get_current_user),
 
 
 @router.get("/recommend/list")
-def recommend_list(cursor: int = 0, page_size: int = 20,
+def recommend_list(cursor: int = 0, page_size: int = 20, random: bool = False,
                    user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     page_size = min(page_size, 20)
     q = (db.query(Template, TemplateStat)
          .outerjoin(TemplateStat, TemplateStat.template_id == Template.id)
          .filter(Template.status == 1))
-    page = _page(q, cursor, page_size)
     marks = {b.template_id for b in db.query(Bookmark).filter_by(user_id=user.id)}
+    if random:
+        # 换一批：随机抽一页，不做游标分页
+        rows = q.order_by(func.random()).limit(page_size).all()
+        return {"code": 0, "data": {
+            "list": [_tpl_card(t, s, t.id in marks) for t, s in rows],
+            "cursor": 0, "has_more": False}}
+    page = _page(q, cursor, page_size)
     return {"code": 0, "data": {
         "list": [_tpl_card(t, s, t.id in marks) for t, s in page["list"]],
         "cursor": page["cursor"], "has_more": page["has_more"]}}
@@ -58,6 +64,7 @@ def recommend_list(cursor: int = 0, page_size: int = 20,
 
 @router.get("/list")
 def category_templates(category_id: int, cursor: int = 0, page_size: int = 20,
+                       random: bool = False,
                        user: User = Depends(get_current_user), db: Session = Depends(get_db)):
     page_size = min(page_size, 20)
     q = (db.query(Template, TemplateStat, TemplateCategoryRelation)
@@ -65,13 +72,18 @@ def category_templates(category_id: int, cursor: int = 0, page_size: int = 20,
          .join(TemplateCategoryRelation,
                TemplateCategoryRelation.template_id == Template.id)
          .filter(Template.status == 1, TemplateCategoryRelation.category_id == category_id))
+    marks = {b.template_id for b in db.query(Bookmark).filter_by(user_id=user.id)}
+    if random:
+        rows = q.order_by(func.random()).limit(page_size).all()
+        return {"code": 0, "data": {
+            "list": [{**_tpl_card(t, s, t.id in marks), "rank": rel.rank} for t, s, rel in rows],
+            "cursor": 0, "has_more": False}}
     if cursor:
         q = q.filter(TemplateCategoryRelation.rank < cursor)
     rows = (q.order_by(TemplateCategoryRelation.rank)
              .limit(page_size + 1).all())
     has_more = len(rows) > page_size
     rows = rows[:page_size]
-    marks = {b.template_id for b in db.query(Bookmark).filter_by(user_id=user.id)}
     return {"code": 0, "data": {
         "list": [{**_tpl_card(t, s, t.id in marks), "rank": rel.rank} for t, s, rel in rows],
         "cursor": rows[-1][2].rank if has_more else 0, "has_more": has_more}}
@@ -141,14 +153,15 @@ def template_detail(template_id: int, user: User = Depends(get_current_user),
     if not t or t.status != 1:
         raise HTTPException(404, "模板不存在或已下架")
     stat = db.get(TemplateStat, t.id)
-    cats = (db.query(Category.name)
+    cats = (db.query(Category.id, Category.name)
             .join(TemplateCategoryRelation,
                   TemplateCategoryRelation.category_id == Category.id)
             .filter(TemplateCategoryRelation.template_id == t.id).all())
     # 注意：不返回 system_prompt / user_prompt_template（核心资产不下发）
     return {"code": 0, "data": {
         **_tpl_card(t, stat),
-        "categories": [c[0] for c in cats],
+        "categories": [c[1] for c in cats],
+        "category_ids": [c[0] for c in cats],
         "usage_example": t.usage_example or "",
         "usage_tips": t.usage_tips or "",
         "response_length": t.response_length,
